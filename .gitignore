@@ -1,0 +1,14 @@
+# Ignore EVERYTHING by default
+*
+!*/
+
+# Whitelist specific files for public release
+!README.md
+!LICENSE
+!assets/
+!assets/**
+!docs/
+!docs/**
+!dist/
+!dist/**
+!.gitignore
