@@ -31,6 +31,15 @@
   <img src="https://img.shields.io/badge/license-Proprietary-red" alt="License"/>
 </p>
 
+<p align="center">
+  <a href="https://github.com/richkeyricks/ITC-FREE/releases/latest">
+    <img src="https://img.shields.io/badge/Download-Release_ZIP_(71MB)-blue?style=for-the-badge&logo=github" alt="Download ZIP"/>
+  </a>
+  <a href="./ITC_Official_Manual.pdf">
+    <img src="https://img.shields.io/badge/View-User_Manual_(PDF)-orange?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="View PDF"/>
+  </a>
+</p>
+
 ---
 
 ## 🚀 What is ITC +AI?
