@@ -72,7 +72,7 @@
 3.  Run `ITC_Plus_AI_Enterprise.exe`.
 4.  No Python installation required.
 
-> *Built from Technolog Store - Richkeyrick Dev. Powered by Haineo AI OS Lab Network Vision AI.*
+> *Built from Haineo Operating System (OS) AI - Richkeyrick Dev. Powered by Haineo AI OS Lab Network Vision AI.*
 
 ---
 
@@ -449,7 +449,7 @@ USING (hwid = current_setting('request.jwt.claims')::json->>'sub');
   </tr>
 </table>
 
-**Technolog Store Dev** — Building intelligent trading solutions since 2024.
+**Haineo Operating System (OS) AI** — Building intelligent trading solutions since 2024.
 
 ---
 
@@ -503,5 +503,5 @@ If this software has helped you achieve profit or streamlined your workflow, ple
 </p>
 
 <p align="center">
-  <sub>© 2024-2026 Technolog Store Dev. All rights reserved.</sub>
+  <sub>© 2024-2026 Haineo Operating System (OS) AI. All rights reserved.</sub>
 </p>
