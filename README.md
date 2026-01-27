@@ -1,21 +1,29 @@
 <p align="center">
-  <img src="assets/social_card.png" alt="Haineo OS AI - ITC Enterprise" width="100%"/>
+  <img src="assets/banner.png" alt="ITC +AI Enterprise Logo" width="100%"/>
+</p>
+
+<p align="center">
+  <img src="assets/banner_premium.png" alt="ITC +AI Enterprise Banner" width="100%"/>
 </p>
 
 <h1 align="center">
  <!--
-SEO Metadata: Haineo OS AI, AI Trading Bot, MetaTrader 5, Telegram Signal Copier, SkyNET AI,
-Automated Trading, Fintech, CopyTrade, institutional Grade Trading, Smart Copier.
+SEO Metadata: AI Trading Bot, MetaTrader 5, Telegram Signal Copier, Haineo OS, SkyNET AI,
+Automated Trading, Fintech, CopyTrade, Crypto, Forex, Institutional Grade.
 -->
-  🧠 HAINEO OS AI — INTELLIGENCE TELEGRAM COPYTRADE (ITC)
+  🧠 INTELLIGENCE TELEGRAM COPYTRADE (ITC) +AI
 </h1>
 
 <p align="center">
-  **The Institutional-Grade AI Trading Ecosystem**
+  <img src="assets/social_card.png" width="100%" alt="ITC +AI Social Card">
 </p>
 
 <p align="center">
-  > Seamlessly bridge Telegram signals to MetaTrader 5 with the power of **Haineo Operating System (OS) AI**. Engineered for resilience, speed, and billionaire-tier institutional performance.
+  **Powered by Haineo Operating System (OS) AI**
+</p>
+
+<p align="center">
+  > **Institutional-Grade AI Trading Ecosystem.** Seamlessly bridge Telegram signals to MetaTrader 5 with the power of Haineo SkyNET AI. Engineered for resilience, speed, and billionaire-tier institutional performance.
 </p>
 
 <p align="center">
