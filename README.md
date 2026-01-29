@@ -49,13 +49,13 @@ Automated Trading, Fintech, CopyTrade, Crypto, Forex, Institutional Grade.
   <img src="https://img.shields.io/badge/MT5-MetaTrader%205-green?logo=metatrader5" alt="MetaTrader 5"/>
   <img src="https://img.shields.io/badge/Telegram-API-blue?logo=telegram" alt="Telegram"/>
   <img src="https://img.shields.io/badge/AI-Multiple%20LLM-purple?logo=openai" alt="AI Powered"/>
-  <img src="https://img.shields.io/badge/Cloud-Supabase-darkgreen?logo=supabase" alt="Supabase"/>
+  <img src="https://img.shields.io/badge/Cloud-Enterprise_Vault-darkgreen?logo=google-cloud" alt="Cloud"/>
   <img src="https://img.shields.io/badge/license-Proprietary-red" alt="License"/>
 </p>
 
 <p align="center">
   <a href="https://github.com/richkeyricks/ITC-FREE/releases/latest">
-    <img src="https://img.shields.io/badge/Download-Release_ZIP_(71MB)-blue?style=for-the-badge&logo=github" alt="Download ZIP"/>
+    <img src="https://img.shields.io/badge/Download-Release_ZIP_(75MB)-blue?style=for-the-badge&logo=github" alt="Download ZIP"/>
   </a>
   <a href="./ITC_Official_Manual.pdf">
     <img src="https://img.shields.io/badge/View-User_Manual_(PDF)-orange?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="View PDF"/>
@@ -64,24 +64,26 @@ Automated Trading, Fintech, CopyTrade, Crypto, Forex, Institutional Grade.
 
 ---
 
-## ⚡ Latest Enterprise Release (v1.0.1)
+## ⚡ Latest Enterprise Release (v4.1.0)
 
-> **Official Production Build - Optimized for Low Latency and High Frequency Execution.**
+> **Official Production Build - The Institutional Edition.**
 
 ### 🚀 Critical Enhancements
-*   **Hyper-Optimized Binary Engine**: Reduced core footprint by **80%** (Sub-75MB) using aggressive JIT compilation and dead-code elimination.
-*   **Asynchronous Authentication Core**: Completely refactored login/signup flow using threaded parallel processing to ensure zero-latency UI responsiveness.
-*   **Robust Dependency Isolation**: Restored critical `sqlite3` integration for seamless Telegram session management within the standalone environment.
-*   **Global Exception Trapping**: Implemented a kernel-level exception hook (`sys.excepthook`) to capture and log elusive runtime errors to `crash_report.txt` for forensic analysis.
+*   **Global Sync 4.1**: Integrated intelligent synchronization with multi-search engines (Bing & IndexNow Protocol) for maximum global authority.
+*   **Institutional E-E-A-T Architecture**: Embedded Expertise, Experience, Authoritativeness, and Trustworthiness signals into the ecosystem metadata.
+*   **Enterprise Security Shield**: Hardened infrastructure security and advanced access filtration for corporate-grade reliability.
+*   **Smart Route Intelligence**: Optimized navigation paths with automated WWW vs Non-WWW redundancy handling (Canonical Authority).
+*   **Identity Restoration Core**: Restored and high-definition synchronized the legendary 'Paper Plane' visual identity across all platforms.
+*   **Rich Knowledge Hub**: Integrated research-grade interactive FAQ and comprehensive documentation modules.
 
 ### �️ Security & Stability
-*   **Secret Sanitization**: Removed all hardcoded development keys from public artifacts.
-*   **Database Connectivity**: Hardened Supabase connection with redundant fallback for unstable network environments.
+*   **Infrastructure Hardening**: Prioritized global security headers and crawl budget optimization for elite-tier reliability.
+*   **Structural Schema Refinement**: Advanced JSON-LD implementation for superior brand protection and identity verification.
 
 ### �📦 Installation
-1.  **Download** the `ITC_Plus_AI_Enterprise_v1.0.1.zip` via the button above.
+1.  **Download** the `ITC_Setup_v4.1.0.exe` via the button above.
 2.  Extract to preferred location.
-3.  Run `ITC_Plus_AI_Enterprise.exe`.
+3.  Run `ITC_Setup_v4.1.0.exe`.
 4.  No Python installation required.
 
 > *Built from Haineo Operating System (OS) AI - Richkeyrick Dev. Powered by Haineo AI OS Lab Network Vision AI.*
@@ -126,8 +128,8 @@ graph TD
 | :--- | :---: | :---: | :---: | :---: |
 | **Logic Processing** | Human Intel | Fixed Algebra | Static Regex | **Neural Heuristic Cluster** |
 | **Execution Latency** | > 2000ms | ~200ms | ~500ms | **<50ms (Ultra-Low)** |
-| **Resilience Engine** | N/A | None | Manual Restart | **God Mode (Self-Healing)** |
-| **Telemetry Depth** | Zero | Terminal Logs | Basic Files | **63-Param Cloud Sync** |
+| **Resilience Engine** | N/A | None | Manual Restart | **Enterprise Core (Self-Healing)** |
+| **Telemetry Depth** | Zero | Terminal Logs | Basic Files | **Deep-Trace Cloud Sync** |
 | **AI Vision Analysis** | Human Eyes | None | None | **GPT-4o/Gemini Vision** |
 | **Emotional Guard** | ❌ (Weak) | ✅ (Static) | ✅ (Static) | **💎 AI WELLNESS GUARD** |
 | **Whitelabeling** | N/A | N/A | None | **Full Agency Branding** |
@@ -331,10 +333,10 @@ AI_PROVIDER=OpenRouter
 AI_API_KEY=sk-or-v1-xxxx
 
 # ═══════════════════════════════════════════
-# CLOUD (SUPABASE)
+# CLOUD CONFIGURATION
 # ═══════════════════════════════════════════
-SUPABASE_URL=https://xxxx.supabase.co
-SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6...
+CLOUD_URL=https://api.your-cloud-endpoint.com
+CLOUD_KEY=your_encrypted_key
 ```
 
 ---
@@ -391,56 +393,14 @@ if signal:
 
 ---
 
-## 🌐 Cloud Infrastructure
+### Enterprise Data Model
+Data is protected by banking-grade encryption and strict access policies.
 
-### Database Schema
+- **User Profiles**: Encrypted identity & wallet management.
+- **Trade History**: Immutable transaction logs.
+- **AI Memory**: Contextual vector storage for intelligence.
 
-```sql
--- User Profiles (RLS Enabled)
-CREATE TABLE user_profiles (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    hwid TEXT UNIQUE NOT NULL,
-    name TEXT,
-    email TEXT,
-    balance DECIMAL(15,2) DEFAULT 0,
-    equity DECIMAL(15,2) DEFAULT 0,
-    total_pl DECIMAL(15,2) DEFAULT 0,
-    is_pro BOOLEAN DEFAULT FALSE,
-    created_at TIMESTAMPTZ DEFAULT NOW()
-);
-
--- Trade History
-CREATE TABLE trades (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    user_id TEXT NOT NULL,
-    symbol TEXT NOT NULL,
-    type TEXT NOT NULL,
-    lot DECIMAL(10,2),
-    entry DECIMAL(15,5),
-    sl DECIMAL(15,5),
-    tp DECIMAL(15,5),
-    result TEXT,
-    created_at TIMESTAMPTZ DEFAULT NOW()
-);
-
--- AI Chat Memory
-CREATE TABLE messages (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    user_id TEXT NOT NULL,
-    role TEXT NOT NULL,
-    content TEXT NOT NULL,
-    created_at TIMESTAMPTZ DEFAULT NOW()
-);
-```
-
-### Row Level Security
-
-```sql
--- Users can only see their own data
-CREATE POLICY "Users can only access own data"
-ON user_profiles FOR ALL
-USING (hwid = current_setting('request.jwt.claims')::json->>'sub');
-```
+✅ **Row Level Security (RLS)** Enabled: Users can strictly only access their own encrypted data.
 
 ---
 
@@ -502,8 +462,8 @@ If this software has helped you achieve profit or streamlined your workflow, ple
 ## 🗺️ **Strategic Institutional Roadmap**
 
 - [x] **2024 (Foundation)**: Core MT5 Integration & Basic Regex Parsing.
-- [x] **2025 (Intelligence)**: 7-Layer AI Fallback & Supabase Cloud Ecosystem.
-- [/] **2026 (Resilience)**: **[CURRENT]** God Mode 2.0 & VIP Broadcaster Pro.
+- [x] **2025 (Intelligence)**: 7-Layer AI Fallback & Enterprise Cloud Ecosystem.
+- [/] **2026 (Authority)**: **[CURRENT]** Institutional Edition v4.1 & Global Sync.
 - [ ] **Next Horizon**: Distributed Multi-VPS Execution & Haineo SkyNET Core.
 
 ---
