@@ -54,7 +54,7 @@ Automated Trading, Fintech, CopyTrade, Crypto, Forex, Institutional Grade.
 </p>
 
 <p align="center">
-  <a href="https://github.com/richkeyricks/ITC-FREE/releases/latest">
+  <a href="https://github.com/richkeyricks/ITC-FREE/releases/download/v4.7.5/ITC_ProMax_AI_Trading_Assistant_v4.70.2.zip">
     <img src="https://img.shields.io/badge/Download-Release_ZIP_(75MB)-blue?style=for-the-badge&logo=github" alt="Download ZIP"/>
   </a>
   <a href="./ITC_Official_Manual.pdf">
@@ -83,12 +83,12 @@ Experience the dawn of **Neural Excellence**. This landmark release orchestrates
 *   🔗 **Apex Bridge Architecture**: Upgraded the internal communication protocol to ensure **99.9% Operational Uptime**. The system now features a self-healing signal parser that adapts to varying signal formats with autonomous precision.
 
 ### 📦 Installation
-1.  **Download** the `ITC_Setup_v4.7.5.exe` below.
+1.  **Download** the `ITC_ProMax_AI_Trading_Assistant_v4.70.2.zip` below.
 2.  **Extract** to your preferred high-performance directory.
-3.  **Run** `ITC_Setup_v4.7.5.exe`.
+3.  **Run** the executable inside the package.
 4.  No Python installation required.
 
-`ITC_Setup_v4.7.5.exe`
+`ITC_ProMax_AI_Trading_Assistant_v4.70.2.zip`
 
 > *Built from Technolog Store - Richkeyrick Dev. Powered by Haineo AI OS Lab Network Vision AI.*
 
