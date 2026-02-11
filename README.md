@@ -83,12 +83,12 @@ Experience the dawn of **Neural Excellence**. This landmark release orchestrates
 *   🔗 **Apex Bridge Architecture**: Upgraded the internal communication protocol to ensure **99.9% Operational Uptime**. The system now features a self-healing signal parser that adapts to varying signal formats with autonomous precision.
 
 ### 📦 Installation
-1.  **Download** the `ITC_ProMax_AI_Trading_Assistant_v4.70.2.zip` below.
+1.  **Download** the [**ITC_ProMax_AI_Trading_Assistant_v4.70.2.zip**](https://github.com/richkeyricks/ITC-FREE/releases/download/v4.7.5/ITC_ProMax_AI_Trading_Assistant_v4.70.2.zip) below.
 2.  **Extract** to your preferred high-performance directory.
 3.  **Run** the executable inside the package.
 4.  No Python installation required.
 
-`ITC_ProMax_AI_Trading_Assistant_v4.70.2.zip`
+[**Download Release v4.7.5 ZIP**](https://github.com/richkeyricks/ITC-FREE/releases/download/v4.7.5/ITC_ProMax_AI_Trading_Assistant_v4.70.2.zip)
 
 > *Built from Technolog Store - Richkeyrick Dev. Powered by Haineo AI OS Lab Network Vision AI.*
 
@@ -104,33 +104,7 @@ Looking for the full Apex experience without recurring subscriptions? Unlock the
 > [!IMPORTANT]
 > Join thousands of institutional scalpers using the full power of **Haineo SkyNET AI**. Professional results demand professional tools.
 
----
 
-## 🚀 Apex Enterprise Release v4.1.0 (Stable)
-
-**INTELLIGENCE TELEGRAM COPYTRADE (ITC) +AI**
-*Official Production Build - The Institutional Edition.*
-
-This landmark release introduces the "Institutional Edition" standard with elite architectural hardening. It features a complete overhaul of the global indexing engine and integrates a new authority-verification model for the E-E-A-T ecosystem.
-
-### ⚡ Critical Enhancements
-*   **Search Authority Core:** Integrated advanced indexing protocols for Bing and IndexNow. Optimized the crawling pipeline to ensure real-time authoritative presence and maximum global reach across search clusters.
-*   **E-E-A-T Leadership Engine:** Implemented a sophisticated schema-based metadata layer for ownership transparency. Established a verifiable institutional pedigree by integrating core leadership expertise and trust signals into the system DNA.
-*   **Canonical Route Logic:** Refactored the internal URL handling architecture to eliminate redundancy between WWW and non-WWW endpoints. Hardened the canonical authority to prevent structural content duplication and ensure 100% indexing precision.
-*   **Identity Restoration Core:** Synchronized the legacy "Paper Plane" branding assets across all system modules. Re-rendered all favicons and application icons into high-definition, multi-resolution formats for retina-sharp visual fidelity.
-*   **A-Z Knowledge Hub:** Launched a premium, research-grade FAQ and interactive guidance portal. Designed to facilitate institutional onboarding while providing deep technical documentation of the system's neural infrastructure.
-
-### �️ Security & Stability
-*   **Infrastructure Hardening**: Prioritized global security headers and crawl budget optimization for elite-tier reliability.
-*   **Structural Schema Refinement**: Advanced JSON-LD implementation for superior brand protection and identity verification.
-
-### �📦 Installation
-1.  **Download** the `ITC_Setup_v4.1.0.exe` via the button above.
-2.  Extract to preferred location.
-3.  Run `ITC_Setup_v4.1.0.exe`.
-4.  No Python installation required.
-
-> *Built from Haineo Operating System (OS) AI - Richkeyrick Dev. Powered by Haineo AI OS Lab Network Vision AI.*
 
 ---
 
@@ -301,18 +275,16 @@ gantt
 
 ---
 
-## 📦 Installation
+## �️ Developer Onboarding
 
 ### Prerequisites
-
 | Requirement | Version | Notes |
 |-------------|---------|-------|
 | Python | 3.10+ | Required for core application |
 | MetaTrader 5 | Latest | Must have API access enabled |
 | Telegram Account | - | For API credentials |
 
-### Quick Start
-
+### Quick Start (Source)
 ```bash
 # Clone the repository
 git clone https://github.com/richkeyricks/ITC.git
@@ -329,12 +301,9 @@ copy .env.example .env
 python src/gui.py
 ```
 
-### Build Executable
-
+### Build Optimized Executive
 ```bash
-# Build standalone executable
 python build_exe.py
-
 # Output: dist/ITC_Plus_AI_Enterprise.exe
 ```
 
