@@ -3,7 +3,7 @@
 **INTELLIGENCE TELEGRAM COPYTRADE (ITC) +AI**
 *Official Production Build - The Telegram Mastery.*
 
-This major release aggregates all innovations from the **v4.8** and **v4.9** development cycles. We have revolutionized the core connectivity (Industrial-Grade & In-App Login) and integrated a new suite of Intelligence tools, leaping forward from version v4.7.5.
+This major release aggregates all innovations from the **v4.8** and **v4.9** development cycles. We have revolutionized core connectivity (Industrial-Grade & In-App Login) and integrated a new suite of Intelligence tools, leaping forward from version v4.7.5.
 
 > **Why Update?** This build eliminates external API configuration, introduces self-healing connections, and adds tactical AI market intelligence.
 
@@ -19,7 +19,7 @@ This major release aggregates all innovations from the **v4.8** and **v4.9** dev
 
 #### 🧠 v4.8: Intelligence & Experience
 *   🧠 **Intelligence Terminal (v4.8.5):** Replaced "News Center" with a tactical AI-powered market briefing center for institutional-grade analysis.
-*   🤖 **AI Creative Studio (v4.8.0):** integrated generator for professional trading content and video prompts.
+*   🤖 **AI Creative Studio (v4.8.0):** Integrated generator for professional trading content and video prompts.
 *   🌐 **Multi-Currency Engine (v4.8.0):** Automatic price display in IDR (Rupiah) or USD based on your language settings.
 *   🎯 **Interactive Quick Start (v4.8.5):** Non-linear configuration stepper allowing instant jumps to any setup phase.
 *   🎨 **Visual Precision (v4.8.0):** Global ticker diversity updates and crash-proof tab components.
