@@ -5,10 +5,11 @@
 # Whitelist specific files for public release
 !README.md
 !LICENSE
+!CONTRIBUTING.md
+!SECURITY.md
+!RELEASE_NOTES.md
 !assets/
 !assets/**
 !docs/
 !docs/**
-!dist/
-!dist/**
 !.gitignore
