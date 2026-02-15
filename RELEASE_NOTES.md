@@ -27,12 +27,12 @@ This major release aggregates all innovations from the **v4.8** and **v4.9** dev
 ---
 
 ### 📦 Installation
-1.  **Download** the [**ITC_ProMax_AI_Trading_Assistant_v4.9.5.zip**](https://github.com/richkeyricks/ITC-FREE/releases/download/v4.9.5/ITC_ProMax_AI_Trading_Assistant_v4.9.5.zip) below.
+1.  **Download** the [**ITC_PRO_AI_Trading_Assistant_v4.9.5.zip**](https://github.com/richkeyricks/ITC-FREE/releases/download/v4.9.5/ITC_PRO_AI_Trading_Assistant_v4.9.5.zip) below.
 2.  **Extract** to your preferred high-performance directory.
 3.  **Run** the executable inside the package.
 4.  No Python installation required.
 
-[**Download Release v4.9.5 ZIP**](https://github.com/richkeyricks/ITC-FREE/releases/download/v4.9.5/ITC_ProMax_AI_Trading_Assistant_v4.9.5.zip)
+[**Download Release v4.9.5 ZIP**](https://github.com/richkeyricks/ITC-FREE/releases/download/v4.9.5/ITC_PRO_AI_Trading_Assistant_v4.9.5.zip)
 
 > *Built from Technolog Store - Richkeyrick Dev. Powered by Haineo AI OS Lab Network Vision AI.*
 
