@@ -1,23 +1,30 @@
-## 🚀 Telegram Mastery Release v4.9.5 (Stable)
+## 🚀 Telegram Mastery Release v4.9.5 (Cumulative Stable)
 
 **INTELLIGENCE TELEGRAM COPYTRADE (ITC) +AI**
 *Official Production Build - The Telegram Mastery.*
 
-This massive update redefines the core connectivity of the application. We have achieved **Industrial-Grade Stability** with a completely rewritten Copier Engine and integrated **In-App Telegram Login**. No more external API configuration nightmares—just login and trade.
+This major release aggregates all innovations from the **v4.8** and **v4.9** development cycles. We have revolutionized the core connectivity (Industrial-Grade & In-App Login) and integrated a new suite of Intelligence tools, leaping forward from version v4.7.5.
 
-### ⚡ The Telegram Mastery (v4.9.x)
-*   📱 **In-App Telegram Login:** Seamless entry with built-in OTP Popup. Login directly within the app without complex developer console configurations.
-*   🛡️ **Industrial-Grade Copier Engine:** A full rewrite of the signal processing core using isolated async workers. Zero-latency handling for high-volume signal channels.
-*   🔒 **Double-Click Guard:** Automated protection against accidental duplicate processes during start/stop operations, ensuring session integrity.
-*   🧹 **Clean Shutdown Protocol:** Structured termination logic that eliminates "zombie processes" and hanging sessions.
-*   🔄 **Natural Stop Mechanism:** Ensures all async operations complete gracefully before disconnection.
+> **Why Update?** This build eliminates external API configuration, introduces self-healing connections, and adds tactical AI market intelligence.
 
-### 🧠 Intelligence & Resilience (v4.8.x - v4.9.0)
-*   🧠 **Intelligence Terminal:** Discarding the old "News Center," this new module offers tactical AI-powered market briefings and deep analysis.
-*   📡 **Telegram Stability Engine:** Re-architected connection management to prevent disconnects during critical trading hours (Graceful Reconnect).
-*   🎯 **Interactive Quick Start:** Non-linear configuration stepper allowing instant navigation to any setup phase.
-*   🎨 **Visual Status Accuracy:** 3-State Indicators (Active, Standby, Offline) now reflect real-time connection health with 100% accuracy.
-*   🌐 **Multi-Currency Display:** Dynamic pricing (USD/IDR) based on user language preference.
+---
+
+### 🌟 New Major Features (Since v4.7.5)
+
+#### ⚡ v4.9: The Connectivity Revolution
+*   📱 **In-App Telegram Login (v4.9.5):** Seamless native login with built-in OTP Popup. No more complex developer console setup—just login and trade.
+*   🛡️ **Industrial-Grade Copier Engine (v4.9.5):** Completely rewritten async core with isolated workers for zero-latency signal processing.
+*   📡 **Telegram Stability Engine (v4.9.0):** Graceful Reconnect architecture that prevents disconnection during high-volatility sessions.
+*   🔒 **Session Integrity Guard (v4.9.5):** Double-Click protection and specialized locks to prevent "zombie" processes or duplicate sessions.
+
+#### 🧠 v4.8: Intelligence & Experience
+*   🧠 **Intelligence Terminal (v4.8.5):** Replaced "News Center" with a tactical AI-powered market briefing center for institutional-grade analysis.
+*   🤖 **AI Creative Studio (v4.8.0):** integrated generator for professional trading content and video prompts.
+*   🌐 **Multi-Currency Engine (v4.8.0):** Automatic price display in IDR (Rupiah) or USD based on your language settings.
+*   🎯 **Interactive Quick Start (v4.8.5):** Non-linear configuration stepper allowing instant jumps to any setup phase.
+*   🎨 **Visual Precision (v4.8.0):** Global ticker diversity updates and crash-proof tab components.
+
+---
 
 ### 📦 Installation
 1.  **Download** the [**ITC_ProMax_AI_Trading_Assistant_v4.9.5.zip**](https://github.com/richkeyricks/ITC-FREE/releases/download/v4.9.5/ITC_ProMax_AI_Trading_Assistant_v4.9.5.zip) below.
