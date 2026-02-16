@@ -1,0 +1,64 @@
+npm verbose cli C:\Program Files\nodejs\node.exe C:\Users\Richkeyrick\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
+npm info using npm@11.4.1
+npm info using node@v22.14.0
+npm verbose title npm exec vercel list --scope telegramcopytrade
+npm verbose argv "exec" "--" "vercel" "list" "--scope" "telegramcopytrade"
+npm verbose logfile logs-max:10 dir:C:\Users\Richkeyrick\AppData\Local\npm-cache\_logs\2026-02-09T04_58_42_551Z-
+npm verbose logfile C:\Users\Richkeyrick\AppData\Local\npm-cache\_logs\2026-02-09T04_58_42_551Z-debug-0.log
+(node:19988) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Vercel CLI 32.7.2
+Retrieving projectΓÇª
+Fetching deployments in telegramcopytrade
+> Deployments for vercel_deploy under telegramcopytrade [883ms]
+> To list deployments for a project, run `vercel ls [project]`.
+
+  Age     Deployment                                                      Status      Environment     Duration     Username
+  8m      https://verceldeploy-4qhsv8htt-telegramcopytrade.vercel.app     ΓùÅ Ready     Production      18s          technolog
+  27m     https://verceldeploy-i3swqajqx-telegramcopytrade.vercel.app     ΓùÅ Ready     Production      19s          technolog
+  2h      https://verceldeploy-2fgjuchrx-telegramcopytrade.vercel.app     ΓùÅ Ready     Production      21s          technolog
+  3h      https://verceldeploy-cjr11ppca-telegramcopytrade.vercel.app     ΓùÅ Ready     Production      22s          technolog
+  3h      https://verceldeploy-3frkmhltq-telegramcopytrade.vercel.app     ΓùÅ Ready     Production      19s          technolog
+  3h      https://verceldeploy-9giizciu7-telegramcopytrade.vercel.app     ΓùÅ Ready     Production      19s          technolog
+  3h      https://verceldeploy-4jjz02zjw-telegramcopytrade.vercel.app     ΓùÅ Ready     Production      20s          technolog
+https://verceldeploy-4qhsv8htt-telegramcopytrade.vercel.app
+https://verceldeploy-i3swqajqx-telegramcopytrade.vercel.app
+https://verceldeploy-2fgjuchrx-telegramcopytrade.vercel.app
+https://verceldeploy-cjr11ppca-telegramcopytrade.vercel.app
+https://verceldeploy-3frkmhltq-telegramcopytrade.vercel.app
+https://verceldeploy-9giizciu7-telegramcopytrade.vercel.app
+https://verceldeploy-4jjz02zjw-telegramcopytrade.vercel.app
+https://verceldeploy-8mxlglf22-telegramcopytrade.vercel.app
+https://verceldeploy-3rut81scq-telegramcopytrade.vercel.app
+https://verceldeploy-kdbbueeu5-telegramcopytrade.vercel.app
+https://verceldeploy-lbeq6ulx0-telegramcopytrade.vercel.app
+https://verceldeploy-iz11b3i8e-telegramcopytrade.vercel.app
+https://verceldeploy-2dzrvw35a-telegramcopytrade.vercel.app
+https://verceldeploy-3byjtz1ng-telegramcopytrade.vercel.app
+https://verceldeploy-3j8wuvtl3-telegramcopytrade.vercel.app
+https://verceldeploy-6ohip48tf-telegramcopytrade.vercel.app
+https://verceldeploy-7ixa3spz9-telegramcopytrade.vercel.app
+https://verceldeploy-9dbt9dunx-telegramcopytrade.vercel.app
+https://verceldeploy-r45b77jxy-telegramcopytrade.vercel.app
+https://verceldeploy-o43423f8c-telegramcopytrade.vercel.app
+  5h      https://verceldeploy-8mxlglf22-telegramcopytrade.vercel.app     ΓùÅ Ready     Production      24s          technolog
+  17h     https://verceldeploy-3rut81scq-telegramcopytrade.vercel.app     ΓùÅ Ready     Production      19s          technolog
+  18h     https://verceldeploy-kdbbueeu5-telegramcopytrade.vercel.app     ΓùÅ Ready     Production      20s          technolog
+  18h     https://verceldeploy-lbeq6ulx0-telegramcopytrade.vercel.app     ΓùÅ Ready     Production      19s          technolog
+  18h     https://verceldeploy-iz11b3i8e-telegramcopytrade.vercel.app     ΓùÅ Ready     Production      19s          technolog
+  19h     https://verceldeploy-2dzrvw35a-telegramcopytrade.vercel.app     ΓùÅ Ready     Production      19s          technolog
+  19h     https://verceldeploy-3byjtz1ng-telegramcopytrade.vercel.app     ΓùÅ Ready     Production      25s          technolog
+  20h     https://verceldeploy-3j8wuvtl3-telegramcopytrade.vercel.app     ΓùÅ Error     Production      23s          technolog
+  20h     https://verceldeploy-6ohip48tf-telegramcopytrade.vercel.app     ΓùÅ Error     Production      23s          technolog
+  20h     https://verceldeploy-7ixa3spz9-telegramcopytrade.vercel.app     ΓùÅ Error     Production      26s          technolog
+  10d     https://verceldeploy-9dbt9dunx-telegramcopytrade.vercel.app     ΓùÅ Ready     Production      10s          technolog
+  10d     https://verceldeploy-r45b77jxy-telegramcopytrade.vercel.app     ΓùÅ Ready     Production      11s          technolog
+  10d     https://verceldeploy-o43423f8c-telegramcopytrade.vercel.app     ΓùÅ Ready     Production      11s          technolog
+
+> To display the next page, run `vercel ls vercel_deploy --scope telegramcopytrade --next 1769778818550`
+npm verbose cwd C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\vercel_deploy
+npm verbose os Windows_NT 10.0.22631
+npm verbose node v22.14.0
+npm verbose npm  v11.4.1
+npm verbose exit 0
+npm info ok

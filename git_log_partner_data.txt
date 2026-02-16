@@ -1,0 +1,188 @@
+commit 01e922f457189eddc4b403322e9868af168bc863
+Author: Richkeyrick <richkeyrick@gmail.com>
+Date:   Tue Feb 10 23:16:10 2026 +0700
+
+    chore: cleanup old docs and add payments/success.html (v4.4.0 prep)
+
+diff --git a/src/constants/partner_data.py b/src/constants/partner_data.py
+new file mode 100644
+index 0000000..7a2d92f
+--- /dev/null
++++ b/src/constants/partner_data.py
+@@ -0,0 +1,176 @@
++"""
++ITC Partner Data Constants
++Centralized configuration for all partner/affiliate links.
++Following Gravity Rules: No magic strings, centralized constants.
++"""
++
++# --- TYPES ---
++from typing import TypedDict, List, Optional
++
++class PartnerItem(TypedDict):
++    name: str
++    desc: Optional[str]
++    desc_id: Optional[str]
++    desc_en: Optional[str]
++    url: str
++    icon: str
++    featured: Optional[bool]
++    is_featured: Optional[bool] # Backwards compatibility
++
++# --- CONSTANTS ---
++
++# Forex Brokers (Official & Partners)
++FOREX_BROKERS: List[PartnerItem] = [
++    {
++        "name": "Exness (Global)",
++        "desc_id": "🌍 Spread ultra-rendah, WD instan. Pilihan utama untuk scalper!",
++        "desc_en": "🌍 Ultra-low spreads, instant withdrawals. Top choice for scalpers!",
++        "url": "https://one.exnessonelink.com/a/7siaufj122?source=app",
++        "icon": "🔥",
++        "featured": True
++    },
++    {
++        "name": "MIFX (Indonesia)",
++        "desc_id": "🇮🇩 Terregulasi Bappebti. Support lokal, deposit IDR instan.",
++        "desc_en": "🇮🇩 Bappebti Regulated. Local support, instant IDR deposit.",
++        "url": "https://client.mifx.com/r/itc",
++        "icon": "🏆",
++        "featured": True
++    },
++    {
++        "name": "Vantage Markets",
++        "desc_id": "🌐 Raw ECN spreads, support MT4/MT5, tersedia copy trading.",
++        "desc_en": "🌐 Raw ECN spreads, MT4/MT5 support, copy trading available.",
++        "url": "https://www.vantagemarkets.com/forex-trading/forex-trading-account/?utm_source=promo&utm_medium=social&utm_campaign=RAF&utm_term=NA&utm_content=NA&c=BO0JMa/J63gBYluWnJLINQ==",
++        "icon": "⚡",
++        "featured": True
++    },
++    {
++        "name": "XM Indonesia",
++        "desc_id": "🎁 Bonus $30 Tanpa Deposit, Support Lokal 24/7.",
++        "desc_en": "🎁 $30 No Deposit Bonus, 24/7 Local Support.",
++        "url": "https://www.xm.com/",
++        "icon": "📈",
++        "featured": False
++    },
++    {
++        "name": "OctaFX",
++        "desc_id": "🏆 Populer di Indonesia, Minim Slippage, Deposit Lokal.",
++        "desc_en": "🏆 Popular in Indonesia, Minimum Slippage, Local Deposit.",
++        "url": "https://www.octafx.com/",
++        "icon": "💎",
++        "featured": False
++    }
++]
++
++# Payment Gateways
++PAYMENT_GATEWAYS: List[PartnerItem] = [
++    {
++        "name": "Wise",
++        "desc": "💸 Best for international transfers. Low fees, real exchange rate.",
++        "url": "https://wise.com/invite/dic/trickyhusnyt",
++        "icon": "🌐",
++        "is_featured": True
++    },
++    {
++        "name": "CoinPayments",
++        "desc": "₿ Accept 2000+ cryptocurrencies. Multi-coin wallet included.",
++        "url": "https://www.coinpayments.net/index.php?ref=be5558decbd7fc478a03b4ac84ba1101",
++        "icon": "🪙",
++        "is_featured": False
++    },
++]
++
++# Stock/Investment Platforms
++STOCK_PLATFORMS: List[PartnerItem] = [
++    {
++        "name": "GotTrade",
++        "desc": "🇺🇸 Trade US stocks fractionally. Start from $1. Zero commission.",
++        "url": "https://heygotrade.com/referral?code=838474",
++        "icon": "📈",
++        "is_featured": True
++    },
++    {
++        "name": "Ajaib",
++        "desc_id": "🇮🇩 Saham Indonesia & Reksa Dana. Terdaftar OJK. User-friendly.",
++        "desc_en": "🇮🇩 Indonesian Stocks & Mutual Funds. OJK Registered. User-friendly.",
++        "url": "https://login.ajaib.co.id/sign-up/?referral-code=rick5181485733",
++        "icon": "📊",
++        "is_featured": True
++    },
++]
++
++# Copy Trading Platforms
++COPY_TRADE_PLATFORMS: List[PartnerItem] = [
++    {
++        "name": "NAGA Global",
++        "desc": "🤖 Social trading network. Copy top traders automatically.",
++        "url": "https://naga-global.com/register?refcode=ipdlbr",
++        "icon": "🦎",
++        "is_featured": True
++    },
++    {
++        "name": "TraderWagon",
++        "desc": "🚃 Copy trade crypto on Binance. Automated portfolio mirroring.",
++        "url": "https://www.traderwagon.com/lander?oref=https%3A%2F%2Fbit.ly%2FCopyTradeBinance&ref=zoh4qio",
++        "icon": "🔄",
++        "is_featured": False
++    },
++]
++
++# Crypto Exchanges
++CRYPTO_EXCHANGES: List[PartnerItem] = [
++    {
++        "name": "Binance",
++        "desc": "🌍 World's largest crypto exchange. Low fees, high liquidity.",
++        "url": "https://accounts.binance.me/id/register?ref=190820790",
++        "icon": "₿",
++        "is_featured": True
++    },
++    {
++        "name": "Indodax",
++        "desc": "🇮🇩 #1 Indonesia crypto exchange. IDR pairs, local support.",
++        "url": "https://indodax.com/register?ref=tricky",
++        "icon": "🇮🇩",
++        "is_featured": True
++    },
++    {
++        "name": "Bybit",
++        "desc": "⚡ Derivatives & spot trading. Up to 100x leverage.",
++        "url": "https://www.bybit.com/en-US/invite?ref=XVY3MB%230",
++        "icon": "🚀",
++        "is_featured": True
++    },
++    {
++        "name": "Tokocrypto",
++        "desc": "🇮🇩 Binance-backed Indonesian exchange. Fast IDR deposit.",
++        "url": "https://www.tokocrypto.com/account/signup?ref=B19Q335W",
++        "icon": "🏪",
++        "is_featured": False
++    },
++    {
++        "name": "Huobi",
++        "desc": "🌏 Global exchange with Asian focus. Wide altcoin selection.",
++        "url": "https://www.huobi.mk/id-id/topic/double-invite/register/?invite_code=qzq24223&name=Banshee&avatar=4&inviter_id=11343840",
++        "icon": "🔥",
++        "is_featured": False
++    },
++]
++
++# Category Definitions for UI (Bilingual)
++PARTNER_CATEGORIES_ID = [
++    ("💳", "PAYMENT GATEWAY", PAYMENT_GATEWAYS),
++    ("📈", "SAHAM & INVESTASI", STOCK_PLATFORMS),
++    ("🤖", "COPY TRADE", COPY_TRADE_PLATFORMS),
++    ("₿", "CRYPTO EXCHANGE", CRYPTO_EXCHANGES),
++]
++
++PARTNER_CATEGORIES_EN = [
++    ("💳", "PAYMENT GATEWAY", PAYMENT_GATEWAYS),
++    ("📈", "STOCKS & INVESTMENT", STOCK_PLATFORMS),
++    ("🤖", "COPY TRADE", COPY_TRADE_PLATFORMS),
++    ("₿", "CRYPTO EXCHANGE", CRYPTO_EXCHANGES),
++]
++
++# Legacy fallback
++PARTNER_CATEGORIES = PARTNER_CATEGORIES_EN

@@ -1,0 +1,893 @@
+"""
+ITC +AI Enterprise Localization System
+Centralized dictionaries for Multi-Language Support (ID/EN)
+"""
+
+LANGUAGES = {
+    "ID": {
+        "app_title": "ITC +AI ENTERPRISE - Telegram MT5 Copier",
+        "menu_dashboard": "Dashboard",
+        "menu_leaderboard": "Leaderboard",
+        "menu_education": "ITC Academy",
+        "menu_analysis": "AI Analysis",
+        "menu_telegram": "Telegram Config",
+        "menu_mt5": "Akun MT5",
+        "menu_trading": "Aturan Trading",
+        "menu_risk": "Manajemen Risiko",
+        "menu_ai": "Asisten AI",
+        "menu_signals": "Marketplace",
+        "menu_spc": "SPC Bridge",
+        "menu_logs": "Log Sistem",
+        "menu_settings": "Pengaturan",
+        "menu_journal": "System Journal",
+        
+        "dash_start": "MULAI COPIER",
+        "dash_stop": "HENTIKAN COPIER",
+        "dash_cloud": "WEB MONITOR",
+        "dash_emergency": "DARURAT CLS",
+        "dash_logs": "LOG SISTEM",
+        "dash_export": "EKSPOR LOG",
+        "dash_clear": "BERSIHKAN LOG",
+        
+        "eula_title": "PERJANJIAN LISENSI PENGGUNA",
+        "eula_header": "⚖️ PERJANJIAN LEGAL",
+        "eula_checkbox": "Saya telah membaca dan menyetujui seluruh isi Perjanjian Lisensi (EULA)\ndan Disclaimer Risiko di atas secara sadar.",
+        "eula_accept": "TERIMA & LANJUTKAN",
+        
+        "auth_title": "ITC +AI - OTENTIKASI PENGGUNA",
+        "auth_header_login": "Selamat Datang Kembali",
+        "auth_header_signup": "Buat Akun Baru",
+        "auth_desc_login": "Masuk untuk mensinkronkan data Anda ke Cloud.",
+        "auth_desc_signup": "Bergabunglah dengan masa depan trading otomatis.",
+        "auth_email": "Alamat Email:",
+        "auth_pass": "Password:",
+        "auth_user": "Nama Pengguna (Username):",
+        "auth_login": "LOGIN SEKARANG",
+        "auth_signup": "DAFTAR SEKARANG",
+        "auth_switch_signup": "Belum punya akun? Daftar",
+        "auth_switch_login": "Sudah punya akun? Login",
+        "auth_verifying": "Memverifikasi...",
+        "auth_success_signup": "Akun berhasil dibuat! Silakan BUKA EMAIL Anda (Inbox/Spam) untuk verifikasi link sebelum login.",
+        "auth_check_email_title": "Cek Email Anda",
+        "auth_error_rate": "Terlalu banyak percobaan. Mohon tunggu 15-60 menit.",
+        "auth_error_exists": "Email ini sudah terdaftar. Silakan Login.",
+        "auth_error_short_pass": "Password terlalu pendek (Min. 6 karakter).",
+        "auth_error_invalid_email": "Format email tidak valid.",
+        
+        "dash_greet_morning": "Selamat Pagi",
+        "dash_greet_afternoon": "Selamat Siang",
+        "dash_greet_evening": "Selamat Sore",
+        "dash_greet_night": "Selamat Malam",
+        "dash_greet_user": "👋 {greet}, Pak/Ibu {user}!",
+        "dash_ai_care": "🤖 ASISTEN KESEHATAN AI",
+        "dash_ai_msg1": "Apa sudah makan, {user}? Jangan lupa istirahat ya!",
+        "dash_ai_msg2": "Halo {user}, bagaimana trading hari ini? Tetap tenang!",
+        "dash_ai_msg3": "Semangat {user}! Pastikan manajemen risiko terjaga.",
+        "dash_ai_msg4": "Hai {user}, jangan lupa minum air putih saat monitor market.",
+        "dash_ai_msg5": "Pasar dinamis, {user}. Sudah siap cetak profit hari ini?",
+        "dash_ai_yes": "Ya, Sudah",
+        "dash_ai_no": "Belum",
+        "dash_ai_happy": "AI: Senang mendengarnya!",
+        "dash_ai_remind": "AI: Segerakan ya Pak/Ibu!",
+        "dash_daily_meter": "METER KERUGIAN HARIAN",
+        "dash_system_ready": "Sistem siap. Atur konfigurasi dan mulai.",
+        
+        "guide_title": "PANDUAN CEPAT & STATUS",
+        "guide_step1": "1. KONEKSI TELEGRAM",
+        "guide_step2": "2. AKUN MT5",
+        "guide_step3": "3. MODE EKSEKUSI",
+        "guide_step4": "4. STATUS COPIER",
+        
+        "status_checking": "Mengecek...",
+        "status_online": "Online",
+        "status_offline": "Offline",
+        "status_connected": "Tersambung",
+        "status_disconnected": "Terputus",
+        "status_not_logged": "Belum Login",
+        "status_ready": "Siap",
+        "status_not_config": "Belum Diatur",
+        "status_stopped": "Berhenti",
+        "status_login_failed": "Gagal Login",
+        "status_running": "BERJALAN...",
+        
+        "settings_lang": "Pilih Bahasa (Language):",
+        "settings_privacy": "Pengaturan Privasi & Cloud",
+        "settings_hints": "Tampilkan Petunjuk (Show UI Tooltips/Hints)",
+        "settings_save": "SIMPAN KONFIGURASI",
+        "settings_logout": "KELUAR AKUN (LOGOUT)",
+        "settings_pro_info": "💡 Info: Data ini wajib bagi Donatur (>500rb) untuk verifikasi akses Pro.",
+        "settings_about": "ℹ️ Tentang ITC",
+        "settings_support": "☕ DUKUNG DEVELOPER",
+        "settings_pub_profit": "Tampilkan Profit di Leaderboard",
+        "settings_pub_edu": "Tampilkan Skor Edukasi di Leaderboard",
+        "settings_initials": "Samarkan Nama (Inisial Saja)",
+        "profile_header": "👤 Profil Pengguna (Wajib bagi Donatur Pro)",
+        "profile_name": "Nama Lengkap:",
+        "profile_email": "Alamat Email:",
+        "profile_phone": "No. HP/WA/Tele (Aktif):",
+        
+        "tg_title": "📨 KONFIGURASI TELEGRAM",
+        "tg_get_api": "Dapatkan API dari https://my.telegram.org",
+        "tg_test": "🔗 UJI KONEKSI",
+        "mt5_title": "📈 AKUN MT5",
+        "mt5_show_pass": "Tampilkan Password",
+        "mt5_test": "🔗 UJI LOGIN",
+        "trade_title": "📋 ATURAN TRADING",
+        "trade_pos_control": "Kontrol Posisi",
+        "trade_sym_settings": "Pengaturan Simbol",
+        "trade_auto_exec": "Aktifkan Eksekusi Otomatis (Auto Trading)",
+        "trade_suffix_tip": "Tip: Suffix adalah akhiran symbol di broker Anda\nContoh: XAUUSD.m atau EURUSD.i",
+        "risk_title": "🛡️ MANAJEMEN RISIKO",
+        "risk_protection": "⚠️ Pelindung Loss Harian",
+        "risk_loss_desc": "Trading akan berhenti jika loss melebihi batas ini",
+        "risk_time": "⏰ Filter Waktu",
+        "risk_time_desc": "Hanya trading di jam-jam tertentu (0-24)",
+        
+        "ai_title": "🤖 MESIN PARSING AI",
+        "ai_fallback": "Aktifkan AI Fallback (Parsing Sinyal Pintar)",
+        "ai_provider": "Penyedia AI:",
+        "ai_key": "API Key:",
+        "ai_key_placeholder": "Opsional: Gunakan API Key sendiri jika kuota ITC habis",
+        "ai_tips": "💡 Tips: Gunakan API Key pribadi sebagai backup kencang.",
+        "ai_chat_title": "💬 ASISTEN AI",
+        "ai_chat_intro": "🤖 Halo! Saya AI Assistant Anda. Tanya apa saja!",
+        "ai_chat_placeholder": "Ketik pesan...",
+        "ai_chat_send": "Kirim 🚀",
+        "ai_locked_title": "🔒 FITUR TERKUNCI",
+        "ai_locked_desc": "Donasi > 500rb untuk membuka Chat Assistant\n& Support Prioritas.",
+        "ai_upgrade": "💎 UPGRADE KE PRO",
+        
+        "analysis_title": "📊 ANALISA SINYAL",
+        "analysis_empty": "Belum ada sinyal terdeteksi.\nChart akan muncul di sini saat sinyal ditemukan.",
+        "analysis_verdict": "KEPUTUSAN",
+        "analysis_waiting": "MENUNGGU...",
+        "analysis_analyzing": "MENGANALISA...",
+        "analysis_acc": "AKURASI AI",
+        "analysis_reason": "🤖 ALASAN AI",
+        "analysis_reason_empty": "AI akan memberikan analisa teknikal detail di sini.",
+        "analysis_execute": "🚀 EKSEKUSI TRADING",
+        "analysis_skip": "⏩ LEWATI SINYAL",
+        "analysis_manual_approval": "🚀 Persetujuan Manual: Mengeksekusi {type} {symbol}",
+        "analysis_debug_test": "DEBUG: TES ANALISA (XAUUSD BUY)",
+        
+        "sig_title": "🛍️ ITC Marketplace",
+        "sig_subtitle": "Beli Preset Strategi Terverifikasi & Hubungkan Sinyal Telegram.",
+        "sig_verified": "VERIFIED",
+        "sig_featured": "FEATURED",
+        "sig_accuracy": "Akurasi AI",
+        "sig_subs": "Subscriber",
+        "sig_connect": "HUBUNGKAN KE MT5 🚀",
+        "sig_partnership": "Punya Channel? Hubungi Admin",
+        
+        "spc_title": "💎 SPC Hub Bridge (VIP)",
+        "spc_desc": "Relay sinyal ke channel Anda sendiri dengan branding kustom.",
+        "spc_bot_token": "Bot Token Telegram Provider",
+        "spc_chat_id": "Target Chat ID (Channel/Grup)",
+        "spc_mode": "Pilih Mode Operasional",
+        "spc_mode_relay": "Relay dari Telegram Source",
+        "spc_mode_mt5": "Broadcast dari MT5 Saya",
+        "spc_watermark": "Aktifkan Watermark ITC",
+        "spc_template": "Pilih Preset Tampilan",
+        "spc_preview": "Pratinjau Pesan",
+        "spc_start": "MULAI BRIDGE 🚀",
+        "spc_stop": "HENTIKAN BRIDGE 🛑",
+        "spc_vip_lock": "💎 Fitur ini hanya tersedia untuk member VIP (Signal Provider).",
+        "spc_custom_btn": "BUAT PRESET KUSTOM 🎨",
+        "spc_watermark_text": "\n\n<i>Powered by ITC +AI Enterprise</i>",
+        
+        "leader_title": "🏆 Global Leaderboard",
+        "leader_monthly": "📅 Profit Bulanan Terbaik",
+        "leader_daily": "💰 Profit Hari Ini",
+        "leader_edu": "🧠 Skor Pengetahuan",
+        "leader_refresh": "🔄 PERBARUI PERINGKAT",
+        "leader_accuracy": "🎯 The Sniper (Win Rate)",
+        "leader_consistency": "👑 The Consistency King",
+        "leader_best_broker": "🏦 Rekomendasi Broker (MT5)",
+        "leader_join_msg": "GABUNG / DAFTAR 🚀",
+        "leader_privacy_hint": "💡 Inisial digunakan untuk menjaga privasi.",
+        
+        "edu_title": "📚 ITC Academy",
+        "edu_intro": "Uji wawasan trading Anda hari ini.\nDapatkan skor tertinggi untuk masuk Leaderboard!",
+        "edu_start": "MULAI KUIS HARIAN (10 Pertanyaan)",
+        "edu_done": "KUIS SELESAI!",
+        "edu_score": "Skor Anda: {score}/{total}",
+        "edu_back": "KEMBALI",
+        "edu_question": "Pertanyaan {current}/{total}",
+        "edu_ans_right": "Benar!",
+        "edu_ans_right_msg": "Jawaban Anda tepat!",
+        "edu_ans_wrong": "Salah",
+        "edu_ans_wrong_msg": "Jawaban yang benar adalah:\n{ans}",
+
+        "popup_save_success": "Konfigurasi berhasil disimpan dan disinkronkan!",
+        "popup_restart_title": "Butuh Restart",
+        "popup_restart_msg": "Bahasa telah diubah. Silakan restart aplikasi untuk menerapkan perubahan sepenuhnya.",
+        "popup_logout_title": "Konfirmasi Logout",
+        "popup_logout_msg": "Apakah Anda yakin ingin keluar dari sesi ini?",
+        "popup_logout_yes": "Ya, Logout",
+        "popup_logout_no": "Batal",
+        "popup_quota_title": "⚠️ Kuota AI Habis",
+        "popup_quota_msg": "Kuota utama {provider} telah habis harian.\n\nSilakan masukkan API Key Anda di Settings.",
+        "popup_quota_btn1": "Buka Pengaturan",
+        "popup_quota_btn2": "Nanti",
+        "popup_admin_msg": "Pesan Baru ({date}):\n\n{content}",
+        "popup_admin_paham": "Paham",
+        "popup_donasi_title": "Upgrade ke Pro (Enterprise)",
+        "popup_donasi_msg": "💎 MANFAAT DONASI PRO (>500RB):\n1. Fitur Custom sesuai request.\n2. Support Prioritas 1-on-1.\n3. Akses Beta model AI terbaru.\n\n⚠️ SYARAT: Lengkapi Profile di Settings.",
+        "popup_donasi_btn1": "Bayar Sekarang",
+        "popup_donasi_btn2": "Nanti",
+        "popup_update_title": "🚀 Update Ditemukan!",
+        "popup_update_msg": "Versi Baru Tersedia: v{version}\n\nApa yang baru?\n{changelog}",
+        "popup_update_btn1": "Download Sekarang",
+        "popup_update_btn2": "Nanti",
+        
+        "admin_title": "👑 DEVELOPER ADMIN PANEL",
+        "admin_refresh": "🔄 PERBARUI STATS",
+        "admin_users": "User Aktif: {count}",
+        "admin_trades": "Total Trading: {count}",
+        "admin_report_title": "👤 LAPORAN AKTIVITAS USER GLOBAL (ISOLASI HWID)",
+        "admin_memo_title": "💡 ADMIN MEMO & SOP",
+        "admin_memo_text": "• Verifikasi Donatur: Cek Activity.\n• Upgrade Pro: Di Supabase set is_pro=TRUE.\n• Broadcast: Gunakan panel di bawah.",
+        "admin_broadcast_title": "✉️ KIRIM PESAN GLOBAL KE SEMUA USER",
+        "admin_broadcast_placeholder": "Tulis pesan pengumuman...",
+        "admin_broadcast_send": "🚀 KIRIM PENGUMUMAN",
+        "admin_broadcast_success": "Pesan telah dikirim!",
+        "admin_broadcast_error": "Gagal mengirim pesan.",
+
+        "tip_dashboard": "Status koneksi dan kontrol cepat.",
+        "tip_leaderboard": "Ranking profit dan pengetahuan global.",
+        "tip_education": "Uji wawasan trading di ITC Academy.",
+        "tip_analysis": "Analisa market tingkat lanjut via AI.",
+        "tip_telegram": "Konfigurasi API dan Channel Telegram.",
+        "tip_mt5": "Hubungkan akun MT5 Anda.",
+        "tip_trading": "Aturan Risk, Lot, dan Magic Number.",
+        "tip_risk": "Batas loss harian dan jam operasional.",
+        "tip_ai": "Pengaturan AI Fallback & Chat Assistant.",
+        "tip_signals": "Marketplace sinyal terverifikasi & teraudit.",
+        "tip_logs": "Riwayat aktivitas dan eksekusi.",
+        "tip_spc": "Relay sinyal otomatis ke channel Anda (VIP).",
+        "tip_settings": "Profile, privasi, dan preferensi.",
+        "tip_admin": "Panel kendali khusus Admin.",
+        
+        "vps_title": "☁️ ITC Cloud Hosting (Rekomendasi)",
+        "vps_desc": "Trading 24/7 tanpa perlu menyalakan laptop. Pilih VPS terbaik dengan latency rendah.",
+        "vps_get_btn": "SEWA VPS SEKARANG 🚀",
+
+        "hint_start": "Mulai memantau sinyal Telegram.",
+        "hint_cloud": "Buka Dashboard Monitoring di Browser.",
+        "hint_emergency": "Tutup SEMUA posisi terbuka secara instan.",
+        "hint_export": "Simpan riwayat log ke file.",
+        "hint_clear": "Bersihkan tampilan log.",
+        "hint_tg_id": "Masukkan API ID dari my.telegram.org",
+        "hint_tg_hash": "Masukkan API Hash unik Anda",
+        "hint_tg_chan": "ID channel (diawali -100), pisahkan koma.",
+        "hint_mt5_login": "Nomor akun trading MT5 Anda.",
+        "hint_mt5_pass": "Password trading/master MT5 Anda.",
+        "hint_mt5_server": "Nama Server broker Anda.",
+        "hint_mt5_test": "Uji koneksi data login MT5.",
+        "hint_risk_pct": "Rasio risiko per trade (misal 1.0 = 1%).",
+        "hint_risk_lot": "Lot tetap jika tidak pakai Risk %.",
+        "hint_risk_magic": "ID unik untuk setiap posisi ITC.",
+        "hint_risk_suffix": "Akhiran symbol (misal .m).",
+        "hint_risk_limit": "Batas loss (%) harian.",
+        "hint_ai_send": "Kirim pertanyaan ke AI Assistant.",
+        "hint_pro_chat": "Kirim pertanyaan ke AI Assistant (Pastikan Pro untuk respon instan).",
+        
+        "tut_title": "📚 TUTORIAL LENGKAP - ITC +AI",
+        "tut_header": "📚 PANDUAN LENGKAP DARI NOL",
+        "tut_sub": "Ikuti setiap langkah dengan TELITI. Jangan skip!",
+        "tut_btn_close": "TUTUP",
+        "tut_btn_donasi": "☕ DUKUNG DEVELOPER",
+        "tut_tab_setup": "Panduan Koneksi",
+        "tut_tab_features": "Penjelasan Fitur",
+        "tut_features": """
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📈 TAMPILAN UTAMA (DASHBOARD) - PUSAT KENDALI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Selamat datang di Dashboard! Ini adalah ruang kemudi Anda.
+• Tombol MULAI: Bayangkan ini sebagai saklar lampu raksasa. Klik "MULAI" untuk menyalakan robot copier Anda. Klik "HENTIKAN" kalau Anda mau istirahat trading.
+• Lampu Status (Indikator):
+  - 🌐 INTERNET: Harus hijau! Kalau merah, robot tidak bisa baca sinyal.
+  - 📨 TELEGRAM: Kalau merah, artinya kunci API Anda salah atau belum diisi.
+  - 📊 MT5: Kalau merah, robot tidak bisa masuk ke akun trading Anda.
+• Meteran Rugi (Drawdown): Seperti bensin mobil. Kalau jarumnya penuh ke kanan, robot akan berhenti otomatis supaya uang Anda tidak habis dalam sehari. Ini fitur pengaman paling penting!
+• Saldo Terbakar (Total P/L): Angka ini menunjukkan total keuntungan atau kerugian Anda sejak pertama kali pakai robot ini.
+• ☁️ ITC Cloud: Tombol sakti untuk mantau trading lewat HP. Klik "WEB MONITOR" dan Anda bisa lihat robot kerja sambil rebahan.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🛰️ SIGNAL HUB - MARKETPLACE SINYAL (BARU!)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Bingung cari sinyal yang bagus? Pakai Signal Hub!
+• Marketplace Terverifikasi: Kami kumpulkan channel-channel telegram terbaik dunia di sini.
+• Akurasi AI: Robot kami memantau channel-channel itu dan kasih skor akurasi. Pilih yang skornya tinggi (di atas 85%) buat hasil maksimal.
+• Featured Channels: Channel dengan bintang emas adalah rekan resmi kami yang sudah teruji konsistensinya.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🤖 ASISTEN PINTAR (PRO EDITION)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Anda punya asisten pribadi 24 jam!
+• Tanya Market: "Gimana kondisi Gold hari ini?" atau "Pair apa yang bagus buat trading malam ini?". AI akan analisa untuk Anda.
+• Panduan Alat: Bingung cara pakai fitur? Tanya saja, "Cara ganti lot gimana?".
+• Data Awareness: AI ini pintar, dia tahu saldo Anda berapa dan dia bisa kasih saran: "Saldo Anda $100, sebaiknya pakai lot 0.01 saja ya biar aman."
+• Status Pro: Member PRO bisa tanya sepuasnya tanpa batas dan pakai otak AI yang paling cerdas (GPT-4/Gemini Ultra).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💎 SPC HUB BRIDGE - BISNIS SINYAL (VIP ONLY)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Ini adalah fitur untuk Anda yang mau jadi BOS Sinyal!
+• Relay Mode: Anda langganan grup VIP luar negeri, lalu ITC ambil sinyalnya dan kirim otomatis ke grup Telegram ANDA sendiri. Whitelabel 100%!
+• Broadcast Mode: Anda trading sendiri di MT5, dan BOOM! ITC otomatis buatkan pesan sinyal cantik di grup Telegram Anda.
+• Preset Premium: Anda tidak perlu jago desain. Pilih dari 10 preset keren agar channel Anda terlihat sangat profesional.
+• Watermark: Setiap sinyal akan ada tulisan "Powered by ITC +AI" di bawahnya, bikin channel Anda makin dipercaya member.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🛡️ ATURAN RISIKO (KEAMANAN DANA)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Ukuran Lot: Angka kecil (0.01) artinya risiko rendah. Angka besar artinya risiko tinggi. Mulai dari yang kecil dulu ya!
+• Proteksi Harian: Masukkan angka persen (misal 3%). Kalau hari ini rugi 3%, robot akan 'tidur' otomatis untuk menyelamatkan sisa uang Anda.
+• Jam Kerja: Anda tidak mau robot kerja saat berita High Impact? Atur jamnya di sini. Misalnya cuma kerja jam 14:00 sampai 22:00.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🧠 ITC ACADEMY & LEADERBOARD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Sekolah Trading: Mainkan kuis tiap hari. Makin sering main, makin paham cara trading yang benar.
+• Papan Peringkat: Adu jago dengan trader seluruh dunia! Lihat siapa yang profit paling banyak atau siapa yang paling konsisten (Health Score).
+• Marketplace Preset: Hasil desain pesan Anda bisa dipajang di sini. Jika ada user lain yang suka, ini bisa jadi penghasilan tambahan untuk Anda!
+""",
+        "tut_content": """
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 PERSIAPAN DASAR (WAJIB DIBACA AWAM)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Dunia trading otomatis sangat seru, tapi butuh persiapan yang teliti. Sebelum menekan tombol mulai, pastikan Anda sudah menyiapkan 'senjata-senjata' berikut ini:
+1. 💻 Laptop/PC Windows: Robot ini butuh Windows. Pastikan laptop jangan dimatikan atau masuk ke mode "Sleep" saat robot sedang bekerja. (Tip: Pakai VPS di menu ITC Cloud jika ingin robot kerja 24 jam nonstop).
+2. 🌐 Internet Stabil: Sinyal trading sangat cepat. Gunakan koneksi kabel atau WiFi yang stabil, bukan tethering HP yang sering hilang sinyal.
+3. 📉 Akun Trading MT5: Anda butuh akun dari Broker (Tempat Anda simpan uang trading).
+4. 🤖 Bot Telegram: Anda butuh membuat satu bot di Telegram lewat @BotFather untuk fitur-fitur canggih seperti Bridge.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📥 LANGKAH 1: KONEKSI MT5 KE APLIKASI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Agar robot bisa membantu Anda, dia harus bisa 'mengontrol' aplikasi MT5 Anda.
+1. Buka aplikasi MetaTrader 5 (MT5) Anda di Laptop.
+2. Login ke akun trading Anda (Klik menu File -> Login to Trade Account).
+3. Pastikan di pojok kanan bawah MT5 ada angka-angka berjalan (Warna Hijau). Jika merah, artinya Anda salah password.
+4. Di aplikasi ITC, buka menu "AKUN MT5" di samping kiri.
+5. Masukkan Nomor Login, Password, dan Nama Server PERSIS seperti yang Anda pakai di MT5 tadi.
+6. Klik tombol "UJI LOGIN". Kalau muncul bulatan HIJAU, artinya jembatan pertama sudah terbangun!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔐 LANGKAH 2: IJINKAN ROBOT BEKERJA (KRUSIAL!)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TUNGGU! Meskipun sudah tersambung, MT5 biasanya melarang robot luar untuk menyentuh uang Anda. Berikan ijin resminya di sini:
+1. Di bagian atas layar MT5, cari tombol kotak bertuliskan "Algo Trading". Klik tombol itu sampai warnanya jadi HIJAU.
+2. Klik menu "Tools" paling atas, lalu pilih "Options".
+3. Buka tab (tombol kecil) bertuliskan "Expert Advisors".
+4. Centang semua kotak yang ada di sana, tapi yang paling wajib adalah:
+   ☑ Allow algorithmic trading
+   ☑ Allow DLL imports (Ini jembatan ITC ke MT5).
+5. Klik tombol OK. Sekarang robot resmi boleh bekerja untuk Anda!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📨 LANGKAH 3: SETTING TELEGRAM (AMBIL KUNCI API)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Robot ITC membaca sinyal dari Telegram melalui jalur khusus (API). Ikuti langkah ini pelan-pelan agar tidak error:
+1. Buka website https://my.telegram.org di Google Chrome browser Anda.
+2. Masukkan nomor HP Telegram Anda (Lengkap dengan kode +62).
+3. Masukkan kode rahasia yang dikirim ke aplikasi Telegram Anda.
+4. Klik "API Development Tools". Anda akan melihat Form "Create new application".
+5. Isi Form seperti panduan rahasia ini:
+   - App title: Isi bebas (Min. 5-32 karakter, misal: ITC Enterprise Pro)
+   - Short name: Isi singkatan bebas (Misal: itcadm)
+   - URL: Kosongkan saja.
+   - Platform: PILIH "Desktop" atau "Other".
+   - Description: Kosongkan saja.
+6. Klik "Create application".
+7. Anda akan dapat API ID (Angka) dan API HASH (Kode rahasia). SIMPAN KE NOTEPAD!
+8. Masukkan kedua kode tersebut ke menu "Telegram" di aplikasi ITC.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔎 LANGKAH 4: MENGAMBIL ID CHANNEL SINYAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Robot harus tahu di channel mana dia harus menunggu sinyal.
+1. Pilih channel sinyal yang ingin Anda ikuti (Copier).
+2. Teruskan (Forward) salah satu pesan dari channel itu ke bot Telegram bernama @userinfobot.
+3. Dia akan membalas dengan deretan angka ID yang diawali tanda minus -100 (Misal: -1001234567890).
+4. Masukkan angka ID itu ke kotak "Channel ID" di menu Telegram ITC.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💎 LANGKAH 5: JADI SIGNAL PROVIDER (FITUR VIP)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Bagi Anda pemegang akses VIP, Anda bisa membangun bisnis sinyal Anda sendiri!
+1. Buka menu "SPC Hub Bridge 💎".
+2. Masukkan Bot Token Anda (Bisa dibuat lewat @BotFather di Telegram).
+3. Masukkan ID Channel ANDA sendiri (Tempat Anda akan berbagi sinyal).
+4. Pilih Mode Hebat Anda:
+   - "RELAY MODE": ITC mengambil sinyal dari grup orang lain secara rahasia dan mengirimnya ke grup Anda sendiri dengan desain sinyal Anda sendiri (Whitelabel).
+   - "BROADCAST MODE": Setiap kali Anda klik BUY atau SELL di terminal MT5 Anda, ITC otomatis membuatkan pesan sinyal profesional yang sangat cantik ke grup Anda dalam sekejap mata!
+5. Pilih Preset: Pilih gaya tampilan pesan (Desain) yang Anda suka agar channel Anda terlihat sangat mahal dan berkelas Enterprise.
+6. Klik "MULAI BRIDGE". Sekarang Anda resmi jadi Bos Sinyal!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🚀 LANGKAH 6: MULAI TRADING OTOMATIS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sekarang saatnya melihat keajaiban bekerja!
+1. Pergi ke menu Dashboard (Halaman Depan).
+2. Lihat ke bawah tombol mulai. Pastikan lampu Internet, Telegram, dan MT5 sudah HIJAU.
+3. Klik tombol besar "MULAI COPIER".
+4. Duduklah santai. Setiap ada sinyal masuk, robot akan lapor di daftar "Log Sistem" atau Anda bisa pantau lewat HP lewat "Web Monitor".
+
+💡 TIPS PRO:
+Jangan pernah lupakan Manajemen Risiko di menu samping! Atur Lot Anda agar tidak terlalu besar di awal. Selamat mencetak profit, Trader Legend!
+"""
+    },
+    "EN": {
+        "app_title": "ITC +AI ENTERPRISE - Telegram MT5 Copier",
+        "menu_dashboard": "Dashboard",
+        "menu_leaderboard": "Leaderboard",
+        "menu_education": "ITC Academy",
+        "menu_analysis": "AI Analysis",
+        "menu_telegram": "Telegram Config",
+        "menu_mt5": "MT5 Account",
+        "menu_trading": "Trading Rules",
+        "menu_risk": "Risk Management",
+        "menu_ai": "AI Assistant",
+        "menu_signals": "Marketplace",
+        "menu_spc": "SPC Bridge",
+        "menu_logs": "System Logs",
+        "menu_settings": "Settings",
+        "menu_journal": "System Journal",
+        
+        "dash_start": "START COPIER",
+        "dash_stop": "STOP COPIER",
+        "dash_cloud": "WEB MONITOR",
+        "dash_emergency": "EMERGENCY CLS",
+        "dash_logs": "SYSTEM LOGS",
+        "dash_export": "EXPORT LOGS",
+        "dash_clear": "CLEAR LOGS",
+        
+        "eula_title": "USER AGREEMENT & LICENSE",
+        "eula_header": "⚖️ LEGAL AGREEMENT",
+        "eula_checkbox": "I have read and consciously agreed to the entire End User License Agreement (EULA)\nand Risk Disclaimer above.",
+        "eula_accept": "ACCEPT & PROCEED",
+        
+        "auth_title": "ITC +AI - USER AUTHENTICATION",
+        "auth_header_login": "Welcome Back",
+        "auth_header_signup": "Create New Account",
+        "auth_desc_login": "Sign in to sync your data to the Cloud.",
+        "auth_desc_signup": "Join the future of algorithmic trading.",
+        "auth_email": "Email Address:",
+        "auth_pass": "Password:",
+        "auth_user": "Username:",
+        "auth_login": "LOGIN NOW",
+        "auth_signup": "SIGN UP NOW",
+        "auth_switch_signup": "Don't have an account? Sign Up",
+        "auth_switch_login": "Already have an account? Login",
+        "auth_verifying": "Verifying...",
+        "auth_success_signup": "Account created! Please CHECK YOUR EMAIL (Inbox/Spam) to verify before logging in.",
+        "auth_check_email_title": "Check Your Email",
+        "auth_error_rate": "Too many attempts. Please wait 15-60 minutes.",
+        "auth_error_exists": "Email already registered. Please Login.",
+        "auth_error_short_pass": "Password too short (Min. 6 characters).",
+        "auth_error_invalid_email": "Invalid email format.",
+        
+        "dash_greet_morning": "Good Morning",
+        "dash_greet_afternoon": "Good Afternoon",
+        "dash_greet_evening": "Good Evening",
+        "dash_greet_night": "Good Night",
+        "dash_greet_user": "👋 {greet}, Mr/Mrs {user}!",
+        "dash_ai_care": "🤖 AI CARE ASSISTANT",
+        "dash_ai_msg1": "Have you eaten, {user}? Don't forget to rest!",
+        "dash_ai_msg2": "Hello {user}, how is trading today? Stay calm!",
+        "dash_ai_msg3": "Keep it up {user}! Ensure risk management is tight.",
+        "dash_ai_msg4": "Hi {user}, remember to drink water while monitoring.",
+        "dash_ai_msg5": "Dynamic market, {user}. Ready to profit today?",
+        "dash_ai_yes": "Yes, I have",
+        "dash_ai_no": "Not yet",
+        "dash_ai_happy": "AI: Good to hear!",
+        "dash_ai_remind": "AI: Better do it soon!",
+        "dash_daily_meter": "DAILY LOSS METER",
+        "dash_system_ready": "System ready. Configure and start.",
+        
+        "guide_title": "QUICK GUIDE & STATUS",
+        "guide_step1": "1. TELEGRAM CONNECT",
+        "guide_step2": "2. MT5 ACCOUNT",
+        "guide_step3": "3. EXECUTION MODE",
+        "guide_step4": "4. COPIER STATUS",
+        
+        "status_checking": "Checking...",
+        "status_online": "Online",
+        "status_offline": "Offline",
+        "status_connected": "Connected",
+        "status_disconnected": "Disconnected",
+        "status_not_logged": "Not Logged In",
+        "status_ready": "Ready",
+        "status_not_config": "Not Configured",
+        "status_stopped": "Stopped",
+        "status_login_failed": "Login Failed",
+        "status_running": "RUNNING...",
+        
+        "settings_lang": "Select Language:",
+        "settings_privacy": "Privacy & Cloud Settings",
+        "settings_hints": "Show UI Tooltips/Hints",
+        "settings_save": "SAVE CONFIGURATION",
+        "settings_logout": "LOGOUT ACCOUNT",
+        "settings_pro_info": "💡 Info: Data required for Pro Access verification (>500k).",
+        "settings_about": "ℹ️ About ITC",
+        "settings_support": "☕ SUPPORT DEVELOPER",
+        "settings_pub_profit": "Publish Profit to Leaderboard",
+        "settings_pub_edu": "Publish Knowledge Score to Leaderboard",
+        "settings_initials": "Display as Initials Only (e.g. JD***)",
+        "profile_header": "👤 User Profile (Required for Pro Donors)",
+        "profile_name": "Full Name:",
+        "profile_email": "Email Address:",
+        "profile_phone": "Phone/WhatsApp (Active):",
+        
+        "tg_title": "📨 TELEGRAM CONFIG",
+        "tg_get_api": "Get API from https://my.telegram.org",
+        "tg_test": "🔗 TEST CONNECTION",
+        "mt5_title": "📈 MT5 ACCOUNT",
+        "mt5_show_pass": "Show Password",
+        "mt5_test": "🔗 TEST LOGIN",
+        "trade_title": "📋 TRADING RULES",
+        "trade_pos_control": "Position Control",
+        "trade_sym_settings": "Symbol Settings",
+        "trade_auto_exec": "Enable Auto Execution (Auto Trading)",
+        "trade_suffix_tip": "Tip: Suffix is at the end of the symbol name\nEg: XAUUSD.m or EURUSD.i",
+        "risk_title": "🛡️ RISK MANAGEMENT",
+        "risk_protection": "⚠️ Daily Loss Protection",
+        "risk_loss_desc": "Trading stops if loss exceeds this limit",
+        "risk_time": "⏰ Time Filter",
+        "risk_time_desc": "Trade only during specific hours (0-24)",
+        
+        "ai_title": "🤖 AI PARSING ENGINE",
+        "ai_fallback": "Enable AI Fallback (Smart Signal Parsing)",
+        "ai_provider": "AI Provider:",
+        "ai_key": "API Key:",
+        "ai_key_placeholder": "Optional: Use personal key if ITC quota is out",
+        "ai_tips": "💡 Tips: Use personal key as a high-speed backup.",
+        "ai_chat_title": "💬 AI ASSISTANT",
+        "ai_chat_intro": "🤖 Hello! I am your AI Assistant. Ask me anything!",
+        "ai_chat_placeholder": "Type a message...",
+        "ai_chat_send": "Send 🚀",
+        "ai_locked_title": "🔒 FEATURE LOCKED",
+        "ai_locked_desc": "Donate > 500k to unlock Chat Assistant\n& Priority Support.",
+        "ai_upgrade": "💎 UPGRADE TO PRO",
+        
+        "analysis_title": "📊 SIGNAL ANALYSIS",
+        "analysis_empty": "No signal detected yet.\nChart will appear here when found.",
+        "analysis_verdict": "VERDICT",
+        "analysis_waiting": "WAITING...",
+        "analysis_analyzing": "ANALYZING...",
+        "analysis_acc": "AI ACCURACY",
+        "analysis_reason": "🤖 AI REASONING",
+        "analysis_reason_empty": "AI will provide detailed technical analysis here.",
+        "analysis_execute": "🚀 EXECUTE TRADE",
+        "analysis_skip": "⏩ SKIP SIGNAL",
+        "analysis_manual_approval": "🚀 Manual Approval: Executing {type} {symbol}",
+        "analysis_debug_test": "DEBUG: TEST ANALYSIS (XAUUSD BUY)",
+        
+        "sig_title": "🛍️ Gravity Marketplace",
+        "sig_subtitle": "Purchase Verified Presets & Connect to Telegram Signals.",
+        "sig_verified": "VERIFIED",
+        "sig_featured": "FEATURED",
+        "sig_accuracy": "AI Accuracy",
+        "sig_subs": "Subscribers",
+        "sig_connect": "CONNECT TO MT5 🚀",
+        "sig_partnership": "Own a Channel? Contact Admin",
+        
+        "spc_title": "💎 SPC Hub Bridge (VIP)",
+        "spc_desc": "Relay signals to your own channel with custom branding.",
+        "spc_bot_token": "Provider Telegram Bot Token",
+        "spc_chat_id": "Target Chat ID (Channel/Group)",
+        "spc_mode": "Select Operational Mode",
+        "spc_mode_relay": "Relay from Telegram Source",
+        "spc_mode_mt5": "Broadcast from my MT5",
+        "spc_watermark": "Enable ITC Watermark",
+        "spc_template": "Select Message Preset",
+        "spc_preview": "Message Preview",
+        "spc_start": "START BRIDGE 🚀",
+        "spc_stop": "STOP BRIDGE 🛑",
+        "spc_vip_lock": "💎 This feature is only available for VIP members (Signal Providers).",
+        "spc_custom_btn": "CREATE CUSTOM PRESET 🎨",
+        "spc_watermark_text": "\n\n<i>Powered by ITC +AI Enterprise</i>",
+        
+        "leader_title": "🏆 Global Leaderboard",
+        "leader_monthly": "📅 Best Monthly Profit",
+        "leader_daily": "💰 Best Profit Today",
+        "leader_edu": "🧠 Knowledge Score",
+        "leader_refresh": "🔄 REFRESH RANKING",
+        "leader_accuracy": "🎯 The Sniper (Accuracy)",
+        "leader_consistency": "👑 The Consistency King",
+        "leader_best_broker": "🏦 Recommended Brokers (MT5)",
+        "leader_join_msg": "JOIN / REGISTER 🚀",
+        "leader_privacy_hint": "💡 Initials are used for privacy protection.",
+        
+        "edu_title": "📚 ITC Academy",
+        "edu_intro": "Test your trading knowledge today.\nGet the highest score to join the Leaderboard!",
+        "edu_start": "START DAILY QUIZ (10 Questions)",
+        "edu_done": "QUIZ FINISHED!",
+        "edu_score": "Your Score: {score}/{total}",
+        "edu_back": "BACK",
+        "edu_question": "Question {current}/{total}",
+        "edu_ans_right": "Correct!",
+        "edu_ans_right_msg": "Your answer is correct!",
+        "edu_ans_wrong": "Wrong",
+        "edu_ans_wrong_msg": "The correct answer is:\n{ans}",
+
+        "popup_save_success": "Configuration saved and synced successfully!",
+        "popup_restart_title": "Restart Required",
+        "popup_restart_msg": "Language changed. Please restart the application to apply changes fully.",
+        "popup_logout_title": "Confirm Logout",
+        "popup_logout_msg": "Are you sure you want to log out of this session?",
+        "popup_logout_yes": "Yes, Logout",
+        "popup_logout_no": "Cancel",
+        "popup_quota_title": "⚠️ AI Quota Exhausted",
+        "popup_quota_msg": "The main {provider} quota is out for today.\n\nPlease enter your personal key in Settings.",
+        "popup_quota_btn1": "Open Settings",
+        "popup_quota_btn2": "Later",
+        "popup_admin_msg": "New Message ({date}):\n\n{content}",
+        "popup_admin_paham": "Understood",
+        "popup_donasi_title": "Upgrade to Pro (Enterprise)",
+        "popup_donasi_msg": "💎 PRO DONATION BENEFITS (>500K):\n1. Custom features on request.\n2. 1-on-1 Priority Support.\n3. Beta access to latest AI models.\n\n⚠️ REQUIREMENT: Complete Profile in Settings.",
+        "popup_donasi_btn1": "Pay Now",
+        "popup_donasi_btn2": "Later",
+        "popup_update_title": "🚀 Update Found!",
+        "popup_update_msg": "New Version Available: v{version}\n\nWhat's new?\n{changelog}",
+        "popup_update_btn1": "Download Now",
+        "popup_update_btn2": "Later",
+
+        "admin_title": "👑 DEVELOPER ADMIN PANEL",
+        "admin_refresh": "🔄 REFRESH STATS",
+        "admin_users": "Active Users: {count}",
+        "admin_trades": "Global Trades: {count}",
+        "admin_report_title": "👤 GLOBAL USER ACTIVITY REPORT (HWID ISOLATION)",
+        "admin_memo_title": "💡 ADMIN MEMO & SOP",
+        "admin_memo_text": "• Verify Donor: Check Activity.\n• Upgrade Pro: In Supabase set is_pro=TRUE.\n• Broadcast: Use the panel below.",
+        "admin_broadcast_title": "✉️ BROADCAST MESSAGE TO ALL USERS",
+        "admin_broadcast_placeholder": "Type announcement message...",
+        "admin_broadcast_send": "🚀 SEND ANNOUNCEMENT",
+        "admin_broadcast_success": "Message sent successfully!",
+        "admin_broadcast_error": "Failed to send message.",
+
+        "tip_dashboard": "Connection status and quick controls.",
+        "tip_leaderboard": "Global profit and knowledge ranking.",
+        "tip_education": "Test trading knowledge at ITC Academy.",
+        "tip_analysis": "Advanced Market analysis via AI.",
+        "tip_telegram": "Telegram API and Channel config.",
+        "tip_mt5": "Connect your MT5 account.",
+        "tip_trading": "Risk, Lot, and Magic Number rules.",
+        "tip_risk": "Daily loss limits and hours.",
+        "tip_ai": "AI Fallback & Chat Assistant settings.",
+        "tip_signals": "Verified & audited signal marketplace.",
+        "tip_logs": "Activity history and execution logs.",
+        "tip_spc": "Automated signal relay to your channel (VIP).",
+        "tip_settings": "Profile, privasi, and preferences.",
+        "tip_admin": "Admin-only control panel.",
+        
+        "vps_title": "☁️ ITC Cloud Hosting (Recommended)",
+        "vps_desc": "Trade 24/7 without keeping your PC on. Choose the best low-latency VPS.",
+        "vps_get_btn": "GET VPS NOW 🚀",
+
+        "hint_start": "Start monitoring Telegram signals.",
+        "hint_cloud": "Open Monitoring Dashboard in Browser.",
+        "hint_emergency": "Close ALL open positions instantly.",
+        "hint_export": "Save session logs to file.",
+        "hint_clear": "Clear log display.",
+        "hint_tg_id": "Enter API ID from my.telegram.org",
+        "hint_tg_hash": "Enter your unique API Hash",
+        "hint_tg_chan": "Channel IDs (start with -100), comma separated.",
+        "hint_mt5_login": "Your MT5 trading account number.",
+        "hint_mt5_pass": "Your MT5 trading/master password.",
+        "hint_mt5_server": "Your broker server name.",
+        "hint_mt5_test": "Test MT5 login connection.",
+        "hint_risk_pct": "Risk ratio per trade (e.g. 1.0 = 1%).",
+        "hint_risk_lot": "Fixed lot size if not using Risk %.",
+        "hint_risk_magic": "Unique ID for all ITC positions.",
+        "hint_risk_suffix": "Symbol suffix (e.g. .m).",
+        "hint_risk_limit": "Daily maximum loss limit (%).",
+        "hint_ai_send": "Send question to AI Assistant.",
+        "hint_pro_chat": "Send question to AI Assistant (Ensure Pro for instant response).",
+        
+        "tut_title": "📚 FULL TUTORIAL - ITC +AI",
+        "tut_header": "📚 COMPLETE GUIDE FROM ZERO",
+        "tut_sub": "Follow every step CAREFULLY. Do not skip!",
+        "tut_btn_close": "CLOSE",
+        "tut_btn_donasi": "☕ SUPPORT DEVELOPER",
+        "tut_tab_setup": "Setup Guide",
+        "tut_tab_features": "Feature Mastery",
+        "tut_features": """
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📈 MAIN DASHBOARD - COMMAND CENTER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Welcome to your Enterprise command center. This is where you monitor the pulse of your trading operations.
+• START/STOP Button: The master switch for your algorithmic operations. "START" activates the Telegram monitoring engine.
+• Status Indicators:
+  - 🌐 INTERNET: Must be Green. If Red, communication with brokers and Telegram is severed.
+  - 📨 TELEGRAM: If Red, verify your API ID and Hash in the config tab.
+  - 📊 MT5: If Red, the bridge to your trading terminal is inactive.
+• Loss Protection (Daily Drawdown): Our proprietary fail-safe. If the meter hits the limit, ITC terminates all activities for the day to preserve your capital.
+• Cloud Sync: Access the "WEB MONITOR" to track performance from any mobile device in real-time.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🛰️ SIGNAL HUB - VERIFIED MARKETPLACE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Never trade alone. Connect to institutional-grade signals through our marketplace.
+• Verified Listing: We audit every channel before they appear here.
+• AI Scrutiny: Our neural engine analyzes historical channel accuracy to provide you with a success probability score.
+• One-Click Connection: Join channels directly and sync their IDs to your copier in seconds.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🤖 AI ASSISTANT (PRO EDITION)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+You have an elite quantitative analyst at your side 24/7.
+• Market Intelligence: Ask "What's the current sentiment for Gold?" or "Analyze the trend for EURUSD".
+• Operational Support: Ask for help with specifics: "How do I optimize my lot size for a $500 balance?".
+• Seamless Integration: The AI is aware of your live balance, equity, and performance metrics, providing context-aware guidance.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💎 SPC HUB BRIDGE - BUSINESS ENGINE (VIP)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Launch and scale your own professional signal service with VIP tools.
+• Whitelabel Relay: Mirror signals from elite sources to your private channel with custom branding.
+• MT5 Broadcaster: Broadcast your own trades from the terminal directly to your Telegram subscribers with enterprise-grade formatting.
+• High-End Presets: Choose from 10 signature designs to give your channel a premium, established look.
+• Enterprise Watermark: Every broadcast includes a "Powered by ITC +AI" signature, elevating your brand trust.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🛡️ RISK ARCHITECTURE & RULES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Risk Management: Deploy fixed lot sizes or dynamic percentage-based risk per trade.
+• Daily Fail-Safe: Define your maximum pain threshold (e.g., 5% loss). Once hit, the system locks out for the day.
+• Operational Hours: Restrict trading to peak liquidity sessions (e.g., London or New York sessions) to avoid erratic price movements.
+• Health Score & Ranking: Monitor your 'Health Score' (0-100) in the Leaderboard. High consistency and low drawdown elevate your 'Sniper' rank globally.
+""",
+        "tut_content": """
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 INITIAL PREPARATION (ENTERPRISE READINESS)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Trading automation requires precision. Before activation, ensure your environment meets these standards:
+1. 💻 Windows Environment: This system is optimized for Windows Architecture. Ensure your device is set to "Never Sleep" while the copier is active. (Pro Tip: Use an ITC Cloud VPS for 100% uptime).
+2. 🌐 Connection Integrity: High-frequency signal analysis requires low-latency internet. Fiber optic or stable Wi-Fi is mandatory.
+3. 📉 MetaTrader 5 Terminal: An active trading account with an authorized broker is required.
+4. 🤖 Telegram Infrastructure: Create a dedicated Telegram Bot via @BotFather to enable advanced features like the SPC Bridge.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📥 STEP 1: MT5 INTEGRATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Launch your MetaTrader 5 terminal on your workstation.
+2. Authenticate your trading account (File -> Login to Trade Account).
+3. Verify status in the bottom right corner (Green/Blue indicators).
+4. In the ITC App, navigate to the "MT5 ACCOUNT" tab.
+5. Enter your Account ID, Password, and Server Name exactly as provided by your broker.
+6. Click "TEST LOGIN". A GREEN indicator confirms a successful link!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔐 STEP 2: AUTHORIZING ALGORITHMIC PERMISSIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+By default, MT5 restricts external control. You must manually unlock algorithmic access:
+1. Locate the "Algo Trading" button in the MT5 top toolbar. Ensure it is toggled to GREEN.
+2. Navigate to Tools -> Options -> Expert Advisors.
+3. Enable all checkboxes, specifically:
+   ☑ Allow algorithmic trading
+   ☑ Allow DLL imports (Essential for the ITC Bridge).
+4. Click OK. Your workstation is now ready for intelligent automation.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📨 STEP 3: TELEGRAM API CONNECTIVITY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ITC communicates with Telegram via the official API layer.
+1. Authenticate at https://my.telegram.org.
+2. Navigate to "API Development Tools" and create a new application instance.
+3. Copy your unique API ID and API HASH.
+4. Paste these credentials into the "Telegram Config" tab in ITC.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔎 STEP 4: SIGNAL SOURCE CONFIGURATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Direct the system to your preferred signal intelligence source:
+1. Select the Telegram channel you wish to automate.
+2. Forward any message from that channel to the @userinfobot Telegram bot.
+3. Capture the unique Channel ID (formatted with a -100 prefix).
+4. Enter this ID into the "Channel IDs" field in ITC's Telegram config.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💎 STEP 5: SIGNAL PROVIDER OPERATIONS (VIP)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VIP members can leverage ITC to build their own professional signal enterprise.
+1. Open the "SPC Hub Bridge 💎" interface.
+2. Input your custom Bot Token (from @BotFather).
+3. Define your target "Broadcasting Channel ID" (where your signals will be sent).
+4. Select your Operation Mode:
+   - "RELAY MODE": Stealthily mirror signals from premium sources to your own channel with 100% custom branding.
+   - "BROADCAST MODE": Instantly transform your manual MT5 executions into beautifully formatted Telegram signals for your subscribers.
+5. Select a Premium Preset: Apply high-end visual designs to ensure your channel looks institutional.
+6. Click "START BRIDGE". You are now officially a Signal Provider.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🚀 STEP 6: ACTIVATING THE MONITORING ENGINE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Return to the Main Dashboard.
+2. Confirm all status lamps (Internet, Telegram, MT5) are GREEN.
+3. Click the "START COPIER" button.
+4. Monitor live operations via the "System Logs" or remotely via the mobile "Web Monitor".
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🧠 ELITE DAILY ROUTINE (PEAK PERFORMANCE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. **Academy Mastery**: Start your day with the "ITC Academy" quiz. Answering 10 questions correctly sharpens your market awareness and grants +3 AI Chat rewards.
+2. **Social Intelligence**: Audit the Global Leaderboard. Identify "The Sniper" for highly accurate signal sources and "Consistency Kings" for risk management inspiration.
+3. **AI Debrief**: Before market close, consult the AI Assistant with "Analyze my trading performance today". It will review your equity curves and provide risk-adjustment advice.
+4. **Connectivity Check**: Ensure no red indicators in "System Logs" to maintain 100% uptime.
+
+💡 PRO TIP: 
+Always use the "Emergency CLS" button if you need to exit all market exposure instantly during high-impact news.
+"""
+    }
+}
+
+class Translator:
+    def __init__(self, lang_code="ID"):
+        self.lang_code = lang_code if lang_code in LANGUAGES else "ID"
+        self.strings = LANGUAGES[self.lang_code]
+
+    def get(self, key):
+        return self.strings.get(key, f"[{key}]")
+
+    def set_language(self, lang_code):
+        if lang_code in LANGUAGES:
+            self.lang_code = lang_code
+            self.strings = LANGUAGES[self.lang_code]
+
+    def get_brokers(self):
+        """Returns localized top 5 brokers with descriptions and links"""
+        if self.lang_code == "ID":
+            return [
+                {"name": "HSB Investasi", "desc": "🛡️ Regulated Bappebti, WD Bank Lokal.", "url": "https://www.hsb.co.id/"},
+                {"name": "Exness ID", "desc": "⚡ Spread 0.0, WD Instan Lokal.", "url": "https://www.exness.com/"},
+                {"name": "XM Indonesia", "desc": "🎁 Bonus $30, Support Lokal 24/7.", "url": "https://www.xm.com/"},
+                {"name": "Finex", "desc": "🇮🇩 Broker Lokal, Komisi Terendah.", "url": "https://finex.co.id/"},
+                {"name": "OctaFX", "desc": "🏆 Populer, Minim Slip, FB Lokal.", "url": "https://www.octafx.com/"}
+            ]
+        else: # EN / International
+            return [
+                {"name": "IC Markets", "desc": "🤖 Best for Algos, ECN Spreads.", "url": "https://www.icmarkets.com/"},
+                {"name": "Exness Global", "desc": "🌍 Top Global MT5, High Leverage.", "url": "https://www.exness.com/"},
+                {"name": "Pepperstone", "desc": "⚖️ ASIC/FCA Regulated, Low Costs.", "url": "https://pepperstone.com/"},
+                {"name": "FP Markets", "desc": "📊 10,000+ Assets, DMA Execution.", "url": "https://www.fpmarkets.com/"},
+                {"name": "AvaTrade", "desc": "🎓 Best for Education & Fixed Spreads.", "url": "https://www.avatrade.com/"}
+            ]
+
+    def get_vps(self):
+        """Returns localized VPS recommendations with detailed reasoning (5 Hybrid Options)"""
+        # Mix of ID (Local) and Global for best coverage
+        return [
+            {
+                "name": "SocialVPS (Forex Special)",
+                "reason": "Indo: Latency terendah (<2ms) ke server broker Indonesia. Bayar pakai QRIS/OVO/BCA. Support WA 24 jam.",
+                "url": "https://client.socialvps.net/aff.php?aff=4871",
+                "is_affiliate": True
+            },
+            {
+                "name": "IdCloudHost",
+                "reason": "Indo: Infrastruktur Cloud lokal paling stabil. Bayar per jam (pay-as-you-go). Sangat cocok untuk robot 24/7.",
+                "url": "https://my.idcloudhost.com/aff.php?aff=19307",
+                "is_affiliate": True
+            },
+            {
+                "name": "NeoServer (Biznet)",
+                "reason": "Indo: Direct link ke Biznet Data Center. Pilihan alternatif solid untuk koneksi lokal.",
+                "url": "https://www.neoserver.id/",
+                "is_affiliate": False
+            },
+            {
+                "name": "Contabo (High Spec)",
+                "reason": "Global: Best price-to-spec ratio (Germany). RAM besar, cocok untuk menjalankan banyak MT5 sekaligus.",
+                "url": "https://contabo.com/",
+                "is_affiliate": False
+            },
+            {
+                "name": "Vultr High Frequency",
+                "reason": "Global: Ultra-low latency worldwide (SG/Tokyo/London). Deployment instan dalam detik.",
+                "url": "https://www.vultr.com/",
+                "is_affiliate": False
+            }
+        ]

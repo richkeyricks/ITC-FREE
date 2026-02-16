@@ -1,0 +1,45 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/download",
+      "destination": "/download.html"
+    },
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/pay",
+      "destination": "/snap-bridge.html"
+    },
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/webmonitor",
+      "destination": "/webview/dashboard.html"
+    },
+    {
+      "source": "/webview/secure",
+      "destination": "/webview/dashboard.html"
+    },
+    {
+      "source": "/payment/success",
+      "destination": "/payment_status.html?status=success"
+    },
+    {
+      "source": "/payment/error",
+      "destination": "/payment_status.html?status=error"
+    },
+    {
+      "source": "/payment/unfinish",
+      "destination": "/payment_status.html?status=unfinish"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

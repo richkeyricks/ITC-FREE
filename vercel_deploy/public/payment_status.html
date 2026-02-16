@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Result | Haineo AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000;
+            --text-main: #ffffff;
+            --text-muted: #888888;
+            --accent: #d4af37;
+            --accent-glow: rgba(212, 175, 55, 0.15);
+            --border: #1a1a1a;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-image: radial-gradient(circle at 50% 50%, #171d2e, #000 70%);
+        }
+
+        .glass {
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            padding: 60px;
+            border-radius: 32px;
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+        }
+
+        .glass::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 32px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .icon-box {
+            font-size: 64px;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 0 20px var(--accent-glow));
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #fff 40%, var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 14px;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .order-id {
+            font-family: monospace;
+            background: #111;
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: var(--accent);
+            font-size: 12px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="glass">
+        <div id="icon" class="icon-box"></div>
+        <h1 id="title"></h1>
+        <p id="message"></p>
+
+        <button onclick="window.close()" class="btn">
+            Return to Terminal
+        </button>
+
+        <div id="order-ref" class="order-id"></div>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const status = params.get('status');
+        const orderId = params.get('id');
+
+        const icon = document.getElementById('icon');
+        const title = document.getElementById('title');
+        const msg = document.getElementById('message');
+        const ref = document.getElementById('order-ref');
+
+        if (orderId) ref.innerText = 'Ref: ' + orderId;
+
+        if (status === 'success') {
+            icon.innerHTML = '✨';
+            title.innerText = 'Logic Confirmed';
+            msg.innerText = 'Authorization successful. Your institutional access has been provisioned. Please return to the desktop terminal.';
+        } else if (status === 'unfinish') {
+            icon.innerHTML = '🛡️';
+            title.innerText = 'Transaction Paused';
+            msg.innerText = 'Connection interrupted by user. No equity was captured. Your terminal remains in standby.';
+        } else {
+            icon.innerHTML = '⚠️';
+            title.innerText = 'Protocol Error';
+            msg.innerText = 'The transaction was rejected by the gateway. Ensure your payment source has sufficient liquidity and try again.';
+        }
+    </script>
+</body>
+
+</html>

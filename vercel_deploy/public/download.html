@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITC | Intelligence Verification</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
+
+        :root {
+            --bg-color: #050505;
+            --accent-gold: #d4af37;
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
+            --card-bg: rgba(20, 20, 20, 0.7);
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .background-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #050505 100%);
+            z-index: -1;
+        }
+
+        .neural-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(var(--accent-gold) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.05;
+            animation: pulse 4s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from {
+                opacity: 0.03;
+            }
+
+            to {
+                opacity: 0.08;
+            }
+        }
+
+        .verification-card {
+            max-width: 500px;
+            width: 90%;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 24px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-size: 14px;
+            letter-spacing: 4px;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+            background: linear-gradient(180deg, #fff 0%, #aaa 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--accent-gold);
+            border-radius: 100px;
+            color: var(--accent-gold);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            font-weight: 400;
+        }
+
+        strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .btn {
+            padding: 18px 32px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-gold);
+            color: #000;
+            box-shadow: 0 10px 20px -5px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -5px rgba(212, 175, 55, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .copyright {
+            margin-top: 60px;
+            font-size: 10px;
+            color: #444;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-effect">
+        <div class="neural-grid"></div>
+    </div>
+
+    <div class="verification-card">
+        <div class="logo">ITC COPYTRADE</div>
+        <div class="status-badge">Identity Verified</div>
+        <h1>Intelligence Secured</h1>
+        <p>Welcome to <strong>ITC - Intelligence Telegram Copytrade</strong>. Your account has been successfully
+            initialized. You are now authorized to proceed to the smart console.</p>
+
+        <div class="cta-container">
+            <a href="itc-app://login" class="btn btn-primary">Open ITC Application</a>
+            <a href="https://github.com/richkeyricks/ITC-FREE/releases/download/v4.9.5/ITC_PRO_AI_Trading_Assistant_v4.9.5.zip"
+                class="btn btn-secondary">Download Intelligence Suite v4.9.5</a>
+        </div>
+
+        <div class="copyright">
+            &copy; 2026 ITC COPYTRADE &bull; SINGULARITY DIVISION
+        </div>
+    </div>
+</body>
+
+</html>

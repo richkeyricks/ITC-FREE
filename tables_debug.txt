@@ -1,0 +1,70 @@
+res = self.client.table("user_profiles").select("subscription_tier, is_pro").eq("hwid", self.user_id).maybe_single().execute()
+self.client.table("user_profiles").upsert(data).execute()
+self.client.table("user_profiles").upsert({
+res = self.client.table("user_profiles").select("*").eq("hwid", self.user_id).execute()
+res = self.client.table("user_profiles").select("trading_config").eq("hwid", self.user_id).execute()
+ent = self.client.table("entitlements").select("valid_until").eq("email", email).maybe_single().execute()
+prof = self.client.table("user_profiles").select("name, publish_initials_only").eq("hwid", self.user_id).single().execute()
+count_res = self.client.table("user_presets").select("id", count="exact", head=True).eq("user_id", self.user_id).execute()
+res = self.client.table("user_presets").insert(payload).execute()
+res = self.client.table("user_presets").select("*").eq("user_id", self.user_id).order("created_at", desc=True).execute()
+res = self.client.table("user_presets").select("*").eq("is_public", True).order("rating", desc=True).execute()
+res = self.client.table("marketplace_orders").insert(clean_data).execute()
+res = self.client.table("marketplace_orders").select("status").eq("order_id", order_id).execute()
+self.client.table("trades").insert(data).execute()
+self.client.table("logs").insert({"user_id": self.user_id, "level": str(level), "message": str(message)}).execute()
+self.client.table("activity_logs").insert({"user_id": self.user_id, "action": str(action), "details": str(details)}).execute()
+self.client.table("user_profiles").upsert(data).execute()
+self.client.table("user_profiles").upsert(fallback_data).execute()
+self.client.table("sent_signals").insert(entry_data).execute()
+res = self.client.table("sent_signals") \
+res = self.client.table("donations") \
+res = self.client.table("app_secrets") \
+res = self.client.table("app_secrets").select("key_name, key_value").execute()
+res = self.client.table("user_profiles").select("*").eq("hwid", target_hwid).maybe_single().execute()
+self.client.table("user_profiles").update({"admin_notes": notes}).eq("hwid", target_hwid).execute()
+self.client.table("user_profiles").update({"user_tags": tags}).eq("hwid", target_hwid).execute()
+res = self.client.table("user_profiles").select("balance").eq("hwid", self.user_id).maybe_single().execute()
+self.client.table("admin_broadcasts").insert({"content": content}).execute()
+self.client.table("messages").insert(data).execute()
+res = self.client.table("ai_usage_daily").select("request_count").eq("user_id", self.user_id).eq("usage_date", today).execute()
+res = self.client.table("user_profiles").select("subscription_tier, ai_limit_override").eq("hwid", self.user_id).execute()
+res = self.client.table("trades").select("id", count="exact", head=True) \
+res = self.client.table("user_profiles") \
+self.client.table("user_profiles").update({"is_pro": status}).eq("hwid", target_hwid).execute()
+res = self.client.table("messages") \
+res = self.client.table("messages") \
+self.client.table("messages").update({"is_read": True}).eq("id", msg_id).execute()
+self.client.table("messages").insert({
+self.client.table("messages").insert({
+res = self.client.table("messages") \
+self.client.table("quiz_scores").insert({
+res = self.client.table("leaderboard_profit").select("*").execute()
+res = self.client.table("leaderboard_accuracy").select("*").execute()
+res = self.client.table("leaderboard_consistency").select("*").execute()
+res = self.client.table("leaderboard_knowledge").select("*").execute()
+query = self.client.table("verified_channels").select("*")
+res = self.client.table("affiliate_codes").insert(payload).execute()
+c_res = self.client.table("affiliate_codes").select("*").eq("user_id", self.user_id).maybe_single().execute()
+r_res = self.client.table("affiliate_referrals").select("id", count="exact", head=True).eq("referrer_id", self.user_id).execute()
+comm_res = self.client.table("affiliate_commissions").select("amount_commission").eq("referrer_id", self.user_id).execute()
+res = self.client.table("user_profiles").select("is_vip").eq("hwid", self.user_id).execute()
+query = self.client.table("signal_presets").select("*")
+res = self.client.table("signal_presets").insert(data).execute()
+res = self.client.table("leaderboard_consistency").select("*").execute()
+res = self.client.table("leaderboard_accuracy").select("*").execute()
+res = self.client.table("leaderboard_consistency").select("*").execute()
+res = self.client.table("leaderboard_knowledge").select("*").execute()
+q = self.client.table("signal_presets").select("*")
+res = self.client.table("trades").select("id", count="exact").eq("user_id", self.user_id).gte("timestamp", today_start).execute()
+res = self.client.table("user_channels").select("id", count="exact").eq("user_id", self.user_id).eq("is_active", True).execute()
+self.client.table("user_profiles").update(payload).eq("hwid", target_hwid).execute()
+res = self.client.table("app_metadata").select("version").eq("key", "ITC_ENTERPRISE").single().execute()
+res = self.client.table("app_metadata").select("*").eq("key", "ITC_ENTERPRISE").single().execute()
+res = self.client.table("donations").select("*").order("created_at", desc=True).limit(50).execute()
+res = self.client.table("donations").select("amount").eq("user_id", self.user_id).execute()
+prof = self.client.table("user_profiles").select("total_donated").eq("hwid", self.user_id).maybe_single().execute()
+res = self.client.table("roadmap_items").select("*").order("votes", desc=True).execute()
+check = self.client.table("roadmap_votes").select("id").eq("user_id", self.user_id).eq("item_id", item_id).execute()
+self.client.table("roadmap_votes").insert({"user_id": self.user_id, "item_id": item_id}).execute()
+self.client.table("roadmap_items").insert({

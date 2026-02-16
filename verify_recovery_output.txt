@@ -1,0 +1,21 @@
+// Supabase: Session lost, using fallback ID: 55b7f9ce-55e3-4822-8efe-a34822f394d2
+// Supabase: Session lost, using fallback ID: 55b7f9ce-55e3-4822-8efe-a34822f394d2
+Testing Data Density Recovery (Source: Skynet Deep Search)...
+// [SAFETY] ForexFactory is in cooldown (188s). Skipping hard-fetch.
+// [OVERDRIVE] Aggregating from Myfxbook...
+// [ERROR] Myfxbook RSS Failed: HTTPSConnectionPool(host='www.myfxbook.com', port=443): Read timed out. (read timeout=15)
+// [OVERDRIVE] Aggregating from DailyFX...
+// [WARN] DailyFX RSS Fail (403)
+// [DENSITY ALERT] Only 0 events found. Triggering Deep Search fill...
+// [FALLBACK] Tapping into Skynet (Serper) for Calendar...
+Total Events Found: 23
+- February 17, 2026 08:00 | JPY | Leading Economic Index | Impact: Low | Prev: 104.5
+- February 17, 2026 08:30 | JPY | All Industry Activity Index | Impact: Low | Prev: 0.1%
+- February 17, 2026 09:00 | EUR | GDP Growth Rate | Impact: Medium | Prev: 0.1%
+- February 17, 2026 12:00 | CAD | Inflation Rate | Impact: Medium | Prev: 2.0%
+- February 18, 2026 10:00 | AUD | Employment Change | Impact: High | Prev: 15K
+- February 18, 2026 10:00 | AUD | NAB Business Confidence | Impact: Low | Prev: 1.5
+- February 18, 2026 10:30 | AUD | Westpac Consumer Confidence | Impact: Low | Prev: 1.5%
+- February 18, 2026 15:00 | GBP | BoE Interest Rate Decision | Impact: High | Prev: 0.25%
+- February 18, 2026 15:00 | GBP | MPC Meeting Minutes | Impact: High | Prev: N/A
+- February 19, 2026 08:00 | JPY | BOJ Monetary Policy Statement | Impact: Medium | Prev: N/A

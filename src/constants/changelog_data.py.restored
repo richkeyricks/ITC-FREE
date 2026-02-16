@@ -1,0 +1,310 @@
+# src/constants/changelog_data.py
+"""
+Changelog data for version history display.
+Follows Gravity Dev Rules: Centralized Constants.
+"""
+from ui_theme import THEME_DARK
+
+THEME = THEME_DARK
+
+CHANGELOG_DATA = [
+    {
+        "version": "v4.4.0",
+        "date": "09 Feb 2026",
+        "title": "The Neural Command",
+        "color": "#fbbf24", # Amber/Gold
+        "updates": [
+            "🚀 Command Center v2.0: Transformasi total Web Portal menjadi pusat kendali institusional (Institutional Command Center).",
+            "🧠 Neural Terminal 2.0: Antarmuka chat full-screen baru dengan 'Reasoning Mode' untuk visualisasi logika AI secara real-time.",
+            "📡 Live Neural Stream: Feed intelijen langsung untuk pemantauan real-time aktivitas sistem dan pola pikir AI.",
+            "🛰️ Neural Command Bridge: Integrasi kendali terpadu untuk sinkronisasi eksekusi bot jarak jauh (Remote Execution).",
+            "🛡️ Modular Shield Architecture: Perombakan struktur inti sistem untuk stabilitas tingkat militer & keamanan tanpa kompromi.",
+            "🎨 Aesthetic Overhaul: Estetika 'Quiet Luxury' dengan efek Glassmorphism V2 yang dioptimalkan untuk performa tinggi.",
+        ],
+        "details": "Loncatan besar dalam kecerdasan dan kendali. v4.4 memfokuskan pada 'The Neural Command'—mengubah portal web Anda menjadi instrumen bedah untuk eksekusi perdagangan institusional dengan transparansi logika AI penuh."
+    },
+    {
+        "version": "v4.3.0",
+        "date": "09 Feb 2026",
+        "title": "The Enterprise Integrity",
+        "color": "#6366f1", # Indigo
+        "updates": [
+            "💳 Institutional Payment Gateway: Integrasi penuh midtrans Snap dengan alur pembayaran yang diamankan (Secure Enclave).",
+            "📨 Branded Communication Suite: Email notifikasi (Invoice & Recovery) kini menggunakan template 'Billionaire Edition' dengan identitas korporat penuh.",
+            "🛡️ System Integrity Hardening: Peningkatan arsitektur keamanan inti (Centralized Secret Management) untuk perlindungan data nasabah.",
+            "⚡ Web-to-App Bridge v2: Optimalisasi sinkronisasi lisensi (Genesis Protocol) antara Web Dashboard dan Terminal Desktop.",
+            "🎨 Visual Precision Fixes: Perbaikan mikro-interaksi pada UI Dashboard dan portal pembayaran (CSS/Animation polish).",
+        ],
+        "details": "Update yang berfokus pada integritas sistem level enterprise. Kami memperkuat keamanan inti dengan manajemen rahasia terpusat dan meluncurkan gateway pembayaran institusional. Identitas komunikasi juga ditingkatkan dengan suite email korporat penuh."
+    },
+    {
+        "version": "v4.2.0",
+        "date": "09 Feb 2026",
+        "title": "The Experience Update",
+        "color": "#10b981", # Emerald
+        "updates": [
+            "✨ Aurora UI Theme: Visual engine baru dengan estetika glassmorphism yang lebih imersif.",
+            "📱 Responsive Layout Engine: Optimalisasi tampilan dashboard untuk berbagai ukuran layar.",
+            "📚 ITC Intelligence Hub: Akses langsung ke riset pasar institusional dan dokumentasi strategi.",
+            "⚡ Unified Access: Sinkronisasi seamless antara akses Web dan Terminal Desktop.",
+            "📨 Reliability Uplift: Peningkatan stabilitas sistem notifikasi dan konektivitas core.",
+        ],
+        "details": "Update yang berfokus pada kenyamanan dan pengalaman pengguna. Kami menghadirkan tema visual 'Aurora' yang menawan, pusat pengetahuan 'Intelligence Hub', serta penyempurnaan sinkronisasi akses antara web dan desktop untuk pengalaman trading yang lebih mulus."
+    },
+    {
+        "version": "v4.1.0",
+        "date": "29 Jan 2026",
+        "title": "The Institutional Edition",
+        "color": "#0ea5e9", # Sky Blue
+        "updates": [
+            "🌐 Global Sync 4.1: Sinkronisasi kecerdasan multi-mesin pencari (Multi-Engine Intelligence).",
+            "🏛️ Institutional Transparency: Integrasi profil otoritas tim manajemen & E-E-A-T signals.",
+            "🛡️ Enterprise Security Shield: Penguatan lapisan keamanan infrastruktur tingkat korporasi.",
+            "🚀 Smart Route Intelligence: Optimalisasi navigasi mulus dengan Smart URL Routing.",
+            "💎 Identity Restoration: Pemulihan visual 'Paper Plane' legendaris di seluruh ekosistem.",
+            "📖 Rich Knowledge Hub: Integrasi panduan cerdas & FAQ interaktif berstandar global.",
+        ],
+        "details": "Loncatan besar kedaulatan digital. Versi 4.1 memperkenalkan standar 'Institutional Edition' yang fokus pada transparansi otoritas, keamanan infrastruktur berlapis, dan sinkronisasi lintas mesin pencari untuk memastikan ekosistem ITC +AI selalu berada di puncak performa dan reliabilitas."
+    },
+    {
+        "version": "v3.3.0",
+        "date": "29 Jan 2026",
+        "title": "The Visual & Neural Upgrade",
+        "color": "#d4af37", # Titan Gold
+        "updates": [
+            "🎨 Billionaire-Grade Landing: Redesign total dengan 'Deep Black' theme & Bento Grid layout.",
+            "🧠 SkyNET Neural Interface: Integrasi modul kecerdasan baru dengan respons natural.",
+            "📱 Compact Ecosystem UI: Optimalisasi layout kartu & ikon skeuomorphic premium.",
+            "⚡ App Launcher Evolution: Dukungan vertical scrolling & perbaikan navigasi.",
+            "� Chat Experience Polish: Pembersihan visual input bar & estetika respon modern.",
+        ],
+        "details": "Update fokus pada penyempurnaan visual dan pengalaman pengguna. Landing page kini berstandar 'Institutional Grade' dengan estetika mewah, sementara integrasi Neural Interface memperkuat kapabilitas interaksi sistem."
+    },
+    {
+        "version": "v3.2.0",
+        "date": "29 Jan 2026",
+        "title": "The Neural Intelligence",
+        "color": "#d4af37", # Titan Gold
+        "updates": [
+            "🧠 ITC +AI™ Core: Rebranding total ekosistem dengan lencana 'Neural AI' & 'Intelligence Hub'.",
+            "📈 Hyper-Speed Charts 4.0: Upgrade rendering engine v4.2.0 (Zero-Latency & Institutional Data).",
+            "💳 Enterprise Bridge: Integrasi Snap Payment resmi dengan Multi-Currency & Auto-Billing.",
+            "📚 Global Authority Content: Perpustakaan 'Authority Papers' untuk dominasi wawasan pasar.",
+            "✨ Visual Engine v4: Estetika 'Billionaire Dark Mode' dengan tipografi retina-sharp.",
+            "🔄 Payment Logic v2: Kalkulasi siklus billing cerdas dengan manajemen langganan mandiri.",
+        ],
+        "details": "Era baru Intelligence Telegram CopyTrade (ITC). Versi 4.0 memperkenalkan 'Neural AI' sebagai inti identitas platform, didukung oleh 'Intelligence Hub' yang menyajikan wawasan pasar tingkat institusi. Upgrade masif pada engine charting dan integrasi pembayaran Enterprise memastikan pengalaman trading Anda setara dengan infrastruktur hedge fund global."
+    },
+    {
+        "version": "v3.1.0",
+        "date": "28 Jan 2026",
+        "title": "The Syndicate Expansion",
+        "color": "#d4af37", # Titan Gold
+        "updates": [
+            "🤝 Global Partner Program: Sistem kemitraan 3-Tier untuk ekspansi komunitas.",
+            "🌐 Institutional Portal: Wajah baru web publik dengan 'Quiet Luxury' aesthetic.",
+            "✅ Certified Strategy Badge: Verifikasi otomatis 'Profit & Stability' untuk strategi Marketplace.",
+            "⚖️ Legal Framework Core: Integrasi lisensi & disclaimer standar institusi.",
+        ],
+        "details": "Ekspansi ekosistem ITC ke ranah publik dan komunitas. Memperkenalkan 'Global Partner Program' untuk memberi penghargaan pada kontributor komunitas, serta peluncuran 'Institutional Portal' yang memperkuat citra profesional platform."
+    },
+    {
+        "version": "v3.0.0",
+        "date": "28 Jan 2026",
+        "title": "The Ghost Protocol",
+        "color": "#ffd700", # ITC Gold
+        "updates": [
+            "🏆 Ghost Card Ranking: Baris peringkat ultra-modern dengan lencana ITC Gold & Meta-Social Info.",
+            "🏢 Broker & VPS Specialist: Pemisahan modul infrastruktur teknis ke sidebar mandiri.",
+            "📏 Ultra-Slim Scrollbars: Navigasi ramping 8px dengan interaksi responsif Cyber Blue.",
+            "🛡️ Anti-Crash Core 3.0: Audit global stabilitas tema & penanganan NameError sistemik.",
+            "📐 Sejajar Precision Logic: Penyelarasan menu sidebar dengan koordinat absolut tingkat piksel.",
+            "🚀 Premium Boost Engine: Sistem upgrade Pro/VIP sementara (1-Jam) ditenagai ITC Coins.",
+            "🔐 Unified Vault: Konsolidasi penyimpanan strategi pribadi & Marketplace dalam satu hub.",
+        ],
+        "details": "Loncatan besar dalam fidelitas visual dan stabilitas infrastruktur. Enterprise 3.0 memperkenalkan 'Ghost Protocol' untuk pengalaman kompetisi yang lebih eksklusif, serta sistem navigasi presisi tinggi yang menjamin kenyamanan operasional tingkat profesional."
+    },
+    {
+        "version": "v2.8.0",
+        "date": "28 Jan 2026",
+        "title": "The Gravity Economy",
+        "color": "#10b981", # Emerald/Green
+        "updates": [
+            "💎 Gravity Marketplace: Ekosistem ekonomi terpusat untuk strategi trading.",
+            "🛡️ Secure Ledger: Infrastruktur finansial terenkripsi standar perbankan.",
+            "🤖 Proof of Profit: Algoritma verifikasi kualitas strategi otomatis (>5% Win).",
+            "🚀 Premium UI: Desain kartu 'Glowing' dengan konversi psikologis.",
+        ],
+        "details": "Transformasi total ekosistem ekonomi ITC. Marketplace strategi yang ditenagai oleh 'Secure Ledger' memastikan transparansi dan keamanan transaksi, sementara 'Proof of Profit' menjamin kualitas strategi yang tersedia."
+    },
+    {
+        "version": "v2.7.0",
+        "date": "28 Jan 2026",
+        "title": "Enterprise Security Core",
+        "color": "#e11d48", # Rose
+        "updates": [
+            "🛡️ Enhanced Access 2FA: Integrasi Authenticator untuk keamanan level tinggi.",
+            "📡 Deep Telemetry: 21+ Parameter real-time (Latency, Drawdown, dll).",
+            "☁️ Cloud Vault: Enkripsi penuh untuk sinkronisasi kredensial sensitif.",
+            "🔄 Zero-Trust Logic: Verifikasi ganda untuk setiap akses kritis.",
+        ],
+        "details": "Upgrade keamanan masif yang menargetkan integritas data enterprise. Kami menerapkan 'Zero-Trust Architecture' dan audit telemetri 21-titik untuk memastikan stabilitas operasional tertinggi."
+    },
+    {
+        "version": "v2.6.0",
+        "date": "26 Jan 2026",
+        "title": "The Resilience Update",
+        "color": "#a855f7", # Purple
+        "updates": [
+            "🛡️ Enterprise Telemetry: Sinkronisasi 63-parameter hardware & finansial.",
+            "📡 VIP Broadcaster Pro: 10 Preset Premium & Watermark Enterprise.",
+            "🛠️ Resilience Engine: Cloud sync lebih stabil (fallback logic).",
+            "💬 Active Communication: Perbaikan sistem reply chat & visibilitas pesan.",
+        ],
+        "details": "Update ini memfokuskan pada stabilitas infrastruktur dan pemulihan fitur 'Enterprise Telemetry' yang krusial bagi trader profesional. Kami juga memperkuat integrasi Cloud untuk memastikan sinkronisasi data tidak terputus."
+    },
+    {
+        "version": "v2.5.0",
+        "date": "26 Jan 2026",
+        "title": "The Ultra Dashboard",
+        "color": "#3b82f6", # Blue
+        "updates": [
+            "💎 Ultra Dashboard: Penyelarasan presisi (Global Center Offset).",
+            "📊 Smart Daily Meter: Meter kerugian kustom dengan warna dinamis.",
+            "🤖 AI Wellness Toast: Asisten kesehatan ramping di posisi atas.",
+            "☁️ Web Monitor 2.0: Tombol sinkron dengan tema Purple.",
+        ],
+        "details": "Overhaul total pada Dashboard untuk memberikan visualisasi data yang lebih presisi. Fitur 'Global Center Offset' memungkinkan sinkronisasi visual antar semua layar monitor tanpa distorsi pixel."
+    },
+    {
+        "version": "v2.4.0",
+        "date": "25 Jan 2026",
+        "title": "The Master Broadcaster",
+        "color": "#10b981", # Green
+        "updates": [
+            "📡 MT5 Broadcaster: Siarkan langsung trading ke Telegram otomatis.",
+            "🛡️ Professional Branding: Watermark Enterprise 'Powered by ITC'.",
+            "⚙️ Mode Switcher: Relay Mode vs Broadcast Mode.",
+            "🚀 Real-time detection: ITC otomatis mengenali Pair, SL, dan TP.",
+        ],
+        "details": "Peluncuran mesin broadcasting terbaru yang memungkinkan user menyiarkan sinyal langsung dari terminal MT5 ke channel Telegram tanpa delay, lengkap dengan branding profesional."
+    },
+    {
+        "version": "v2.3.0",
+        "date": "25 Jan 2026",
+        "title": "The Bridge Update",
+        "color": "#1f6feb", # Blue
+        "updates": [
+            "💎 VIP System: Kasta eksklusif untuk Signal Provider.",
+            "🛰️ SPC Hub Bridge: Relay sinyal otomatis ke channel Whitelabel.",
+            "🎨 Template Engine: 10 Preset Premium siap pakai.",
+            "🛒 Preset Marketplace: Jual & Bagikan desain sinyal di Leaderboard.",
+            "🔓 PRO vs VIP: Pembagian fitur AI dan Bisnis Engine.",
+        ],
+        "details": "Memperkenalkan ekosistem ekonomi bagi trader. Kini Anda bisa menjual desain template sinyal Anda di Marketplace atau menyewakan channel sinyal via SPC Hub."
+    },
+    {
+        "version": "v2.2.0",
+        "date": "25 Jan 2026",
+        "title": "Monetization Update",
+        "color": "#f59e0b", # Gold
+        "updates": [
+            "🛰️ Signal Hub: Marketplace Sinyal Terverifikasi.",
+            "☁️ ITC Cloud: Integrasi VPS ID & Global.",
+            "🏆 High-Intel Leaderboard: Papan peringkat performa real-time.",
+            "🏦 Broker Partnership: Rekomendasi Broker Bappebti & Global.",
+        ],
+        "details": "Fokus pada integrasi broker dan server. ITC Cloud sekarang dapat membantu Anda memilih server VPS terbaik berdasarkan lokasi broker Anda untuk latensi minimal."
+    },
+    {
+        "version": "v2.1.1",
+        "date": "25 Jan 2026",
+        "color": "#f85149", # Red
+        "updates": [
+            "🛡️ Critical Logic Restoration (Buttons fix).",
+            "🎓 ITC Academy: Levels & Rewards Restored.",
+            "🔧 Stability Patches: Fixed Password Toggle & Pro Check.",
+        ],
+        "details": "Patch keamanan dan logika untuk memperbaiki masalah pada tombol eksekusi yang sempat terganggu di versi sebelumnya."
+    },
+    {
+        "version": "v2.1.0",
+        "date": "25 Jan 2026",
+        "color": "#0088cc",
+        "updates": [
+            "🔍 6-Panel Inspector redesigned!",
+            "🛡️ Enterprise Activation Engine",
+            "📊 User Tags & Auto-Flags",
+        ]
+    },
+    {
+        "version": "v2.0.0",
+        "date": "24 Jan 2026",
+        "color": "#0088cc",
+        "updates": [
+            "📋 Changelog Page - Lihat semua update!",
+            "🔧 Live SL/TP Price Preview",
+            "📊 Symbol Selector (FOREX/GOLD/JPY)",
+        ]
+    },
+    {
+        "version": "v1.9.0",
+        "date": "23 Jan 2026",
+        "color": "#8b5cf6",
+        "updates": [
+            "🎯 SL/TP Override Mode untuk kontrol lebih",
+            "📏 Manual SL/TP Pips dengan tooltips",
+            "⚡ Auto-detect pip value per simbol",
+        ]
+    },
+    {
+        "version": "v1.8.0",
+        "date": "22 Jan 2026",
+        "color": "#2ea44f",
+        "updates": [
+            "🎨 UI Premium Modernization",
+            "🪟 Glassmorphism Cards dengan glow effect",
+            "📱 Enhanced Sidebar hover effects",
+        ]
+    },
+    {
+        "version": "v1.7.0",
+        "date": "20 Jan 2026",
+        "color": "#f0883e",
+        "updates": [
+            "🏆 ITC Academy dengan Quiz & Rewards",
+            "🎮 5 Difficulty Levels (Pemula → Legenda)",
+            "🎁 Bonus +3 AI Chat saat lulus quiz!",
+        ]
+    },
+    {
+        "version": "v1.6.0",
+        "date": "18 Jan 2026",
+        "color": "#58a6ff",
+        "updates": [
+            "🤖 AI Trading Companion yang lebih pintar",
+            "📈 AI Context: Balance, Equity, History",
+            "💬 Trial 3x AI Chat (Upgrade unlimited)",
+        ]
+    },
+    {
+        "version": "v1.5.0",
+        "date": "15 Jan 2026",
+        "color": "#0088cc",
+        "updates": [
+            "🌐 Multi-Language Support (ID/EN)",
+            "💡 Interactive Hints & Tooltips",
+            "📚 Dual-Tab Tutorial (Setup & Features)",
+        ]
+    },
+    {
+        "version": "v1.0.0",
+        "date": "1 Jan 2026",
+        "color": "#2ea44f",
+        "updates": [
+            "🚀 Initial Release - ITC +AI",
+            "📱 Telegram to MT5 Copytrade",
+            "🤖 AI Trading Assistant",
+        ]
+    },
+]

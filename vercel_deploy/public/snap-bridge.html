@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Checkout | Haineo AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+
+        .gold-glow {
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.2);
+        }
+
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #d4af37;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body class="flex flex-col items-center justify-center h-screen space-y-6">
+
+    <div class="relative">
+        <div class="spinner"></div>
+        <div class="absolute inset-0 gold-glow rounded-full"></div>
+    </div>
+
+    <div class="text-center">
+        <h1
+            class="text-xl font-bold tracking-tight bg-gradient-to-r from-white to-[#d4af37] bg-clip-text text-transparent">
+            Initializing Secure Gateway</h1>
+        <p class="text-gray-500 text-sm mt-2">Haineo AI ™ | Institutional Infrastructure</p>
+    </div>
+
+    <script type="text/javascript">
+        const urlParams = new URLSearchParams(window.location.search);
+        const snapToken = urlParams.get('token');
+        const env = (urlParams.get('env') || 'sandbox').toLowerCase();
+        const clientKey = urlParams.get('client_key') || (env === 'production' ? 'Mid-client-Q0Y1SsWoE7uI83eC' : 'SB-Mid-client-XXXXX');
+
+        const isProduction = ['production', 'prod', 'live'].includes(env);
+        const snapScriptUrl = isProduction
+            ? 'https://app.midtrans.com/snap/snap.js'
+            : 'https://app.sandbox.midtrans.com/snap/snap.js';
+
+        function showError(message) {
+            document.body.innerHTML = `<div class="text-red-500 text-center px-4">${message}</div>`;
+        }
+
+        function loadSnapScript(onLoaded) {
+            const script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = snapScriptUrl;
+            script.setAttribute('data-client-key', clientKey);
+            script.onload = onLoaded;
+            script.onerror = function () {
+                showError('Error: Failed to load Midtrans Snap.js. Please verify environment and client key.');
+            };
+            document.head.appendChild(script);
+        }
+
+        if (!snapToken) {
+            showError('Error: Invalid Transaction Token.');
+        } else if (isProduction && clientKey.startsWith('SB-')) {
+            showError('Error: Production mode requested with sandbox client key.');
+        } else {
+            loadSnapScript(function () {
+                window.snap.pay(snapToken, {
+                    onSuccess: function (result) { window.location.href = '/payment/success?id=' + result.order_id; },
+                    onPending: function (result) { window.location.href = '/payment/unfinish?id=' + result.order_id; },
+                    onError: function (result) { window.location.href = '/payment/error?id=' + result.order_id; },
+                    onClose: function () {
+                        console.log('User closed the popup');
+                        document.body.innerHTML += '<p class="text-red-500 mt-4 text-xs">Checkout interrupted. Please try again from the app.</p>';
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

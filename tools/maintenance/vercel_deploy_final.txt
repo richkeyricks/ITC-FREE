@@ -1,0 +1,25 @@
+npm verbose cli C:\Program Files\nodejs\node.exe C:\Users\Richkeyrick\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
+npm info using npm@11.4.1
+npm info using node@v22.14.0
+npm verbose title npm exec vercel deploy --prod --cwd vercel_deploy --yes --scope telegramcopytrade
+npm verbose argv "exec" "--" "vercel" "deploy" "--prod" "--cwd" "vercel_deploy" "--yes" "--scope" "telegramcopytrade"
+npm verbose logfile logs-max:10 dir:C:\Users\Richkeyrick\AppData\Local\npm-cache\_logs\2026-02-09T05_00_34_898Z-
+npm verbose logfile C:\Users\Richkeyrick\AppData\Local\npm-cache\_logs\2026-02-09T05_00_34_898Z-debug-0.log
+Vercel CLI 48.1.1
+Retrieving projectΓÇª
+Deploying telegramcopytrade/vercel_deploy
+Uploading [--------------------] (0.0B/7.4KB)
+Uploading [======--------------] (2.3KB/7.4KB)
+Uploading [====================] (7.4KB/7.4KB)
+Inspect: https://vercel.com/telegramcopytrade/vercel_deploy/Es7sysWhEM48pg96tGfoX9QccRAS [4s]
+Production: https://verceldeploy-qu35uz5l8-telegramcopytrade.vercel.app [4s]
+Building
+Building
+Completing
+npm verbose cwd C:\APLIKASI YANG DIBUAT\TELEGRAM MT5
+npm verbose os Windows_NT 10.0.22631
+npm verbose node v22.14.0
+npm verbose npm  v11.4.1
+npm verbose exit 0
+npm info ok
+https://verceldeploy-qu35uz5l8-telegramcopytrade.vercel.app

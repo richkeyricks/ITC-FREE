@@ -1,0 +1,82 @@
+Note: Unnecessary use of -X or --request, POST is already inferred.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Host app.midtrans.com:443 was resolved.
+* IPv6: (none)
+* IPv4: 172.67.74.70, 104.26.14.196, 104.26.15.196
+*   Trying 172.67.74.70:443...
+* schannel: disabled automatic use of client certificate
+* ALPN: curl offers http/1.1
+* ALPN: server accepted http/1.1
+* Connected to app.midtrans.com (172.67.74.70) port 443
+* using HTTP/1.x
+> POST /snap/v1/transactions HTTP/1.1
+
+> Host: app.midtrans.com
+
+> User-Agent: curl/8.13.0
+
+> Accept: application/json
+
+> Content-Type: application/json
+
+> Authorization: Basic TWlkLXNlcnZlci1uQUlaaHkxdzRtOFZLQURJR2dFd2dIU0M6
+
+> Content-Length: 2
+
+> 
+
+} [2 bytes data]
+* upload completely sent off: 2 bytes
+* schannel: remote party requests renegotiation
+* schannel: renegotiating SSL/TLS connection
+* schannel: SSL/TLS connection renegotiated
+< HTTP/1.1 401 Unauthorized
+
+< Date: Tue, 10 Feb 2026 15:51:19 GMT
+
+< Content-Type: application/json; charset=utf-8
+
+< Transfer-Encoding: chunked
+
+< Connection: keep-alive
+
+< vary: Accept,Accept-Encoding
+
+< Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=ccqtLiUB6CZHo1WS7elE00Nv%2BiCREJwVljG3OFzwr6Dzq7rO2xRGVO1o3b%2FHHKbCkuejVh6PuOolp21nn7u%2B5TLSXqi07A5txHKv95MAlw%3D%3D"}]}
+
+< x-request-id: 4521d565-8e56-4159-a3e6-e23a958201e8
+
+< referrer-policy: origin-when-cross-origin
+
+< x-content-type-options: nosniff
+
+< x-download-options: noopen
+
+< x-frame-options: SAMEORIGIN
+
+< x-permitted-cross-domain-policies: none
+
+< x-xss-protection: 1; mode=block
+
+< x-envoy-upstream-service-time: 23
+
+< Server: cloudflare
+
+< cf-cache-status: DYNAMIC
+
+< Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+
+< CF-RAY: 9cbcc4676e7b0865-HKG
+
+< 
+
+{ [195 bytes data]
+
+100   186    0   184  100     2    721      7 --:--:-- --:--:-- --:--:--   735
+* Connection #0 to host app.midtrans.com left intact
+curl: (3) unmatched close brace/bracket in URL position 85:
+transaction_details\: {\order_id\: \SUPPORT-CHECK-G440832689\, \gross_amount\: 10000}}
+                                                                                    ^
+{"error_messages":["Access denied due to unauthorized transaction, please check client or server key","Visit https://docs.midtrans.com/reference/backend-integration for more details"]}

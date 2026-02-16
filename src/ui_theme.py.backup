@@ -1,0 +1,191 @@
+# src/ui_theme.py
+"""
+Professional Design System for STC +AI CopyTrade
+Based on Trading Desktop Application Standards
+
+Colors are SEMANTIC (function-based), not decorative.
+This ensures consistency and professional appearance.
+"""
+
+# ============================================================
+# 1️⃣ FOUNDATION COLORS (Base Layer)
+# ============================================================
+FOUNDATION = {
+    "bg_primary": "#121417",      # Main app background
+    "bg_secondary": "#1B1F24",    # Cards, panels
+    "bg_tertiary": "#242A31",     # Hover, selected states
+    "border": "#2F363F",          # Dividers, borders
+    "text_primary": "#E6EAF0",    # Main text
+    "text_secondary": "#9AA4B2",  # Labels, hints
+    "text_disabled": "#5F6B7A",   # Disabled state
+}
+
+# ============================================================
+# 2️⃣ ACCENT & ACTION COLORS (Semantic)
+# ============================================================
+ACCENT = {
+    "primary": "#2F80ED",         # START, Save, Confirm (ONLY 1 per screen)
+    "success": "#27AE60",         # Connected, OK, Profit
+    "warning": "#F2C94C",         # Limit near, caution
+    "danger": "#EB5757",          # Emergency, Error, Loss
+    "info": "#56CCF2",            # AI, Tooltip, hints
+}
+
+# ============================================================
+# 3️⃣ STATUS INDICATORS
+# ============================================================
+STATUS = {
+    "connected": "#27AE60",
+    "disconnected": "#EB5757",
+    "connecting": "#F2C94C",
+    "disabled": "#5F6B7A",
+}
+
+# ============================================================
+# 4️⃣ TRADING-SPECIFIC COLORS
+# ============================================================
+TRADING = {
+    "buy": "#27AE60",             # Buy / Profit
+    "sell": "#EB5757",            # Sell / Loss
+    "neutral": "#9AA4B2",         # No position
+}
+
+# ============================================================
+# 5️⃣ LOG LEVEL COLORS
+# ============================================================
+LOG = {
+    "info": "#9AA4B2",
+    "warning": "#F2C94C",
+    "error": "#EB5757",
+    "success": "#27AE60",
+}
+
+# ============================================================
+# UNIFIED THEME DICTIONARY (For CTK Compatibility)
+# Premium Modern Style - Phase 62
+# ============================================================
+THEME_DARK = {
+    "name": "dark",
+    "appearance_mode": "Dark",
+    
+    # Foundation (Subtle Gradient Feel)
+    "bg_primary": "#0d1117",           # Deeper, richer black
+    "bg_secondary": "#161b22",         # Cards, panels
+    "bg_tertiary": "#21262d",          # Hover, selected states
+    
+    # Text
+    "text_primary": "#e6edf3",         # Brighter white for contrast
+    "text_secondary": "#8b949e",       # Labels, hints
+    "text_disabled": "#484f58",        # Disabled state
+    
+    # Borders & Glass Effect
+    "border_default": "#30363d",
+    "border_active": "#0088cc",        # Telegram Blue glow on active
+    "border_glow": "#1a3a4a",          # Subtle border highlight
+    
+    # PREMIUM ACCENT COLORS
+    "accent_primary": "#0088cc",       # Telegram Blue - Premium Identity
+    "accent_primary_hover": "#0077b3", # Darker blue for hover
+    "accent_secondary": "#8b5cf6",     # Purple - VIP/Premium
+    "accent_success": "#2ea44f",       # Brighter green
+    "accent_warning": "#f0883e",       # Orange warning
+    "accent_danger": "#f85149",        # Red danger
+    "accent_info": "#0088cc",          # Consistent blue info
+    
+    # Gradient Colors (For reference in code)
+    "gradient_start": "#0088cc",
+    "gradient_end": "#8b5cf6",
+    
+    # Glassmorphism Card Styling
+    "card_bg": "#161b22",
+    "card_border": "#30363d",
+    "card_border_hover": "#0088cc",
+    "card_glow": "rgba(0, 136, 204, 0.15)",
+    
+    # Buttons - Modern Gradient Feel
+    "btn_primary_bg": "#0088cc",
+    "btn_primary_hover": "#0077b3",
+    "btn_success_bg": "#238636",
+    "btn_success_hover": "#2ea44f",
+    "btn_danger_bg": "#da3633",
+    "btn_danger_hover": "#f85149",
+    "btn_secondary_bg": "#21262d",
+    "btn_secondary_hover": "#30363d",
+    "btn_premium_bg": "#8b5cf6",       # Purple premium button
+    "btn_premium_hover": "#7c3aed",
+    
+    # Status Indicators (With Glow Effect)
+    "status_online": "#2ea44f",
+    "status_offline": "#484f58",
+    "status_warning": "#f0883e",
+    "status_error": "#f85149",
+    
+    # Sidebar Specific
+    "sidebar_bg": "#0d1117",
+    "sidebar_active_bg": "#1f2937",
+    "sidebar_active_border": "#0088cc",
+    "sidebar_hover_bg": "#161b22",
+}
+
+
+# ============================================================
+# TYPOGRAPHY (Font Stack)
+# ============================================================
+FONTS = {
+    "title": ("Segoe UI", 22, "bold"),
+    "header_large": ("Segoe UI", 24, "bold"), # Added to fix crash
+    "title_ai": ("Segoe UI", 28, "bold"),
+    "subtitle": ("Segoe UI", 11),
+    "section_header": ("Segoe UI Semibold", 13),
+    "body": ("Segoe UI", 11),
+    "body_bold": ("Segoe UI", 11, "bold"),
+    "body_small": ("Segoe UI", 10),
+    "input": ("Segoe UI", 11),
+    "button": ("Segoe UI Semibold", 11),
+    "button_large": ("Segoe UI Semibold", 13),
+    "log": ("Consolas", 10),
+    "mono": ("Consolas", 10),
+}
+
+# ============================================================
+# SPACING SCALE (Consistent Rhythm)
+# ============================================================
+SPACING = {
+    "xs": 4,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 24,
+    "xxl": 32,
+}
+
+# ============================================================
+# CORNER RADIUS
+# ============================================================
+RADIUS = {
+    "sm": 4,
+    "md": 6,
+    "lg": 8,
+    "xl": 12,
+}
+
+# ============================================================
+# COMPONENT HEIGHTS
+# ============================================================
+HEIGHTS = {
+    "input": 36,
+    "button": 38,
+    "button_large": 48,
+    "tab": 32,
+}
+
+# ============================================================
+# HELPER FUNCTIONS
+# ============================================================
+def get_theme(theme_name="dark"):
+    """Returns the theme dictionary"""
+    return THEME_DARK  # Only dark mode for now
+
+def apply_theme_to_ctk(ctk_module, theme_name="dark"):
+    """Applies the theme to CustomTkinter appearance"""
+    ctk_module.set_appearance_mode("Dark")

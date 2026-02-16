@@ -1,0 +1,674 @@
+[Skip to content](https://github.com/richkeyricks/ITC-FREE#start-of-content)
+
+## Navigation Menu
+
+[Sign in](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Frichkeyricks%2FITC-FREE)
+- PlatformAI CODE CREATION[GitHub CopilotWrite better code with AI](https://github.com/features/copilot)[GitHub SparkBuild and deploy intelligent apps](https://github.com/features/spark)[GitHub ModelsManage and compare prompts](https://github.com/features/models)[MCP RegistryNewIntegrate external tools](https://github.com/mcp)DEVELOPER WORKFLOWS[ActionsAutomate any workflow](https://github.com/features/actions)[CodespacesInstant dev environments](https://github.com/features/codespaces)[IssuesPlan and track work](https://github.com/features/issues)[Code ReviewManage code changes](https://github.com/features/code-review)APPLICATION SECURITY[GitHub Advanced SecurityFind and fix vulnerabilities](https://github.com/security/advanced-security)[Code securitySecure your code as you build](https://github.com/security/advanced-security/code-security)[Secret protectionStop leaks before they start](https://github.com/security/advanced-security/secret-protection)EXPLORE[Why GitHub](https://github.com/why-github)[Documentation](https://docs.github.com)[Blog](https://github.blog)[Changelog](https://github.blog/changelog)[Marketplace](https://github.com/marketplace)[View all features](https://github.com/features)
+- AI CODE CREATION[GitHub CopilotWrite better code with AI](https://github.com/features/copilot)[GitHub SparkBuild and deploy intelligent apps](https://github.com/features/spark)[GitHub ModelsManage and compare prompts](https://github.com/features/models)[MCP RegistryNewIntegrate external tools](https://github.com/mcp)
+- [GitHub CopilotWrite better code with AI](https://github.com/features/copilot)
+- [GitHub SparkBuild and deploy intelligent apps](https://github.com/features/spark)
+- [GitHub ModelsManage and compare prompts](https://github.com/features/models)
+- [MCP RegistryNewIntegrate external tools](https://github.com/mcp)
+- DEVELOPER WORKFLOWS[ActionsAutomate any workflow](https://github.com/features/actions)[CodespacesInstant dev environments](https://github.com/features/codespaces)[IssuesPlan and track work](https://github.com/features/issues)[Code ReviewManage code changes](https://github.com/features/code-review)
+- [ActionsAutomate any workflow](https://github.com/features/actions)
+- [CodespacesInstant dev environments](https://github.com/features/codespaces)
+- [IssuesPlan and track work](https://github.com/features/issues)
+- [Code ReviewManage code changes](https://github.com/features/code-review)
+- APPLICATION SECURITY[GitHub Advanced SecurityFind and fix vulnerabilities](https://github.com/security/advanced-security)[Code securitySecure your code as you build](https://github.com/security/advanced-security/code-security)[Secret protectionStop leaks before they start](https://github.com/security/advanced-security/secret-protection)
+- [GitHub Advanced SecurityFind and fix vulnerabilities](https://github.com/security/advanced-security)
+- [Code securitySecure your code as you build](https://github.com/security/advanced-security/code-security)
+- [Secret protectionStop leaks before they start](https://github.com/security/advanced-security/secret-protection)
+- EXPLORE[Why GitHub](https://github.com/why-github)[Documentation](https://docs.github.com)[Blog](https://github.blog)[Changelog](https://github.blog/changelog)[Marketplace](https://github.com/marketplace)
+- [Why GitHub](https://github.com/why-github)
+- [Documentation](https://docs.github.com)
+- [Blog](https://github.blog)
+- [Changelog](https://github.blog/changelog)
+- [Marketplace](https://github.com/marketplace)
+
+## Navigation Menu
+
+- SolutionsBY COMPANY SIZE[Enterprises](https://github.com/enterprise)[Small and medium teams](https://github.com/team)[Startups](https://github.com/enterprise/startups)[Nonprofits](https://github.com/solutions/industry/nonprofits)BY USE CASE[App Modernization](https://github.com/solutions/use-case/app-modernization)[DevSecOps](https://github.com/solutions/use-case/devsecops)[DevOps](https://github.com/solutions/use-case/devops)[CI/CD](https://github.com/solutions/use-case/ci-cd)[View all use cases](https://github.com/solutions/use-case)BY INDUSTRY[Healthcare](https://github.com/solutions/industry/healthcare)[Financial services](https://github.com/solutions/industry/financial-services)[Manufacturing](https://github.com/solutions/industry/manufacturing)[Government](https://github.com/solutions/industry/government)[View all industries](https://github.com/solutions/industry)[View all solutions](https://github.com/solutions)
+- BY COMPANY SIZE[Enterprises](https://github.com/enterprise)[Small and medium teams](https://github.com/team)[Startups](https://github.com/enterprise/startups)[Nonprofits](https://github.com/solutions/industry/nonprofits)
+- [Enterprises](https://github.com/enterprise)
+- [Small and medium teams](https://github.com/team)
+- [Startups](https://github.com/enterprise/startups)
+- [Nonprofits](https://github.com/solutions/industry/nonprofits)
+- BY USE CASE[App Modernization](https://github.com/solutions/use-case/app-modernization)[DevSecOps](https://github.com/solutions/use-case/devsecops)[DevOps](https://github.com/solutions/use-case/devops)[CI/CD](https://github.com/solutions/use-case/ci-cd)[View all use cases](https://github.com/solutions/use-case)
+- [App Modernization](https://github.com/solutions/use-case/app-modernization)
+- [DevSecOps](https://github.com/solutions/use-case/devsecops)
+- [DevOps](https://github.com/solutions/use-case/devops)
+- [CI/CD](https://github.com/solutions/use-case/ci-cd)
+- [View all use cases](https://github.com/solutions/use-case)
+- BY INDUSTRY[Healthcare](https://github.com/solutions/industry/healthcare)[Financial services](https://github.com/solutions/industry/financial-services)[Manufacturing](https://github.com/solutions/industry/manufacturing)[Government](https://github.com/solutions/industry/government)[View all industries](https://github.com/solutions/industry)
+- [Healthcare](https://github.com/solutions/industry/healthcare)
+- [Financial services](https://github.com/solutions/industry/financial-services)
+- [Manufacturing](https://github.com/solutions/industry/manufacturing)
+- [Government](https://github.com/solutions/industry/government)
+- [View all industries](https://github.com/solutions/industry)
+- ResourcesEXPLORE BY TOPIC[AI](https://github.com/resources/articles?topic=ai)[Software Development](https://github.com/resources/articles?topic=software-development)[DevOps](https://github.com/resources/articles?topic=devops)[Security](https://github.com/resources/articles?topic=security)[View all topics](https://github.com/resources/articles)EXPLORE BY TYPE[Customer stories](https://github.com/customer-stories)[Events & webinars](https://github.com/resources/events)[Ebooks & reports](https://github.com/resources/whitepapers)[Business insights](https://github.com/solutions/executive-insights)[GitHub Skills](https://skills.github.com)SUPPORT & SERVICES[Documentation](https://docs.github.com)[Customer support](https://support.github.com)[Community forum](https://github.com/orgs/community/discussions)[Trust center](https://github.com/trust-center)[Partners](https://github.com/partners)
+- EXPLORE BY TOPIC[AI](https://github.com/resources/articles?topic=ai)[Software Development](https://github.com/resources/articles?topic=software-development)[DevOps](https://github.com/resources/articles?topic=devops)[Security](https://github.com/resources/articles?topic=security)[View all topics](https://github.com/resources/articles)
+- [AI](https://github.com/resources/articles?topic=ai)
+- [Software Development](https://github.com/resources/articles?topic=software-development)
+- [DevOps](https://github.com/resources/articles?topic=devops)
+- [Security](https://github.com/resources/articles?topic=security)
+- [View all topics](https://github.com/resources/articles)
+
+## Navigation Menu
+
+- EXPLORE BY TYPE[Customer stories](https://github.com/customer-stories)[Events & webinars](https://github.com/resources/events)[Ebooks & reports](https://github.com/resources/whitepapers)[Business insights](https://github.com/solutions/executive-insights)[GitHub Skills](https://skills.github.com)
+- [Customer stories](https://github.com/customer-stories)
+- [Events & webinars](https://github.com/resources/events)
+- [Ebooks & reports](https://github.com/resources/whitepapers)
+- [Business insights](https://github.com/solutions/executive-insights)
+- [GitHub Skills](https://skills.github.com)
+- SUPPORT & SERVICES[Documentation](https://docs.github.com)[Customer support](https://support.github.com)[Community forum](https://github.com/orgs/community/discussions)[Trust center](https://github.com/trust-center)[Partners](https://github.com/partners)
+- [Documentation](https://docs.github.com)
+- [Customer support](https://support.github.com)
+- [Community forum](https://github.com/orgs/community/discussions)
+- [Trust center](https://github.com/trust-center)
+- [Partners](https://github.com/partners)
+- Open SourceCOMMUNITY[GitHub SponsorsFund open source developers](https://github.com/sponsors)PROGRAMS[Security Lab](https://securitylab.github.com)[Maintainer Community](https://maintainers.github.com)[Accelerator](https://github.com/accelerator)[Archive Program](https://archiveprogram.github.com)REPOSITORIES[Topics](https://github.com/topics)[Trending](https://github.com/trending)[Collections](https://github.com/collections)
+- COMMUNITY[GitHub SponsorsFund open source developers](https://github.com/sponsors)
+- [GitHub SponsorsFund open source developers](https://github.com/sponsors)
+- PROGRAMS[Security Lab](https://securitylab.github.com)[Maintainer Community](https://maintainers.github.com)[Accelerator](https://github.com/accelerator)[Archive Program](https://archiveprogram.github.com)
+- [Security Lab](https://securitylab.github.com)
+- [Maintainer Community](https://maintainers.github.com)
+- [Accelerator](https://github.com/accelerator)
+- [Archive Program](https://archiveprogram.github.com)
+- REPOSITORIES[Topics](https://github.com/topics)[Trending](https://github.com/trending)[Collections](https://github.com/collections)
+- [Topics](https://github.com/topics)
+- [Trending](https://github.com/trending)
+- [Collections](https://github.com/collections)
+- EnterpriseENTERPRISE SOLUTIONS[Enterprise platformAI-powered developer platform](https://github.com/enterprise)AVAILABLE ADD-ONS[GitHub Advanced SecurityEnterprise-grade security features](https://github.com/security/advanced-security)[Copilot for BusinessEnterprise-grade AI features](https://github.com/features/copilot/copilot-business)[Premium SupportEnterprise-grade 24/7 support](https://github.com/premium-support)
+- ENTERPRISE SOLUTIONS[Enterprise platformAI-powered developer platform](https://github.com/enterprise)
+- [Enterprise platformAI-powered developer platform](https://github.com/enterprise)
+- AVAILABLE ADD-ONS[GitHub Advanced SecurityEnterprise-grade security features](https://github.com/security/advanced-security)[Copilot for BusinessEnterprise-grade AI features](https://github.com/features/copilot/copilot-business)[Premium SupportEnterprise-grade 24/7 support](https://github.com/premium-support)
+- [GitHub Advanced SecurityEnterprise-grade security features](https://github.com/security/advanced-security)
+- [Copilot for BusinessEnterprise-grade AI features](https://github.com/features/copilot/copilot-business)
+- [Premium SupportEnterprise-grade 24/7 support](https://github.com/premium-support)
+- [Pricing](https://github.com/pricing)
+- AI CODE CREATION[GitHub CopilotWrite better code with AI](https://github.com/features/copilot)[GitHub SparkBuild and deploy intelligent apps](https://github.com/features/spark)[GitHub ModelsManage and compare prompts](https://github.com/features/models)[MCP RegistryNewIntegrate external tools](https://github.com/mcp)
+- [GitHub CopilotWrite better code with AI](https://github.com/features/copilot)
+- [GitHub SparkBuild and deploy intelligent apps](https://github.com/features/spark)
+- [GitHub ModelsManage and compare prompts](https://github.com/features/models)
+- [MCP RegistryNewIntegrate external tools](https://github.com/mcp)
+
+## Navigation Menu
+
+- DEVELOPER WORKFLOWS[ActionsAutomate any workflow](https://github.com/features/actions)[CodespacesInstant dev environments](https://github.com/features/codespaces)[IssuesPlan and track work](https://github.com/features/issues)[Code ReviewManage code changes](https://github.com/features/code-review)
+- [ActionsAutomate any workflow](https://github.com/features/actions)
+- [CodespacesInstant dev environments](https://github.com/features/codespaces)
+- [IssuesPlan and track work](https://github.com/features/issues)
+- [Code ReviewManage code changes](https://github.com/features/code-review)
+- APPLICATION SECURITY[GitHub Advanced SecurityFind and fix vulnerabilities](https://github.com/security/advanced-security)[Code securitySecure your code as you build](https://github.com/security/advanced-security/code-security)[Secret protectionStop leaks before they start](https://github.com/security/advanced-security/secret-protection)
+- [GitHub Advanced SecurityFind and fix vulnerabilities](https://github.com/security/advanced-security)
+- [Code securitySecure your code as you build](https://github.com/security/advanced-security/code-security)
+- [Secret protectionStop leaks before they start](https://github.com/security/advanced-security/secret-protection)
+- EXPLORE[Why GitHub](https://github.com/why-github)[Documentation](https://docs.github.com)[Blog](https://github.blog)[Changelog](https://github.blog/changelog)[Marketplace](https://github.com/marketplace)
+- [Why GitHub](https://github.com/why-github)
+- [Documentation](https://docs.github.com)
+- [Blog](https://github.blog)
+- [Changelog](https://github.blog/changelog)
+- [Marketplace](https://github.com/marketplace)
+- [GitHub CopilotWrite better code with AI](https://github.com/features/copilot)
+- [GitHub SparkBuild and deploy intelligent apps](https://github.com/features/spark)
+- [GitHub ModelsManage and compare prompts](https://github.com/features/models)
+- [MCP RegistryNewIntegrate external tools](https://github.com/mcp)
+[GitHub CopilotWrite better code with AI](https://github.com/features/copilot)
+[GitHub SparkBuild and deploy intelligent apps](https://github.com/features/spark)
+[GitHub ModelsManage and compare prompts](https://github.com/features/models)
+[MCP RegistryNewIntegrate external tools](https://github.com/mcp)
+- [ActionsAutomate any workflow](https://github.com/features/actions)
+- [CodespacesInstant dev environments](https://github.com/features/codespaces)
+- [IssuesPlan and track work](https://github.com/features/issues)
+- [Code ReviewManage code changes](https://github.com/features/code-review)
+[ActionsAutomate any workflow](https://github.com/features/actions)
+[CodespacesInstant dev environments](https://github.com/features/codespaces)
+[IssuesPlan and track work](https://github.com/features/issues)
+[Code ReviewManage code changes](https://github.com/features/code-review)
+- [GitHub Advanced SecurityFind and fix vulnerabilities](https://github.com/security/advanced-security)
+- [Code securitySecure your code as you build](https://github.com/security/advanced-security/code-security)
+- [Secret protectionStop leaks before they start](https://github.com/security/advanced-security/secret-protection)
+[GitHub Advanced SecurityFind and fix vulnerabilities](https://github.com/security/advanced-security)
+[Code securitySecure your code as you build](https://github.com/security/advanced-security/code-security)
+[Secret protectionStop leaks before they start](https://github.com/security/advanced-security/secret-protection)
+- [Why GitHub](https://github.com/why-github)
+- [Documentation](https://docs.github.com)
+- [Blog](https://github.blog)
+- [Changelog](https://github.blog/changelog)
+- [Marketplace](https://github.com/marketplace)
+[Why GitHub](https://github.com/why-github)
+[Documentation](https://docs.github.com)
+[Blog](https://github.blog)
+[Changelog](https://github.blog/changelog)
+[Marketplace](https://github.com/marketplace)
+[View all features](https://github.com/features)
+- BY COMPANY SIZE[Enterprises](https://github.com/enterprise)[Small and medium teams](https://github.com/team)[Startups](https://github.com/enterprise/startups)[Nonprofits](https://github.com/solutions/industry/nonprofits)
+- [Enterprises](https://github.com/enterprise)
+- [Small and medium teams](https://github.com/team)
+- [Startups](https://github.com/enterprise/startups)
+- [Nonprofits](https://github.com/solutions/industry/nonprofits)
+
+## Navigation Menu
+
+- BY USE CASE[App Modernization](https://github.com/solutions/use-case/app-modernization)[DevSecOps](https://github.com/solutions/use-case/devsecops)[DevOps](https://github.com/solutions/use-case/devops)[CI/CD](https://github.com/solutions/use-case/ci-cd)[View all use cases](https://github.com/solutions/use-case)
+- [App Modernization](https://github.com/solutions/use-case/app-modernization)
+- [DevSecOps](https://github.com/solutions/use-case/devsecops)
+- [DevOps](https://github.com/solutions/use-case/devops)
+- [CI/CD](https://github.com/solutions/use-case/ci-cd)
+- [View all use cases](https://github.com/solutions/use-case)
+- BY INDUSTRY[Healthcare](https://github.com/solutions/industry/healthcare)[Financial services](https://github.com/solutions/industry/financial-services)[Manufacturing](https://github.com/solutions/industry/manufacturing)[Government](https://github.com/solutions/industry/government)[View all industries](https://github.com/solutions/industry)
+- [Healthcare](https://github.com/solutions/industry/healthcare)
+- [Financial services](https://github.com/solutions/industry/financial-services)
+- [Manufacturing](https://github.com/solutions/industry/manufacturing)
+- [Government](https://github.com/solutions/industry/government)
+- [View all industries](https://github.com/solutions/industry)
+- [Enterprises](https://github.com/enterprise)
+- [Small and medium teams](https://github.com/team)
+- [Startups](https://github.com/enterprise/startups)
+- [Nonprofits](https://github.com/solutions/industry/nonprofits)
+[Enterprises](https://github.com/enterprise)
+[Small and medium teams](https://github.com/team)
+[Startups](https://github.com/enterprise/startups)
+[Nonprofits](https://github.com/solutions/industry/nonprofits)
+- [App Modernization](https://github.com/solutions/use-case/app-modernization)
+- [DevSecOps](https://github.com/solutions/use-case/devsecops)
+- [DevOps](https://github.com/solutions/use-case/devops)
+- [CI/CD](https://github.com/solutions/use-case/ci-cd)
+- [View all use cases](https://github.com/solutions/use-case)
+[App Modernization](https://github.com/solutions/use-case/app-modernization)
+[DevSecOps](https://github.com/solutions/use-case/devsecops)
+[DevOps](https://github.com/solutions/use-case/devops)
+[CI/CD](https://github.com/solutions/use-case/ci-cd)
+[View all use cases](https://github.com/solutions/use-case)
+- [Healthcare](https://github.com/solutions/industry/healthcare)
+- [Financial services](https://github.com/solutions/industry/financial-services)
+- [Manufacturing](https://github.com/solutions/industry/manufacturing)
+- [Government](https://github.com/solutions/industry/government)
+- [View all industries](https://github.com/solutions/industry)
+[Healthcare](https://github.com/solutions/industry/healthcare)
+[Financial services](https://github.com/solutions/industry/financial-services)
+[Manufacturing](https://github.com/solutions/industry/manufacturing)
+[Government](https://github.com/solutions/industry/government)
+[View all industries](https://github.com/solutions/industry)
+[View all solutions](https://github.com/solutions)
+- EXPLORE BY TOPIC[AI](https://github.com/resources/articles?topic=ai)[Software Development](https://github.com/resources/articles?topic=software-development)[DevOps](https://github.com/resources/articles?topic=devops)[Security](https://github.com/resources/articles?topic=security)[View all topics](https://github.com/resources/articles)
+- [AI](https://github.com/resources/articles?topic=ai)
+- [Software Development](https://github.com/resources/articles?topic=software-development)
+- [DevOps](https://github.com/resources/articles?topic=devops)
+- [Security](https://github.com/resources/articles?topic=security)
+- [View all topics](https://github.com/resources/articles)
+- EXPLORE BY TYPE[Customer stories](https://github.com/customer-stories)[Events & webinars](https://github.com/resources/events)[Ebooks & reports](https://github.com/resources/whitepapers)[Business insights](https://github.com/solutions/executive-insights)[GitHub Skills](https://skills.github.com)
+- [Customer stories](https://github.com/customer-stories)
+- [Events & webinars](https://github.com/resources/events)
+- [Ebooks & reports](https://github.com/resources/whitepapers)
+- [Business insights](https://github.com/solutions/executive-insights)
+- [GitHub Skills](https://skills.github.com)
+
+## Navigation Menu
+
+- SUPPORT & SERVICES[Documentation](https://docs.github.com)[Customer support](https://support.github.com)[Community forum](https://github.com/orgs/community/discussions)[Trust center](https://github.com/trust-center)[Partners](https://github.com/partners)
+- [Documentation](https://docs.github.com)
+- [Customer support](https://support.github.com)
+- [Community forum](https://github.com/orgs/community/discussions)
+- [Trust center](https://github.com/trust-center)
+- [Partners](https://github.com/partners)
+- [AI](https://github.com/resources/articles?topic=ai)
+- [Software Development](https://github.com/resources/articles?topic=software-development)
+- [DevOps](https://github.com/resources/articles?topic=devops)
+- [Security](https://github.com/resources/articles?topic=security)
+- [View all topics](https://github.com/resources/articles)
+[AI](https://github.com/resources/articles?topic=ai)
+[Software Development](https://github.com/resources/articles?topic=software-development)
+[DevOps](https://github.com/resources/articles?topic=devops)
+[Security](https://github.com/resources/articles?topic=security)
+[View all topics](https://github.com/resources/articles)
+- [Customer stories](https://github.com/customer-stories)
+- [Events & webinars](https://github.com/resources/events)
+- [Ebooks & reports](https://github.com/resources/whitepapers)
+- [Business insights](https://github.com/solutions/executive-insights)
+- [GitHub Skills](https://skills.github.com)
+[Customer stories](https://github.com/customer-stories)
+[Events & webinars](https://github.com/resources/events)
+[Ebooks & reports](https://github.com/resources/whitepapers)
+[Business insights](https://github.com/solutions/executive-insights)
+[GitHub Skills](https://skills.github.com)
+- [Documentation](https://docs.github.com)
+- [Customer support](https://support.github.com)
+- [Community forum](https://github.com/orgs/community/discussions)
+- [Trust center](https://github.com/trust-center)
+- [Partners](https://github.com/partners)
+[Documentation](https://docs.github.com)
+[Customer support](https://support.github.com)
+[Community forum](https://github.com/orgs/community/discussions)
+[Trust center](https://github.com/trust-center)
+[Partners](https://github.com/partners)
+- COMMUNITY[GitHub SponsorsFund open source developers](https://github.com/sponsors)
+- [GitHub SponsorsFund open source developers](https://github.com/sponsors)
+- PROGRAMS[Security Lab](https://securitylab.github.com)[Maintainer Community](https://maintainers.github.com)[Accelerator](https://github.com/accelerator)[Archive Program](https://archiveprogram.github.com)
+- [Security Lab](https://securitylab.github.com)
+- [Maintainer Community](https://maintainers.github.com)
+- [Accelerator](https://github.com/accelerator)
+- [Archive Program](https://archiveprogram.github.com)
+- REPOSITORIES[Topics](https://github.com/topics)[Trending](https://github.com/trending)[Collections](https://github.com/collections)
+- [Topics](https://github.com/topics)
+- [Trending](https://github.com/trending)
+- [Collections](https://github.com/collections)
+- [GitHub SponsorsFund open source developers](https://github.com/sponsors)
+[GitHub SponsorsFund open source developers](https://github.com/sponsors)
+- [Security Lab](https://securitylab.github.com)
+- [Maintainer Community](https://maintainers.github.com)
+- [Accelerator](https://github.com/accelerator)
+- [Archive Program](https://archiveprogram.github.com)
+[Security Lab](https://securitylab.github.com)
+[Maintainer Community](https://maintainers.github.com)
+[Accelerator](https://github.com/accelerator)
+[Archive Program](https://archiveprogram.github.com)
+- [Topics](https://github.com/topics)
+- [Trending](https://github.com/trending)
+- [Collections](https://github.com/collections)
+[Topics](https://github.com/topics)
+[Trending](https://github.com/trending)
+[Collections](https://github.com/collections)
+- ENTERPRISE SOLUTIONS[Enterprise platformAI-powered developer platform](https://github.com/enterprise)
+- [Enterprise platformAI-powered developer platform](https://github.com/enterprise)
+- AVAILABLE ADD-ONS[GitHub Advanced SecurityEnterprise-grade security features](https://github.com/security/advanced-security)[Copilot for BusinessEnterprise-grade AI features](https://github.com/features/copilot/copilot-business)[Premium SupportEnterprise-grade 24/7 support](https://github.com/premium-support)
+
+## Navigation Menu
+
+- [GitHub Advanced SecurityEnterprise-grade security features](https://github.com/security/advanced-security)
+- [Copilot for BusinessEnterprise-grade AI features](https://github.com/features/copilot/copilot-business)
+- [Premium SupportEnterprise-grade 24/7 support](https://github.com/premium-support)
+- [Enterprise platformAI-powered developer platform](https://github.com/enterprise)
+[Enterprise platformAI-powered developer platform](https://github.com/enterprise)
+- [GitHub Advanced SecurityEnterprise-grade security features](https://github.com/security/advanced-security)
+- [Copilot for BusinessEnterprise-grade AI features](https://github.com/features/copilot/copilot-business)
+- [Premium SupportEnterprise-grade 24/7 support](https://github.com/premium-support)
+[GitHub Advanced SecurityEnterprise-grade security features](https://github.com/security/advanced-security)
+[Copilot for BusinessEnterprise-grade AI features](https://github.com/features/copilot/copilot-business)
+[Premium SupportEnterprise-grade 24/7 support](https://github.com/premium-support)
+[Pricing](https://github.com/pricing)
+
+# Search code, repositories, users, issues, pull requests...
+[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
+
+# Provide feedback
+We read every piece of feedback, and take your input very seriously.
+
+## Use saved searches to filter your results more quickly
+
+To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
+[Sign in](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Frichkeyricks%2FITC-FREE)
+[Sign up](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E&source=header-repo&source_repo=richkeyricks%2FITC-FREE)
+[Reload](https://github.com/richkeyricks/ITC-FREE)
+[Reload](https://github.com/richkeyricks/ITC-FREE)
+[Reload](https://github.com/richkeyricks/ITC-FREE)
+[richkeyricks](https://github.com/richkeyricks)
+[ITC-FREE](https://github.com/richkeyricks/ITC-FREE)
+- 
+            [Notifications](https://github.com/login?return_to=%2Frichkeyricks%2FITC-FREE)    You must be signed in to change notification settings
+
+
+- 
+          [Fork
+    0](https://github.com/login?return_to=%2Frichkeyricks%2FITC-FREE)
+
+- 
+
+        [Star
+          0](https://github.com/login?return_to=%2Frichkeyricks%2FITC-FREE)
+
+[Notifications](https://github.com/login?return_to=%2Frichkeyricks%2FITC-FREE)
+[Fork
+    0](https://github.com/login?return_to=%2Frichkeyricks%2FITC-FREE)
+[Star
+          0](https://github.com/login?return_to=%2Frichkeyricks%2FITC-FREE)
+Intelligence Telegram CopyTrade +AI
+[0
+          stars](https://github.com/richkeyricks/ITC-FREE/stargazers)
+[0
+          forks](https://github.com/richkeyricks/ITC-FREE/forks)
+[Branches](https://github.com/richkeyricks/ITC-FREE/branches)
+[Tags](https://github.com/richkeyricks/ITC-FREE/tags)
+[Activity](https://github.com/richkeyricks/ITC-FREE/activity)
+[Star](https://github.com/login?return_to=%2Frichkeyricks%2FITC-FREE)
+[Notifications](https://github.com/login?return_to=%2Frichkeyricks%2FITC-FREE)
+- 
+  [Code](https://github.com/richkeyricks/ITC-FREE)
+- 
+  [Issues
+          0](https://github.com/richkeyricks/ITC-FREE/issues)
+- 
+  [Pull requests
+          0](https://github.com/richkeyricks/ITC-FREE/pulls)
+- 
+  [Actions](https://github.com/richkeyricks/ITC-FREE/actions)
+- 
+  [Projects
+          0](https://github.com/richkeyricks/ITC-FREE/projects)
+- 
+  [Security
+          0](https://github.com/richkeyricks/ITC-FREE/security)
+- 
+  [Insights](https://github.com/richkeyricks/ITC-FREE/pulse)
+[Code](https://github.com/richkeyricks/ITC-FREE)
+[Issues
+          0](https://github.com/richkeyricks/ITC-FREE/issues)
+[Pull requests
+          0](https://github.com/richkeyricks/ITC-FREE/pulls)
+[Actions](https://github.com/richkeyricks/ITC-FREE/actions)
+[Projects
+          0](https://github.com/richkeyricks/ITC-FREE/projects)
+[Security
+          0](https://github.com/richkeyricks/ITC-FREE/security)
+[Insights](https://github.com/richkeyricks/ITC-FREE/pulse)
+- 
+
+
+    [Code](https://github.com/richkeyricks/ITC-FREE)
+
+
+- 
+
+
+    [Issues](https://github.com/richkeyricks/ITC-FREE/issues)
+
+
+- 
+
+
+    [Pull requests](https://github.com/richkeyricks/ITC-FREE/pulls)
+
+
+- 
+
+
+    [Actions](https://github.com/richkeyricks/ITC-FREE/actions)
+
+
+- 
+
+
+    [Projects](https://github.com/richkeyricks/ITC-FREE/projects)
+
+
+- 
+
+
+    [Security](https://github.com/richkeyricks/ITC-FREE/security)
+
+
+- 
+
+
+    [Insights](https://github.com/richkeyricks/ITC-FREE/pulse)
+
+
+[Code](https://github.com/richkeyricks/ITC-FREE)
+[Issues](https://github.com/richkeyricks/ITC-FREE/issues)
+[Pull requests](https://github.com/richkeyricks/ITC-FREE/pulls)
+[Actions](https://github.com/richkeyricks/ITC-FREE/actions)
+[Projects](https://github.com/richkeyricks/ITC-FREE/projects)
+[Security](https://github.com/richkeyricks/ITC-FREE/security)
+[Insights](https://github.com/richkeyricks/ITC-FREE/pulse)
+
+# richkeyricks/ITC-FREE
+
+[Branches](https://github.com/richkeyricks/ITC-FREE/branches)
+[Tags](https://github.com/richkeyricks/ITC-FREE/tags)
+
+## History
+[6 Commits](https://github.com/richkeyricks/ITC-FREE/commits/main/)
+[assets](https://github.com/richkeyricks/ITC-FREE/tree/main/assets)
+[assets](https://github.com/richkeyricks/ITC-FREE/tree/main/assets)
+[dist](https://github.com/richkeyricks/ITC-FREE/tree/main/dist)
+[dist](https://github.com/richkeyricks/ITC-FREE/tree/main/dist)
+[.gitignore](https://github.com/richkeyricks/ITC-FREE/blob/main/.gitignore)
+[.gitignore](https://github.com/richkeyricks/ITC-FREE/blob/main/.gitignore)
+[README.md](https://github.com/richkeyricks/ITC-FREE/blob/main/README.md)
+[README.md](https://github.com/richkeyricks/ITC-FREE/blob/main/README.md)
+
+## Repository files navigation
+- [README](https://github.com/richkeyricks/ITC-FREE)
+[README](https://github.com/richkeyricks/ITC-FREE)
+
+# 🧠 INTELLIGENCE TELEGRAM COPYTRADE (ITC) +AI
+
+Enterprise-Grade Automated Signal Execution Framework with Integrated Artificial Intelligence
+[Features](https://github.com/richkeyricks/ITC-FREE#features) • [Architecture](https://github.com/richkeyricks/ITC-FREE#architecture) • [Installation](https://github.com/richkeyricks/ITC-FREE#installation) • [Configuration](https://github.com/richkeyricks/ITC-FREE#configuration) • [Usage](https://github.com/richkeyricks/ITC-FREE#usage) • [API Reference](https://github.com/richkeyricks/ITC-FREE#api-reference) • [Cloud](https://github.com/richkeyricks/ITC-FREE#cloud-infrastructure) • [License](https://github.com/richkeyricks/ITC-FREE#license)
+
+## ⚡ Latest Enterprise Release (v1.0.1)
+
+Official Production Build - Optimized for Low Latency and High Frequency Execution.
+
+### 🚀 Critical Enhancements
+- Hyper-Optimized Binary Engine: Reduced core footprint by 80% (Sub-75MB) using aggressive JIT compilation and dead-code elimination.
+- Asynchronous Authentication Core: Completely refactored login/signup flow using threaded parallel processing to ensure zero-latency UI responsiveness.
+- Robust Dependency Isolation: Restored critical sqlite3 integration for seamless Telegram session management within the standalone environment.
+- Global Exception Trapping: Implemented a kernel-level exception hook (sys.excepthook) to capture and log elusive runtime errors to crash_report.txt for forensic analysis.
+
+```
+sqlite3
+```
+
+
+```
+sys.excepthook
+```
+
+
+```
+crash_report.txt
+```
+
+### �️ Security & Stability
+- Secret Sanitization: Removed all hardcoded development keys from public artifacts.
+- Database Connectivity: Hardened Supabase connection with redundant fallback for unstable network environments.
+
+### �📦 Installation
+1. Download the ITC_Plus_AI_Enterprise_v1.0.1.zip via the button above.
+2. Extract to preferred location.
+3. Run ITC_Plus_AI_Enterprise.exe.
+4. No Python installation required.
+
+```
+ITC_Plus_AI_Enterprise_v1.0.1.zip
+```
+
+
+```
+ITC_Plus_AI_Enterprise.exe
+```
+
+Built from Technolog Store - Richkeyrick Dev. Powered by Haineo AI OS Lab Network Vision AI.
+
+## 🚀 What is ITC +AI?
+ITC +AI Enterprise is a cutting-edge, production-ready framework designed for automated trade execution from Telegram signal channels directly into MetaTrader 5. Built with an AI-first architecture, it features intelligent signal parsing, multi-provider LLM fallback, real-time cloud synchronization, and a professional desktop GUI.
+⚠️ DISCLAIMER: Trading financial instruments carries significant risk. This software is a tool, not financial advice. Past performance is not indicative of future results.
+
+## 🏗️ Architecture
+```
+┌─────────────────────────────────────────────────────────────────────────────┐ │ ITC +AI ENTERPRISE STACK │ ├─────────────────────────────────────────────────────────────────────────────┤ │ │ │ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ │ │ │ TELEGRAM │ │ AI ENGINE │ │ MT5 API │ │ CLOUD │ │ │ │ CLIENT │───▶│ PARSER │───▶│ EXECUTOR │ │ BACKEND │ │ │ └─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘ │ │ │ │ │ │ │ │ ▼ ▼ ▼ ▼ │ │ ┌─────────────────────────────────────────────────────────────────────┐ │ │ │ CORE APPLICATION │ │ │ │ ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────────────┐ │ │ │ │ │ GUI Layer │ │Config Mgr │ │ Logger │ │ Session Manager │ │ │ │ │ └───────────┘ └───────────┘ └───────────┘ └───────────────────┘ │ │ │ └─────────────────────────────────────────────────────────────────────┘ │ │ │ └─────────────────────────────────────────────────────────────────────────────┘ ┌──────────────┐ │ SUPABASE │ │ PostgreSQL │ │ + Auth │ │ + Realtime │ └──────────────┘ │ ┌────────────────┼────────────────┐ │ │ │ ┌─────▼─────┐ ┌─────▼─────┐ ┌─────▼─────┐ │ Desktop │ │ Web │ │ Mobile │ │ App │ │ Dashboard │ │ (PWA) │ └───────────┘ └───────────┘ └───────────┘
+```
+
+## 🏗️ Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐ │ ITC +AI ENTERPRISE STACK │ ├─────────────────────────────────────────────────────────────────────────────┤ │ │ │ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ │ │ │ TELEGRAM │ │ AI ENGINE │ │ MT5 API │ │ CLOUD │ │ │ │ CLIENT │───▶│ PARSER │───▶│ EXECUTOR │ │ BACKEND │ │ │ └─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘ │ │ │ │ │ │ │ │ ▼ ▼ ▼ ▼ │ │ ┌─────────────────────────────────────────────────────────────────────┐ │ │ │ CORE APPLICATION │ │ │ │ ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────────────┐ │ │ │ │ │ GUI Layer │ │Config Mgr │ │ Logger │ │ Session Manager │ │ │ │ │ └───────────┘ └───────────┘ └───────────┘ └───────────────────┘ │ │ │ └─────────────────────────────────────────────────────────────────────┘ │ │ │ └─────────────────────────────────────────────────────────────────────────────┘ ┌──────────────┐ │ SUPABASE │ │ PostgreSQL │ │ + Auth │ │ + Realtime │ └──────────────┘ │ ┌────────────────┼────────────────┐ │ │ │ ┌─────▼─────┐ ┌─────▼─────┐ ┌─────▼─────┐ │ Desktop │ │ Web │ │ Mobile │ │ App │ │ Dashboard │ │ (PWA) │ └───────────┘ └───────────┘ └───────────┘
+```
+
+### Quick Start
+```
+# Clone the repository git clone https://github.com/richkeyricks/ITC.git cd ITC # Install dependencies pip install -r requirements.txt # Configure environment copy .env.example .env # Edit .env with your credentials # Run the application python src/gui.py
+```
+
+### Build Executable
+```
+# Build standalone executable python build_exe.py # Output: dist/ITC_Plus_AI_Enterprise.exe
+```
+
+### Environment Variables
+
+Create a .env file in the project root:
+
+```
+.env
+```
+
+
+```
+# ═══════════════════════════════════════════ # TELEGRAM CONFIGURATION # ═══════════════════════════════════════════ TG_API_ID=your_api_id TG_API_HASH=your_api_hash TG_CHANNELS=-100xxxxxxxxxx,-100yyyyyyyyyy # ═══════════════════════════════════════════ # METATRADER 5 CREDENTIALS # ═══════════════════════════════════════════ MT5_LOGIN=your_login_id MT5_PASSWORD=your_password MT5_SERVER=YourBroker-Server # ═══════════════════════════════════════════ # TRADING PARAMETERS # ═══════════════════════════════════════════ RISK_PERCENT=1.0 FIXED_LOT=0.01 MAGIC_NUMBER=123456 SYMBOL_SUFFIX= # ═══════════════════════════════════════════ # AI CONFIGURATION # ═══════════════════════════════════════════ USE_AI=True AI_PROVIDER=OpenRouter AI_API_KEY=sk-or-v1-xxxx # ═══════════════════════════════════════════ # CLOUD (SUPABASE) # ═══════════════════════════════════════════ SUPABASE_URL=https://xxxx.supabase.co SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6...
+```
+
+### Signal Format Support
+The parser handles multiple signal formats:
+
+```
+# Format 1: Standard BUY XAUUSD Entry: 2650.00 TP: 2670.00 SL: 2640.00 # Format 2: Compact SELL EURUSD @ 1.0850 TP 1.0800 SL 1.0900 # Format 3: Natural Language (AI Required) "Looking to short gold around 2650, target 2620, stop above 2680"
+```
+
+
+```
+# Format 1: Standard BUY XAUUSD Entry: 2650.00 TP: 2670.00 SL: 2640.00 # Format 2: Compact SELL EURUSD @ 1.0850 TP 1.0800 SL 1.0900 # Format 3: Natural Language (AI Required) "Looking to short gold around 2650, target 2620, stop above 2680"
+```
+
+### Code Example: Custom Signal Handler
+```
+from modules.parser.signal_parser import parse_signal from modules.mt5.executor import open_trade # Parse incoming signal signal = parse_signal(raw_message) if signal: result = open_trade( symbol=signal['symbol'], order_type=signal['type'], entry=signal['entry'], tp=signal['tp'], sl=signal['sl'], lot=calculate_lot(risk_percent=1.0) ) print(f"Trade executed: {result}")
+```
+
+### Database Schema
+```
+-- User Profiles (RLS Enabled) CREATE TABLE user_profiles ( id UUID PRIMARY KEY DEFAULT gen_random_uuid(), hwid TEXT UNIQUE NOT NULL, name TEXT, email TEXT, balance DECIMAL(15,2) DEFAULT 0, equity DECIMAL(15,2) DEFAULT 0, total_pl DECIMAL(15,2) DEFAULT 0, is_pro BOOLEAN DEFAULT FALSE, created_at TIMESTAMPTZ DEFAULT NOW() ); -- Trade History CREATE TABLE trades ( id UUID PRIMARY KEY DEFAULT gen_random_uuid(), user_id TEXT NOT NULL, symbol TEXT NOT NULL, type TEXT NOT NULL, lot DECIMAL(10,2), entry DECIMAL(15,5), sl DECIMAL(15,5), tp DECIMAL(15,5), result TEXT, created_at TIMESTAMPTZ DEFAULT NOW() ); -- AI Chat Memory CREATE TABLE messages ( id UUID PRIMARY KEY DEFAULT gen_random_uuid(), user_id TEXT NOT NULL, role TEXT NOT NULL, content TEXT NOT NULL, created_at TIMESTAMPTZ DEFAULT NOW() );
+```
+
+### Row Level Security
+```
+-- Users can only see their own data CREATE POLICY "Users can only access own data" ON user_profiles FOR ALL USING (hwid = current_setting('request.jwt.claims')::json->>'sub');
+```
+
+## 👨‍💻 Developer
+[GitHub](https://github.com/richkeyricks)
+[Support](https://saweria.co/richkeyrick)
+Technolog Store Dev — Building intelligent trading solutions since 2024.
+
+## 📄 License
+This software is proprietary. All rights reserved.
+- ✅ Personal use permitted
+- ❌ Redistribution prohibited
+- ❌ Commercial use without license prohibited
+- ❌ Reverse engineering prohibited
+For licensing inquiries, contact the developer.
+
+## 🤝 Support the Development
+ITC +AI Enterprise is the result of thousands of hours of research, development, and AI training. It is provided for free to empower the retail trading community.
+If this software has helped you achieve profit or streamlined your workflow, please consider supporting its continued evolution. Your contributions directly fund:
+- Server costs for the AI Engine & Cloud Database.
+- Access to premium LLM APIs (GPT-4, Claude 3 Opus).
+- Coffee for long nights of coding! ☕
+
+### 💖 Ways to Support
+
+1. Star this Repo ⭐: It helps others find us and keeps me motivated!
+2. Donate:
+
+[Saweria](https://saweria.co/richkeyrick) (Local Support ID/QRIS)
+[PayPal](https://www.paypal.com/paypalme/richkeyrick)
+[Ko-fi](https://ko-fi.com/richkeyrick)
+
+
+3. [Saweria](https://saweria.co/richkeyrick) (Local Support ID/QRIS)
+4. [PayPal](https://www.paypal.com/paypalme/richkeyrick)
+5. [Ko-fi](https://ko-fi.com/richkeyrick)
+6. Share: Post your profit screenshots on social media and tag me!
+- [Saweria](https://saweria.co/richkeyrick) (Local Support ID/QRIS)
+- [PayPal](https://www.paypal.com/paypalme/richkeyrick)
+- [Ko-fi](https://ko-fi.com/richkeyrick)
+[Saweria](https://saweria.co/richkeyrick)
+[PayPal](https://www.paypal.com/paypalme/richkeyrick)
+[Ko-fi](https://ko-fi.com/richkeyrick)
+"Innovation is expensive, but community support is priceless. Thank you for being part of this journey." — Richkeyrick
+ITC +AI Enterprise — "Intelligence Meets Execution"
+© 2024-2026 Technolog Store Dev. All rights reserved.
+
+## About
+
+Intelligence Telegram CopyTrade +AI
+
+### Resources
+[Readme](https://github.com/richkeyricks/ITC-FREE#readme-ov-file)
+
+### Uh oh!
+There was an error while loading. [Please reload this page](https://github.com/richkeyricks/ITC-FREE).
+[Activity](https://github.com/richkeyricks/ITC-FREE/activity)
+
+### Stars
+[0
+        stars](https://github.com/richkeyricks/ITC-FREE/stargazers)
+
+### Watchers
+[0
+        watching](https://github.com/richkeyricks/ITC-FREE/watchers)
+
+### Forks
+[0
+        forks](https://github.com/richkeyricks/ITC-FREE/forks)
+[Report repository](https://github.com/contact/report-content?content_url=https%3A%2F%2Fgithub.com%2Frichkeyricks%2FITC-FREE&report=richkeyricks+%28user%29)
+
+## [Releases 1](https://github.com/richkeyricks/ITC-FREE/releases)
+[Releases
+      1](https://github.com/richkeyricks/ITC-FREE/releases)
+[AI Intelligencce Telegram CopyTrade for MT5 - Pro MAX Ultra v1.0.1
+
+          Latest
+
+      Jan 24, 2026](https://github.com/richkeyricks/ITC-FREE/releases/tag/1.0.1)
+
+## [Packages 0](https://github.com/users/richkeyricks/packages?repo_name=ITC-FREE)
+[Packages
+      0](https://github.com/users/richkeyricks/packages?repo_name=ITC-FREE)
+
+### Footer navigation
+
+- 
+            [Terms](https://docs.github.com/site-policy/github-terms/github-terms-of-service)
+
+- 
+            [Privacy](https://docs.github.com/site-policy/privacy-policies/github-privacy-statement)
+
+- 
+            [Security](https://github.com/security)
+
+- 
+            [Status](https://www.githubstatus.com/)
+
+- 
+            [Community](https://github.community/)
+
+- 
+            [Docs](https://docs.github.com/)
+
+- 
+            [Contact](https://support.github.com?tags=dotcom-footer)
+
+- 
+
+
+       Manage cookies
+
+
+
+- 
+
+
+      Do not share my personal information
+
+
+
+[Terms](https://docs.github.com/site-policy/github-terms/github-terms-of-service)
+[Privacy](https://docs.github.com/site-policy/privacy-policies/github-privacy-statement)
+[Security](https://github.com/security)
+[Status](https://www.githubstatus.com/)
+[Community](https://github.community/)
+[Docs](https://docs.github.com/)
+[Contact](https://support.github.com?tags=dotcom-footer)

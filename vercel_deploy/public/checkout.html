@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITC | Secure Checkout</title>
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: screen;
+        }
+
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        .glass {
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            max-width: 24rem;
+            width: 100%;
+            text-align: center;
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+            color: #9ca3af;
+            margin-bottom: 1rem;
+        }
+
+        .text-xs {
+            font-size: 0.75rem;
+            color: #4b5563;
+            margin-top: 1.5rem;
+        }
+
+        .text-red-500 {
+            color: #ef4444;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .spinner {
+            border: 2px solid rgba(212, 175, 55, 0.1);
+            border-bottom-color: #d4af37;
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-center">
+        <div class="glass">
+            <h1 class="text-2xl">Quantum Activation</h1>
+            <p class="text-sm">Initializing secure handshake for <span id="tier-name"
+                    style="color: #eab308; font-weight: 700;">...</span></p>
+
+            <div id="loader" class="flex justify-center">
+                <div class="spinner"></div>
+            </div>
+
+            <div id="error-msg" class="text-red-500 text-sm hidden"></div>
+
+            <p class="text-xs">You will be redirected to the secure Midtrans gateway.</p>
+        </div>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const tier = params.get('tier');
+        const email = params.get('email');
+        const name = params.get('name');
+        const phone = params.get('phone');
+
+        document.getElementById('tier-name').innerText = tier || "Premium";
+
+        async function createSession() {
+            try {
+                const response = await fetch('/api/pay', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        order_id: 'WEB-' + Math.random().toString(36).substr(2, 9).toUpperCase(),
+                        amount: tier === 'GOLD' ? 450000 : (tier === 'PLATINUM' ? 1250000 : 3500000),
+                        preset_name: 'ITC ' + tier.toUpperCase() + ' Membership',
+                        customer_email: email,
+                        customer_name: name,
+                        customer_phone: phone
+                    })
+                });
+
+                const data = await response.json();
+                if (data.token) {
+                    window.location.href = `/snap-bridge.html?token=${data.token}&id=${data.order_id}&env=${data.snap_environment}`;
+                } else {
+                    let userError = data.error || "Failed to create session";
+
+                    if (response.status === 401) {
+                        userError = "AUTHENTICATION_FAILED (401): Your Midtrans Server Key is rejected. Please verify it in Vercel settings.";
+                    } else if (response.status === 403) {
+                        userError = "ACCESS_DENIED (403): Permission issue with Midtrans API.";
+                    } else if (response.status === 500) {
+                        userError = `SERVER_ERROR (500): ${data.error || "Check Vercel Environment Variables."}`;
+                    }
+
+                    throw new Error(userError);
+                }
+            } catch (err) {
+                document.getElementById('loader').classList.add('hidden');
+                const errDiv = document.getElementById('error-msg');
+                errDiv.innerHTML = `<p>${err.message}</p><p style="font-size: 10px; margin-top: 10px; opacity: 0.6;">Check Browser Console for more details.</p>`;
+                errDiv.classList.remove('hidden');
+            }
+        }
+
+        if (tier && email) {
+            createSession();
+        } else {
+            window.location.href = '/index.html';
+        }
+    </script>
+</body>
+
+</html>

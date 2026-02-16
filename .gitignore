@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment Variables (SENSITIVE)
+.env
+*.env.local
+
+# Logs
+*.log
+logs/
+
+# MetaTrader Session
+*.session
+*.session-journal
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.exe
+*.spec
+
+# Telethon Session (SENSITIVE)
+ITC*.session
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Security
+secrets.json

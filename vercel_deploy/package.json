@@ -1,0 +1,23 @@
+{
+    "name": "itc-copytrade-bridge",
+    "version": "1.0.0",
+    "description": "Midtrans Payment Bridge for ITC Copytrade",
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@supabase/supabase-js": "^2.93.3",
+        "axios": "^1.6.0",
+        "midtrans-client": "^1.4.2",
+        "next": "latest",
+        "react": "latest",
+        "react-dom": "latest",
+        "@vercel/og": "latest"
+    },
+    "devDependencies": {
+        "vercel": "^32.0.0"
+    }
+}

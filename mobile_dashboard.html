@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ITC +AI | Cloud Portal</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0d1117;
+            --card: #161b22;
+            --accent: #1f6feb;
+            --success: #2ea44f;
+            --warning: #dbab09;
+            --danger: #f85149;
+            --text: #c9d1d9;
+            --text-dim: #8b949e;
+            --border: #30363d;
+            --glass: rgba(22, 27, 34, 0.8);
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+            touch-action: manipulation;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+            background: #010409;
+        }
+
+        /* AUTH PANEL - PREMIUM LOOK */
+        #auth-panel {
+            padding: 40px 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: radial-gradient(circle at top right, #1f6feb22, transparent);
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1f6feb, #2ea44f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+            text-align: center;
+            letter-spacing: -1px;
+        }
+
+        .auth-card {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        input {
+            width: 100%;
+            padding: 16px;
+            margin: 12px 0;
+            background: #0d1117;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: var(--accent);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(31, 111, 235, 0.2);
+        }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            background: var(--accent);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 15px;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(31, 111, 235, 0.3);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        #main-app {
+            display: none;
+            height: 100%;
+            flex-direction: column;
+        }
+
+        /* HEADER */
+        .header {
+            padding: 25px 20px;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .greeting {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .user-badge {
+            font-size: 11px;
+            padding: 4px 10px;
+            background: var(--border);
+            border-radius: 20px;
+            color: var(--text-dim);
+        }
+
+        /* CONTENT */
+        .tab-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: linear-gradient(to bottom, #010409, var(--bg));
+            scrollbar-width: none;
+        }
+
+        .tab-content::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab-panel {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .active-panel {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* NAVIGATION */
+        .nav-bar {
+            display: flex;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid var(--border);
+            padding: 12px 10px 25px 10px;
+            justify-content: space-around;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .nav-item.active {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        .nav-item.active::after {
+            content: '';
+            position: absolute;
+            top: -12px;
+            width: 20px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 0 0 5px 5px;
+        }
+
+        .nav-icon {
+            font-size: 22px;
+            margin-bottom: 4px;
+        }
+
+        .nav-label {
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* CARDS */
+        .card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border);
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 15px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-val {
+            font-size: 24px;
+            font-weight: 800;
+            margin-top: 5px;
+        }
+
+        .stat-lbl {
+            font-size: 12px;
+            color: var(--text-dim);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* AI WELLNESS */
+        .wellness-card {
+            background: linear-gradient(135deg, rgba(31, 111, 235, 0.15), rgba(46, 164, 79, 0.1));
+            border: 1px solid var(--accent);
+            border-radius: 24px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wellness-card::before {
+            content: '🤖';
+            position: absolute;
+            right: -10px;
+            bottom: -10px;
+            font-size: 80px;
+            opacity: 0.05;
+        }
+
+        /* CHAT */
+        #chat-box {
+            height: clamp(200px, 45vh, 600px);
+            overflow-y: auto;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .msg {
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 15px;
+            max-width: 85%;
+            line-height: 1.4;
+        }
+
+        .msg-user {
+            background: var(--accent);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .msg-ai {
+            background: var(--border);
+            color: white;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        /* LEADERBOARD */
+        .leader-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid var(--border);
+            transition: 0.3s;
+        }
+
+        .leader-row:last-child {
+            border-bottom: none;
+        }
+
+        .rank {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #21262d;
+            border-radius: 10px;
+            font-weight: 800;
+            color: var(--warning);
+            margin-right: 12px;
+            font-size: 14px;
+        }
+
+        /* ADMIN VIEW */
+        #admin-tab {
+            display: none;
+        }
+
+        .admin-stat {
+            background: #1c2128;
+            border-left: 4px solid var(--warning);
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        /* RESPONSIVE TRICKS */
+        @media (max-height: 700px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            .stat-val {
+                font-size: 20px;
+            }
+
+            .header {
+                padding: 15px 20px;
+            }
+
+            .wellness-card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- AUTH -->
+        <div id="auth-panel">
+            <h1>ITC +AI</h1>
+            <p style="text-align:center; color:var(--text-dim); margin-bottom: 30px; font-size: 14px;">Enterprise Cloud
+                Portal</p>
+            <div class="auth-card">
+                <input type="email" id="email" placeholder="Email Dashboard" autocomplete="email">
+                <input type="password" id="password" placeholder="Password" autocomplete="current-password">
+                <button id="login-btn" onclick="handleLogin()">SIGN IN</button>
+            </div>
+            <p style="text-align:center; color:var(--text-dim); margin-top: 25px; font-size: 12px;">© 2026 Haineo AI</p>
+        </div>
+
+        <!-- APP -->
+        <div id="main-app">
+            <div class="header">
+                <div>
+                    <div id="greet" class="greeting">Hello!</div>
+                    <div id="sub-greet" style="font-size: 12px; color:var(--text-dim)">Checking market...</div>
+                </div>
+                <div class="user-badge" id="badge-role">TRADER</div>
+            </div>
+
+            <div class="tab-content">
+                <!-- DASHBOARD -->
+                <div id="dash-tab" class="tab-panel active-panel">
+                    <div class="wellness-card">
+                        <div
+                            style="font-size: 13px; font-weight: 700; color: var(--accent); display:flex; align-items:center; margin-bottom:8px;">
+                            <span style="font-size:18px; margin-right:8px;">🤖</span> AI WELLNESS
+                        </div>
+                        <div id="ai-wellness-msg" style="font-size: 15px; line-height: 1.5; margin-bottom: 15px;">Apa
+                            sudah trading hari ini? Tetap disiplin ya!</div>
+                        <div style="display:flex; gap: 10px;">
+                            <button
+                                style="padding:10px 20px; margin:0; font-size:13px; width:auto; background:var(--success); box-shadow:none;"
+                                onclick="wellnessResp('Ya')">Sudah</button>
+                            <button
+                                style="padding:10px 20px; margin:0; font-size:13px; width:auto; background:transparent; border:1px solid var(--border); box-shadow:none;"
+                                onclick="wellnessResp('Belum')">Belum</button>
+                        </div>
+                    </div>
+
+                    <div class="stat-grid">
+                        <div class="stat-card">
+                            <div class="stat-lbl">Equity</div>
+                            <div class="stat-val" id="equity">$0</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-lbl">Daily P/L</div>
+                            <div class="stat-val" id="profit" style="color:var(--success)">$0</div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="padding:15px 20px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <span class="stat-lbl">Account Status</span>
+                            <span style="color:var(--success); font-weight:700; font-size:12px;">● LIVE</span>
+                        </div>
+                        <div id="broker" style="margin-top:8px; font-size:16px; font-weight:700;">Connecting...</div>
+                    </div>
+                </div>
+
+                <!-- AI CHAT -->
+                <div id="ai-tab" class="tab-panel">
+                    <h3 style="margin: 0 0 15px 0; font-size:22px;">AI Companion</h3>
+                    <div id="chat-box"></div>
+                    <div
+                        style="display:flex; gap:10px; background:var(--card); padding:8px; border-radius:18px; border: 1px solid var(--border);">
+                        <input type="text" id="ai-msg" placeholder="Ask AI anything..."
+                            style="margin:0; padding:12px; border:none; background:transparent;">
+                        <button style="margin:0; width:50px; height:50px; padding:0; border-radius:15px;"
+                            onclick="sendChat()">🚀</button>
+                    </div>
+                </div>
+
+                <!-- LEADERBOARD -->
+                <div id="leader-tab" class="tab-panel">
+                    <h3 style="margin: 0 0 15px 0; font-size:22px;">🏆 Global Rankings</h3>
+                    <div id="leader-list" class="card" style="padding:5px 0;">
+                        <p style="text-align:center; color:var(--text-dim); padding:40px;">Fetching rankings...</p>
+                    </div>
+                </div>
+
+                <!-- ADMIN VIEW (ONLY SHOWN IF ADMIN) -->
+                <div id="admin-tab" class="tab-panel">
+                    <h3 style="margin: 0 0 15px 0; font-size:22px; color:var(--warning);">👑 Admin Monitor</h3>
+                    <div id="admin-stats">
+                        <div class="admin-stat">
+                            <div class="stat-lbl">Global Users</div>
+                            <div class="stat-val" id="adm-users">0</div>
+                        </div>
+                        <div class="admin-stat" style="border-left-color: var(--accent);">
+                            <div class="stat-lbl">Global Balance</div>
+                            <div class="stat-val" id="adm-bal">$0</div>
+                        </div>
+                    </div>
+                    <div id="user-list" style="margin-top:20px;"></div>
+                </div>
+            </div>
+
+            <!-- NAVBAR -->
+            <div class="nav-bar">
+                <div class="nav-item active" id="nav-dash" onclick="showTab('dash', this)">
+                    <div class="nav-icon">🏠</div>
+                    <div class="nav-label">Home</div>
+                </div>
+                <div id="nav-adm-btn" class="nav-item" style="display:none;" onclick="showTab('admin', this)">
+                    <div class="nav-icon">👑</div>
+                    <div class="nav-label">Admin</div>
+                </div>
+                <div class="nav-item" onclick="showTab('ai', this)">
+                    <div class="nav-icon">🤖</div>
+                    <div class="nav-label">Assistant</div>
+                </div>
+                <div class="nav-item" onclick="showTab('leader', this)">
+                    <div class="nav-icon">🏆</div>
+                    <div class="nav-label">Global</div>
+                </div>
+                <div class="nav-item" onclick="handleLogout()">
+                    <div class="nav-icon">🚪</div>
+                    <div class="nav-label">Logout</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const SUPABASE_URL = "";
+        const SUPABASE_KEY = "";
+        const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        let currentUser = null;
+        let isAdmin = false;
+
+        async function handleLogin() {
+            const btn = document.getElementById('login-btn');
+            btn.innerText = 'AUTHENTICATING...';
+            btn.disabled = true;
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const { data, error } = await sb.auth.signInWithPassword({ email, password });
+
+            if (error) {
+                alert("Login Gagal: " + error.message);
+                btn.innerText = 'SIGN IN';
+                btn.disabled = false;
+                return;
+            }
+
+            currentUser = data.user;
+            isAdmin = (email === "adminITC@Richkeyrick2051");
+            initApp();
+        }
+
+        function initApp() {
+            document.getElementById('auth-panel').style.display = 'none';
+            document.getElementById('main-app').style.display = 'flex';
+
+            if (isAdmin) {
+                document.getElementById('nav-adm-btn').style.display = 'flex';
+                document.getElementById('badge-role').innerText = 'ADMIN';
+                document.getElementById('badge-role').style.color = 'var(--warning)';
+                loadAdminData();
+            }
+
+            setGreeting();
+            updateStats();
+            loadHistory();
+            loadLeaderboard();
+
+            // Auto Refresh every 30s
+            setInterval(() => {
+                updateStats();
+                if (isAdmin) loadAdminData();
+            }, 30000);
+        }
+
+        function setGreeting() {
+            const hr = new Date().getHours();
+            let g = "Malam";
+            if (hr >= 4 && hr < 11) g = "Pagi";
+            else if (hr >= 11 && hr < 15) g = "Siang";
+            else if (hr >= 15 && hr < 19) g = "Sore";
+            document.getElementById('greet').innerText = "Selamat " + g + "!";
+        }
+
+        async function updateStats() {
+            const { data } = await sb.from('user_profiles').select('*').eq('hwid', currentUser.id).single();
+            if (data) {
+                document.getElementById('equity').innerText = "$" + (data.equity || 0).toLocaleString();
+                document.getElementById('profit').innerText = "$" + (data.total_pl || 0).toLocaleString();
+                document.getElementById('broker').innerText = data.broker || "No MT5 Connected";
+                document.getElementById('sub-greet').innerText = "Account: " + (data.name || currentUser.email.split('@')[0]);
+            }
+        }
+
+        async function loadAdminData() {
+            const { data: profiles } = await sb.from('user_profiles').select('*');
+            if (profiles) {
+                document.getElementById('adm-users').innerText = profiles.length;
+                const totalBal = profiles.reduce((sum, p) => sum + (p.balance || 0), 0);
+                document.getElementById('adm-bal').innerText = "$" + totalBal.toLocaleString();
+
+                const list = document.getElementById('user-list');
+                list.innerHTML = '<h4 style="margin-bottom:10px;">User Monitor</h4>';
+                profiles.forEach(p => {
+                    const row = document.createElement('div');
+                    row.className = 'card';
+                    row.style.padding = '12px 15px';
+                    row.style.fontSize = '13px';
+                    row.innerHTML = `<div style="display:flex; justify-content:space-between"><b>${p.name || 'User'}</b> <span>$${(p.balance || 0).toLocaleString()}</span></div>
+                                     <div style="color:var(--text-dim); font-size:11px;">${p.broker || 'No Broker'}</div>`;
+                    list.appendChild(row);
+                });
+            }
+        }
+
+        function showTab(tab, el) {
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active-panel'));
+            document.getElementById(tab + '-tab').classList.add('active-panel');
+            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+            el.classList.add('active');
+        }
+
+        async function sendChat() {
+            const msgInput = document.getElementById('ai-msg');
+            const msg = msgInput.value;
+            if (!msg) return;
+            msgInput.value = '';
+
+            appendMsg('user', msg);
+            await sb.from('messages').insert({ user_id: currentUser.id, role: 'user', content: msg, sender_id: 'MOBILE_WEB' });
+
+            setTimeout(() => {
+                appendMsg('assistant', "AI Cloud: Pesan Anda telah diterima. Asisten desktop akan merespons di sini segera setelah diproses.");
+            }, 1000);
+        }
+
+        async function loadHistory() {
+            const { data } = await sb.from('messages').select('*').eq('user_id', currentUser.id).order('created_at', { ascending: true }).limit(20);
+            if (data) {
+                const box = document.getElementById('chat-box');
+                box.innerHTML = '';
+                data.forEach(m => appendMsg(m.role, m.content));
+            }
+        }
+
+        function appendMsg(role, text) {
+            const box = document.getElementById('chat-box');
+            if (!box) return;
+            const div = document.createElement('div');
+            div.className = 'msg ' + (role === 'user' ? 'msg-user' : 'msg-ai');
+            div.innerText = text;
+            box.appendChild(div);
+            box.scrollTop = box.scrollHeight;
+        }
+
+        async function loadLeaderboard() {
+            const { data } = await sb.from('user_profiles').select('name, total_pl, publish_initials_only').eq('publish_profit', true).order('total_pl', { ascending: false }).limit(10);
+            const list = document.getElementById('leader-list');
+            list.innerHTML = '';
+            if (!data || data.length === 0) {
+                list.innerHTML = '<p style="text-align:center; padding:40px; color:var(--text-dim)">No public rankings available.</p>';
+                return;
+            }
+            data.forEach((u, i) => {
+                const row = document.createElement('div');
+                row.className = 'leader-row';
+                const name = u.publish_initials_only ? (u.name ? u.name.substring(0, 2) + '***' : 'An***') : u.name;
+                row.innerHTML = `<div style="display:flex; align-items:center"><span class="rank">${i + 1}</span> <span>${name}</span></div> 
+                                 <span style="color:var(--success); font-weight:700;">$${(u.total_pl || 0).toLocaleString()}</span>`;
+                list.appendChild(row);
+            });
+        }
+
+        function wellnessResp(r) { alert("AI: " + (r === 'Ya' ? 'Bagus! Tetap jaga fokus hari ini. 👍' : 'Segerakan ya, kesehatan dan rencana trading itu utama! 💪')); }
+        async function handleLogout() { await sb.auth.signOut(); location.reload(); }
+    </script>
+</body>
+
+</html>

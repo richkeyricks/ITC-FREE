@@ -1,0 +1,236 @@
+# ══════════════════════════════════════════════════════════════════════════════
+# 📊 MERCHANT DASHBOARD UI (Presentation Layer)
+# 🎨 STYLE: Wealth-Focused, Green Accents, Clean
+# ══════════════════════════════════════════════════════════════════════════════
+
+import threading
+import customtkinter as ctk
+from CTkMessagebox import CTkMessagebox
+from modules.logic.merchant_service import MerchantService
+from modules.logic.affiliate_service import AffiliateService
+
+class MerchantDashboardView(ctk.CTkFrame):
+    def __init__(self, parent, controller):
+        super().__init__(parent, fg_color="#101014") # Dark Background
+        self.controller = controller
+        # Initialize Service (Lazy Load if needed, but here we assume db_manager exists)
+        # Initialize Service (Lazy Load if needed, but here we assume db_manager exists)
+        self.service = MerchantService(controller.db_manager)
+        self.affiliate_service = AffiliateService(controller.db_manager)
+        
+        self.user_id = controller.db_manager.user_id if hasattr(controller.db_manager, 'user_id') else "anonymous"
+        
+        self._setup_ui()
+        self.refresh_data()
+
+    def _setup_ui(self):
+        # --- HEADER ---
+        self.lbl_title = ctk.CTkLabel(self, text="MERCHANT BANK (ALPHA)", 
+                                      font=("Roboto", 24, "bold"), text_color="#00FFAA")
+        self.lbl_title.pack(pady=(20, 10), anchor="w", padx=20)
+
+        # --- WEALTH CARDS (Grid) ---
+        self.frm_cards = ctk.CTkFrame(self, fg_color="transparent")
+        self.frm_cards.pack(fill="x", padx=20, pady=10)
+
+        # 1. Active Balance (Liquid)
+        self.card_active = self._create_card(self.frm_cards, "ACTIVE BALANCE", "Rp 0", "#22CC88")
+        self.card_active.pack(side="left", fill="both", expand=True, padx=(0, 10))
+
+        # 2. Pending Balance (Escrow)
+        self.card_pending = self._create_card(self.frm_cards, "IN ESCROW (3 DAYS)", "Rp 0", "#FFD700")
+        self.card_pending.pack(side="left", fill="both", expand=True, padx=10)
+
+        # 3. Lifetime
+        self.card_lifetime = self._create_card(self.frm_cards, "LIFETIME REVENUE", "Rp 0", "#8888AA")
+        self.card_lifetime.pack(side="left", fill="both", expand=True, padx=(10, 0))
+
+        # --- CONTENT AREA (Chart & Actions) ---
+        self.frm_content = ctk.CTkFrame(self, fg_color="transparent")
+        self.frm_content.pack(fill="both", expand=True, padx=20, pady=10)
+
+        # Left: Chart
+        self.frm_chart = ctk.CTkFrame(self.frm_content, fg_color="#1A1A20", corner_radius=15)
+        self.frm_chart.pack(side="left", fill="both", expand=True, padx=(0, 10))
+        
+        ctk.CTkLabel(self.frm_chart, text="7-DAY REVENUE PERFORMANCE", font=("Roboto", 12, "bold"), text_color="gray").pack(pady=10)
+        
+        self.canvas = ctk.CTkCanvas(self.frm_chart, bg="#1A1A20", highlightthickness=0, height=200)
+        self.canvas.pack(fill="both", expand=True, padx=10, pady=10)
+
+        # Right: Actions & Withdraw
+        self.frm_actions = ctk.CTkFrame(self.frm_content, fg_color="#1A1A20", corner_radius=15, width=250)
+        self.frm_actions.pack(side="right", fill="y", padx=(10, 0))
+
+        self.frm_actions.pack(side="right", fill="y", padx=(10, 0))
+
+        # --- ACTIONS ---
+        ctk.CTkLabel(self.frm_actions, text="ACTIONS", font=("Roboto", 12, "bold"), text_color="gray").pack(pady=10)
+        self.btn_sell = ctk.CTkButton(self.frm_actions, text="💎 SELL STRATEGY", 
+                                      fg_color="#3B8ED0", hover_color="#36719F", 
+                                      height=40, font=("Roboto", 14, "bold"),
+                                      command=self.open_sell_wizard)
+        self.btn_sell.pack(pady=10, padx=20, fill="x")
+
+        self.btn_withdraw = ctk.CTkButton(self.frm_actions, text="💸 REQUEST PAYOUT",  
+                                          fg_color="#00AA66", hover_color="#008855", 
+                                          height=40, font=("Roboto", 14, "bold"),
+                                          command=self.on_withdraw)
+        self.btn_withdraw.pack(pady=10, padx=20, fill="x")
+
+        ctk.CTkLabel(self.frm_actions, text="Auto-Transfer every Friday\nMin: Rp 1.000.000", 
+                     font=("Consolas", 10), text_color="gray").pack(pady=5)
+
+        # --- AFFILIATE SECTION ---
+        ctk.CTkFrame(self.frm_actions, height=2, fg_color="gray").pack(fill="x", pady=20, padx=10) # Divider
+        
+        ctk.CTkLabel(self.frm_actions, text="AFFILIATE PROGRAM", font=("Roboto", 12, "bold"), text_color="#DD88FF").pack(pady=5)
+        
+        self.lbl_code = ctk.CTkLabel(self.frm_actions, text="CODE: LOADING...", font=("Consolas", 14, "bold"))
+        self.lbl_code.pack(pady=5)
+        
+        self.btn_copy_ref = ctk.CTkButton(self.frm_actions, text="📋 COPY REFF LINK", 
+                                          fg_color="#5555AA", height=30,
+                                          command=self.copy_referral)
+        self.btn_copy_ref.pack(pady=5, padx=20, fill="x")
+        
+        self.lbl_ref_stats = ctk.CTkLabel(self.frm_actions, text="0 Referrals | Rp 0", font=("Consolas", 11), text_color="gray")
+        self.lbl_ref_stats.pack(pady=5)
+
+    def _create_card(self, parent, title, value, color):
+        frame = ctk.CTkFrame(parent, fg_color="#1A1A20", corner_radius=15, border_width=1, border_color="#333")
+        
+        ctk.CTkLabel(frame, text=title, font=("Roboto", 11, "bold"), text_color="gray").pack(pady=(15, 5))
+        lbl_value = ctk.CTkLabel(frame, text=value, font=("Roboto", 22, "bold"), text_color=color)
+        lbl_value.pack(pady=(0, 15))
+        
+        frame.lbl_value = lbl_value # Store reference to update later
+        return frame
+
+    def refresh_data(self):
+        """Fetches and updates dashboard data in a background thread."""
+        def _task():
+            # 1. Fetch Wallet Balance
+            balance = self.service.get_wallet_balance(self.user_id)
+            
+            # 2. Fetch Sales History (Chart Data)
+            history = self.service.get_sales_history(self.user_id)
+            
+            def update_ui():
+                if not self.winfo_exists(): return
+                
+                # Update Wallet Cards
+                if balance:
+                    self.card_active.lbl_value.configure(text=f"Rp {balance.get('balance_active', 0):,.0f}")
+                    self.card_pending.lbl_value.configure(text=f"Rp {balance.get('balance_pending', 0):,.0f}")
+                    self.card_lifetime.lbl_value.configure(text=f"Rp {balance.get('total_earned', 0):,.0f}")
+                
+                # Render Chart
+                self.draw_chart(history)
+            
+            # Use controller.safe_ui_update for thread-safe signaling
+            if hasattr(self.controller, 'safe_ui_update'):
+                self.controller.safe_ui_update(update_ui)
+            else:
+                self.after(0, update_ui)
+            
+            # 3. Load Affiliate Stats
+            self._load_affiliate_data()
+
+        threading.Thread(target=_task, daemon=True).start()
+
+    def _load_affiliate_data(self):
+        """Loads and renders affiliate program data."""
+        def _task():
+            stats = self.affiliate_service.get_my_stats()
+            
+            def _update_ui():
+                if not self.winfo_exists(): return
+                code = stats.get("code", "ERROR")
+                if code == "Generate Now":
+                    code = self.affiliate_service.generate_my_code() or "ERROR"
+                
+                self.lbl_code.configure(text=f"CODE: {code}")
+                self.lbl_ref_stats.configure(text=f"{stats.get('count', 0)} Referrals | Rp {stats.get('earnings', 0):,.0f}")
+                from constants.api_endpoints import REGISTER_URL
+                self.my_ref_link = f"{REGISTER_URL}?ref={code}"
+            
+            if hasattr(self.controller, 'safe_ui_update'):
+                self.controller.safe_ui_update(_update_ui)
+            else:
+                self.after(0, _update_ui)
+        
+        # Check if already in a thread
+        if threading.current_thread() is threading.main_thread():
+            threading.Thread(target=_task, daemon=True).start()
+        else:
+            _task()
+
+    def copy_referral(self):
+        if hasattr(self, 'my_ref_link'):
+            self.clipboard_clear()
+            self.clipboard_append(self.my_ref_link)
+            CTkMessagebox(title="Copied", message="Referral Link copied to clipboard!", icon="check")
+
+    def draw_chart(self, data):
+        self.canvas.delete("all")
+        if not data: return
+
+        w = self.canvas.winfo_width()
+        h = self.canvas.winfo_height()
+        # Fallback if size is 1 (init)
+        if w < 50: w = 400
+        if h < 50: h = 200
+
+        bar_width = (w / len(data)) * 0.6
+        spacing = (w / len(data)) * 0.4
+        max_val = max([d['value'] for d in data]) if data else 1
+        
+        x = 10
+        for item in data:
+            bar_h = (item['value'] / max_val) * (h - 40)
+            
+            # Glow Effect (Layered Rects)
+            self.canvas.create_rectangle(x, h - 20 - bar_h, x + bar_width, h - 20, 
+                                         fill="#22CC88", outline="")
+            
+            # Label
+            self.canvas.create_text(x + bar_width/2, h - 10, text=item['day'], fill="gray", font=("Arial", 8))
+            
+            x += bar_width + spacing
+
+    def on_withdraw(self):
+        dialog = ctk.CTkInputDialog(text="Enter Amount to Withdraw:", title="Payout Request")
+        amount = dialog.get_input()
+        if amount:
+            # Mock Bank Details for MVP
+            mock_bank = {
+                "bank_name": "BCA", 
+                "bank_number": "1234567890", 
+                "account_holder": "Trader Name"
+            }
+            success, msg = self.service.request_payout(self.user_id, amount, mock_bank)
+            if success:
+                 CTkMessagebox(title="Success", message="Payout Requested! Admin will verify in 24h.", icon="check")
+            else:
+                 CTkMessagebox(title="Error", message=f"Failed: {msg}", icon="cancel")
+
+    def open_sell_wizard(self):
+        """Opens the Verification Wizard as a Modal"""
+        from modules.ui.upload_preset_view import UploadPresetView
+        
+        # Create Toplevel (Modal)
+        window = ctk.CTkToplevel(self)
+        window.title("Publish Strategy - Proof of Profit")
+        window.geometry("700x600")
+        window.resizable(False, False)
+        
+        # Center the window
+        # window.eval('tk::PlaceWindow . center') # Simplified
+        
+        view = UploadPresetView(window, self.controller)
+        view.pack(fill="both", expand=True)
+        
+        # Modal effect - Force focus
+        window.grab_set()
+        window.focus_force()

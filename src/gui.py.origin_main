@@ -1,0 +1,889 @@
+# src/gui.py
+"""
+SIMPLE TELEGRAM COPYTRADE (STC) +AI - Professional GUI
+Powered by Haineo AI
+
+Professional layout with sidebar navigation.
+"""
+import os
+import sys
+from dotenv import load_dotenv, set_key
+
+# Gravity Rule: Ensure src is in sys.path for absolute imports
+_base_dir = os.path.dirname(os.path.abspath(__file__))
+if _base_dir not in sys.path:
+    sys.path.insert(0, _base_dir)
+
+# Load ENV first for top-level theme detection
+load_dotenv()
+
+import threading
+import time
+import requests
+import queue
+import traceback
+from datetime import datetime
+import customtkinter as ctk
+from CTkMessagebox import CTkMessagebox
+
+# --- LOCAL IMPORTS ---
+from index import (parse_signal, execute_trade, close_all_orders, monitor_trades, 
+                   check_internet, get_mt5_status, get_account_meta, get_env_list, 
+                   chat_with_ai, app as tg_app, set_signal_callback, get_positions, get_history_orders,
+                   login_mt5_custom)
+from ui_theme import get_theme, FONTS, SPACING, RADIUS, HEIGHTS, THEME_DARK
+from ui_theme_modern import get_theme as get_modern_theme, FONTS as MODERN_FONTS, RADIUS as MODERN_RADIUS
+
+from PIL import Image
+
+# Import new modules for Chart + AI
+from modules.chart.chart_data import ChartDataManager
+from modules.chart.chart_renderer import ChartRenderer
+from modules.ai.chart_analyzer import AIChartAnalyzer
+from modules.db.supabase_client import SupabaseManager
+from legal import EULA_TEXT
+from utils.tooltips import CTkToolTip
+from localization import Translator
+from modules.ui.changelog_viewer import ChangelogViewer
+from modules.ui.ai_view import AIView
+from modules.ui.telegram_view import TelegramView
+from modules.ui.mt5_view import MT5View
+from modules.ui.trading_view import TradingView
+from modules.ui.risk_view import RiskView
+from modules.ui.dashboard_view import DashboardView
+from modules.ui.analysis_view import AnalysisView
+from modules.ui.marketplace_view import MarketplaceView
+from modules.ui.spc_hub_view import SPCHubView
+from modules.ui.logs_view import LogsView
+from modules.ui.leaderboard_view import LeaderboardView
+from modules.ui.education_view import EducationView
+from modules.ui.settings_view import SettingsView
+from modules.ui.admin_view import AdminView
+from modules.ui.inspector_panel import UserInspectorPanel
+from modules.ui.journal_view import JournalView
+from modules.ui.chat_popup import StrictChatPopup
+from modules.ui.auth_view import AuthView
+from modules.ui.eula_view import EULAView
+from modules.logic.auth_service import AuthService
+from modules.logic.settings_manager import SettingsManager
+from modules.logic.ai_manager import AIManager
+from modules.logic.app_controller import AppController
+from modules.logic.trading_controller import TradingController
+from modules.ui.tutorial_view import TutorialView
+from modules.ui.navigation_panel import NavigationPanel
+from modules.ui.navigation_panel_modern import ModernNavigationPanel
+from modules.ui.startup_view import StartupView
+from modules.ui.navigation_panel_modern import ModernNavigationPanel
+from modules.ui.startup_view import StartupView
+from modules.ui.subscription_view import SubscriptionView
+from modules.ui.donation_view import DonationView
+from modules.ui.merchant_dashboard_view import MerchantDashboardView
+from modules.logic.config_aggregator import ConfigAggregator
+from modules.logic.copier_controller import CopierController
+from constants.changelog_data import CHANGELOG_DATA
+
+# --- THEME ---
+theme_flag = os.getenv("UI_THEME", "dark")
+if theme_flag in ["light", "neutral", "dark_modern"]:
+    from ui_theme_modern import apply_theme_to_ctk as apply_modern_theme
+    apply_modern_theme(ctk, "dark" if theme_flag == "dark_modern" else theme_flag)
+else:
+    ctk.set_appearance_mode("Dark")
+THEME = THEME_DARK
+
+
+# --- APP VERSION ---
+APP_VERSION = "3.2.0"
+
+def handle_exception(exc_type, exc_value, exc_traceback):
+    """Global handler for unhandled exceptions to prevent silent crashes"""
+    if issubclass(exc_type, KeyboardInterrupt):
+        sys.__excepthook__(exc_type, exc_value, exc_traceback)
+        return
+    
+    error_msg = "".join(traceback.format_exception(exc_type, exc_value, exc_traceback))
+    try:
+        with open("crash_report.txt", "a") as f:
+            f.write(f"\n\n--- CRASH LOG {time.strftime('%Y-%m-%d %H:%M:%S')} ---\n")
+            f.write(error_msg)
+    except:
+        pass
+    
+    print(f"// CRITICAL ERROR: {exc_value}")
+    # Optional: Display a popup before exiting
+    try:
+        # We create a temporary window to show the error if mainloop is broken
+        temp_root = ctk.CTk()
+        temp_root.withdraw()
+        CTkMessagebox(title="Critical Error", 
+                       message=f"Application encountered a critical error and must close.\nDetails saved to crash_report.txt\n\nError: {exc_value}", 
+                       icon="cancel")
+    except:
+        pass
+    sys.exit(1)
+
+sys.excepthook = handle_exception
+
+class STCApp(ctk.CTk):
+    """Main Application Window with Sidebar Navigation"""
+    
+    def __init__(self):
+        super().__init__()
+        load_dotenv()
+        
+        # --- LOCALIZATION ---
+        current_lang = os.getenv("APP_LANGUAGE", "ID")
+        self.translator = Translator(current_lang)
+        
+        # Theme selection
+        self.selected_theme = os.getenv("UI_THEME", "dark")  # Source of truth
+        self.theme_data = THEME
+        
+        # --- WINDOW SETUP ---
+        self.title(self.translator.get("app_title"))
+        self.geometry("1100x750")
+        self.minsize(1000, 700)
+        
+        if self.selected_theme in ["light", "neutral", "dark_modern"]:
+            from ui_theme_modern import get_theme as get_modern_theme
+            self.theme_data = get_modern_theme("dark" if self.selected_theme == "dark_modern" else self.selected_theme)
+            self.configure(fg_color=self.theme_data["bg_primary"])
+        else:
+            self.configure(fg_color=THEME["bg_primary"])
+        
+        # Set Window Icon
+        try:
+            if os.path.exists("assets/app_icon.ico"):
+                self.iconbitmap("assets/app_icon.ico")
+            elif os.path.exists("_internal/assets/app_icon.ico"): # For PyInstaller
+                self.iconbitmap("_internal/assets/app_icon.ico")
+        except:
+            pass
+        
+        # --- STATE TRACKING ---
+        self.current_page = "dashboard"
+        self.menu_buttons = {} # Sidebar buttons tracker
+
+        # --- AI & CHART MODULES ---
+        self.analyzer = AIChartAnalyzer()
+        self.last_analysis = None
+        # --- THREAD SAFETY ---
+        self.ui_queue = queue.Queue()
+        self._process_queue_loop()
+        
+        self.db_manager = SupabaseManager()
+        self.quota_warned = False # Prevent popup spam
+        self.is_pro = False # Pro membership status
+        
+        # Start Background Pro Check
+        self.start_pro_monitor()
+        
+        # --- STATE TRACKING ---
+        self.shown_dm_ids = set() # Track shown DMs to prevent duplicate popups
+        
+        try:
+            set_signal_callback(self.on_signal_detected)
+        except Exception as e:
+            print(f"// Signal callback setup deferred: {e}")
+        
+        
+        # Set Privacy Initials
+        self.after(1000, lambda: SettingsManager.load_privacy_settings(self))
+        
+        # --- INITIAL AUTH FLOW ---
+        # First Check: Language Setup -> Then Auth
+        self.check_language_setup()
+        
+        # Check for updates in background (DISABLED per user request - moved to Settings)
+        # self.after(3000, lambda: threading.Thread(target=self.check_for_updates, daemon=True).start())
+
+    def _process_queue_loop(self):
+        """Processes the UI update queue every 100ms on the main thread."""
+        try:
+            while not self.ui_queue.empty():
+                callback, args, kwargs = self.ui_queue.get_nowait()
+                try:
+                    callback(*args, **kwargs)
+                except Exception as e:
+                    print(f"// Queue Processing Error: {e}")
+            self.after(100, self._process_queue_loop)
+        except:
+            pass
+
+    def safe_ui_update(self, callback, *args, **kwargs):
+        """Thread-safe UI update. Pushes to queue for main thread processing."""
+        self.ui_queue.put((callback, args, kwargs))
+
+    def check_for_updates(self):
+        """Checks cloud version and shows update prompt"""
+        try:
+            latest = self.db_manager.get_latest_version()
+            if latest and latest != APP_VERSION:
+                metadata = self.db_manager.get_app_metadata()
+                msg = self.translator.get("popup_update_msg").format(
+                    version=latest, 
+                    changelog=metadata.get("changelog", "- Perbaikan Performa\n- Pembaruan UI") if metadata else "- Bug fixes"
+                )
+                
+                # Use main thread for UI
+                self.after(0, lambda: StartupView.show_update_prompt(self, msg, metadata, APP_VERSION))
+        except Exception as e:
+            print(f"// Update check failed: {e}")
+
+
+    def check_pro_status(self):
+        """Checks if the user has PRO status and updates global state"""
+        try:
+            if hasattr(self, 'db_manager'):
+                is_pro = self.db_manager.is_pro_user()
+                # We can store it locally if needed, or just ensure DB is reachable
+        except Exception as e:
+            print(f"// Pro check warning: {e}")
+
+    def check_language_setup(self):
+        """Checks if language is configured, otherwise shows selector"""
+        if os.getenv("LANGUAGE_CONFIGURED") == "True":
+            self.check_initial_auth()
+        else:
+            self.show_language_view()
+
+    def show_language_view(self):
+        return StartupView.show_language_view(self)
+
+    def show_auth_view(self, mode="login"):
+        return AuthView.build(self, mode)
+
+    def show_eula_view(self):
+        return EULAView.build(self)
+    def _set_lang_action(self, lang_code):
+        """Saves language choice and proceeds"""
+        # Update Runtime
+        self.translator.set_language(lang_code)
+        self.title(self.translator.get("app_title"))
+        
+        # Save to Env
+        from dotenv import set_key
+        set_key(".env", "APP_LANGUAGE", lang_code)
+        set_key(".env", "LANGUAGE_CONFIGURED", "True")
+        
+        # Proceed
+        AuthService.check_initial_auth(self)
+        
+    def clear_window(self):
+        """Removes all widgets from the main window"""
+        for widget in self.winfo_children():
+            widget.destroy()
+            
+    def show_main_interface(self):
+        """Builds the main application layout. ONLY call after Auth/EULA success."""
+        try:
+            self.clear_window()
+            # Force window to be visible if hidden
+            self.deiconify()
+            self.state("normal")
+            
+            # --- BUILD LAYOUT ---
+            self._create_topbar()
+            self._create_sidebar()
+            self._create_main_area()
+            
+            # Show dashboard by default
+            self.show_page("dashboard")
+            
+            # Start background tasks (deferred to ensure class fully loaded)
+            self.after(100, lambda: self.start_connectivity_monitor())
+            self.after(2000, lambda: self.start_pro_monitor())
+        except Exception as e:
+            self.log("ERROR", f"Failed to load main interface: {e}")
+            CTkMessagebox(title="Critical Error", message=f"Application crashed during load: {e}", icon="cancel")
+        
+    def get_theme_data(self):
+        """Dynamic helper to get the current theme dictionary"""
+        if self.selected_theme in ["light", "neutral"]:
+            from ui_theme_modern import get_theme as get_modern_theme
+            return get_modern_theme(self.selected_theme)
+        return THEME_DARK
+
+    def check_initial_auth(self):
+        return AuthService.check_initial_auth(self)
+
+    def restart_application(self):
+        """Restarts the current application process"""
+        import sys
+        import subprocess
+        try:
+            self.destroy()
+            # Relaunch the application
+            subprocess.Popen([sys.executable, "src/gui.py"], cwd=os.getcwd())
+            sys.exit(0)
+        except Exception as e:
+            print(f"Failed to restart: {e}")
+
+    def change_theme(self, new_theme_flag):
+        """Theme Switcher: Updates config and auto-restarts for clean state"""
+        try:
+            self.selected_theme = new_theme_flag
+            
+            # 1. Update .env
+            set_key(".env", "UI_THEME", new_theme_flag)
+            os.environ["UI_THEME"] = new_theme_flag
+            
+            # 2. Show brief loading feedback before restart
+            self.log("INFO", f"🎨 Applying theme: {new_theme_flag}...")
+            
+            # 3. Auto-Restart (Solves Freezing/Stuck Issue)
+            # We use after() to let the UI update one last time
+            self.after(500, self.restart_application)
+            
+        except Exception as e:
+            self.log("ERROR", f"Failed to switch theme: {e}")
+    
+    # ========================================
+    # TOP BAR
+    # ========================================
+    def _create_topbar(self):
+        # Use modern navigation panel if modern theme is selected
+        if self.selected_theme in ["light", "neutral", "dark_modern"]:
+            self.topbar = ModernNavigationPanel.create_topbar(self)
+        else:
+            self.topbar = NavigationPanel.create_topbar(self)
+
+    def _create_badge(self, parent, text, color):
+        # Use modern badge if modern theme is selected
+        if self.selected_theme in ["light", "neutral", "dark_modern"]:
+            return ModernNavigationPanel._create_status_badge(self, parent, text, color, get_modern_theme("dark" if self.selected_theme == "dark_modern" else self.selected_theme))
+        else:
+            return NavigationPanel._create_badge(self, parent, text, color)
+
+    def _create_sidebar(self):
+        # Use modern navigation panel if modern theme is selected
+        if self.selected_theme in ["light", "neutral", "dark_modern"]:
+            self.sidebar = ModernNavigationPanel.create_sidebar(self)
+        else:
+            self.sidebar = NavigationPanel.create_sidebar(self)
+    
+    # ========================================
+    # MAIN CONTENT AREA
+    # ========================================
+    def _create_main_area(self):
+        modern_theme_bg = get_modern_theme("dark" if self.selected_theme == "dark_modern" else self.selected_theme)["bg_primary"] if self.selected_theme in ["light", "neutral", "dark_modern"] else THEME["bg_primary"]
+        self.main_container = ctk.CTkFrame(self, fg_color=modern_theme_bg, corner_radius=0)
+        self.main_container.pack(fill="both", expand=True, side="right")
+
+        # Create all pages (hidden by default)
+        self.pages = {}
+        # Create all pages using modular classes
+        # Use modern dashboard if modern theme is selected
+        if self.selected_theme in ["light", "neutral", "dark_modern"]:
+            from modules.ui.dashboard_view_modern import ModernDashboardView
+            self.pages["dashboard"] = ModernDashboardView.build(self)
+        else:
+            self.pages["dashboard"] = DashboardView.build(self)
+
+        self.pages["telegram"] = TelegramView.build(self)
+        self.pages["mt5"] = MT5View.build(self)
+        self.pages["trading"] = TradingView.build(self)
+        self.pages["risk"] = RiskView.build(self)
+        self.pages["ai"] = AIView.build(self)
+        self.pages["analysis"] = AnalysisView.build(self)
+        self.pages["signals"] = MarketplaceView.build(self)
+        self.pages["spc"] = SPCHubView.build(self)
+        self.pages["logs"] = LogsView.build(self)
+        self.pages["leaderboard"] = LeaderboardView.build(self)
+        
+        # New Standalone Views (Broker & VPS)
+        from modules.ui.broker_view import BrokerView
+        from modules.ui.vps_view import VPSView
+        self.pages["broker"] = BrokerView.build(self)
+        self.pages["vps"] = VPSView.build(self)
+        
+        self.pages["education"] = EducationView.build(self)
+        self.pages["settings"] = SettingsView.build(self)
+        self.pages["journal"] = JournalView.build(self)
+        self.pages["subscription"] = SubscriptionView.build(self)
+        self.pages["merchant"] = MerchantDashboardView(self.main_container, self)
+        if hasattr(self, 'db_manager') and self.db_manager.is_admin():
+            self.pages["admin"] = AdminView.build(self)
+            self.refresh_admin_stats()
+        
+    # --- PRO STATUS LOGIC ---
+    def start_pro_monitor(self):
+        """Background thread to check Pro status updates in real-time"""
+        def _task():
+            # Initial check
+            self._fetch_pro_data()
+            while True:
+                import time
+                time.sleep(60)
+                self._fetch_pro_data()
+        import threading
+        threading.Thread(target=_task, daemon=True).start()
+
+    def _fetch_pro_data(self):
+        """Helper to fetch and apply pro status"""
+        if self.db_manager.is_admin():
+            self.is_pro = True
+            self.is_vip = True
+            self.safe_ui_update(self._update_premium_locks)
+            return
+
+        try:
+            res = self.db_manager.client.table("user_profiles").select("is_pro,is_vip,premium_until").eq("hwid", self.db_manager.user_id).execute()
+            if res.data:
+                data = res.data[0]
+                perm_pro = data.get('is_pro', False)
+                perm_vip = data.get('is_vip', False)
+                
+                # Check Temporal Boost
+                until_str = data.get("premium_until")
+                is_boosted = False
+                if until_str:
+                    try:
+                        from datetime import datetime
+                        expiry = datetime.fromisoformat(until_str.replace('Z', '+00:00'))
+                        is_boosted = datetime.now().astimezone() < expiry
+                    except: pass
+                
+                self.is_pro = perm_pro or is_boosted
+                self.is_vip = perm_vip or is_boosted # Boost usually covers both for MVP
+                self.safe_ui_update(self._update_premium_locks)
+        except: pass
+
+    def _update_premium_locks(self):
+        """Update UI based on PRO/VIP status"""
+        # Unlock PRO (AI)
+        if self.is_pro or self.is_vip:
+            if hasattr(self, 'ai_pro_overlay'): self.ai_pro_overlay.place_forget()
+            if hasattr(self, 'ai_input'):
+                self.ai_input.configure(state="normal")
+                self.ai_send_btn.configure(state="normal")
+        
+        # Unlock VIP (Already handled via overlay in SPCView but we can add badge)
+        if self.is_vip:
+            pass # Badge could be added to sidebar
+    
+    def show_page(self, page_id):
+        # Hide all pages and CLEAR main_container of any stray widgets
+        for page in self.pages.values():
+            if page: page.pack_forget()
+            
+        for child in self.main_container.winfo_children():
+            # If it's not a known page, or if we want absolute clean, hide it
+            child.pack_forget()
+        
+        # Ensure page is initialized
+        if page_id == "donation" and "donation" not in self.pages:
+            self.pages["donation"] = DonationView.build(self)
+        
+        # Special case for AI Rebuild
+        if page_id == "ai":
+            try:
+                if "ai" in self.pages: self.pages["ai"].destroy()
+                self.pages["ai"] = self._build_ai_page()
+            except Exception as e:
+                print(f"// AI Rebuild Error: {e}")
+
+        # Show selected page
+        if page_id in self.pages:
+            # DYNAMIC REBUILD for specific pages to ensure state parity
+            # Clean up old frame first to prevent "Widget Duplication" (Gravity Rule 10)
+            if page_id in ["subscription", "signals", "leaderboard"]:
+                if self.pages[page_id]:
+                    try: self.pages[page_id].destroy()
+                    except: pass
+
+            if page_id == "subscription":
+                 from modules.ui.subscription_view import SubscriptionView
+                 self.pages["subscription"] = SubscriptionView.build(self)
+            elif page_id == "signals":
+                 from modules.ui.marketplace_view import MarketplaceView
+                 self.pages["signals"] = MarketplaceView.build(self)
+            elif page_id == "leaderboard":
+                 from modules.ui.leaderboard_view import LeaderboardView
+                 self.pages["leaderboard"] = LeaderboardView.build(self)
+
+            if self.pages[page_id]:
+                self.pages[page_id].pack(fill="both", expand=True, padx=20, pady=15)
+        
+        # Update sidebar highlight (existing logic)
+        
+        # Update sidebar highlight
+        for pid, btn in self.menu_buttons.items():
+            if pid == page_id:
+                if isinstance(btn, ctk.CTkFrame):
+                    btn.configure(fg_color=THEME["bg_tertiary"])
+                    if hasattr(btn, 'icon_lbl'): btn.icon_lbl.configure(text_color="white")
+                    if hasattr(btn, 'text_lbl'): btn.text_lbl.configure(text_color="white")
+                else:
+                    btn.configure(fg_color=THEME["bg_tertiary"], text_color="white")
+            else:
+                if isinstance(btn, ctk.CTkFrame):
+                    btn.configure(fg_color="transparent")
+                    
+                    # Icons and Text use standard theme colors for all items (User Request)
+                    default_icon_color = THEME["text_primary"]
+                    default_text_color = THEME["text_secondary"]
+                    
+                    if hasattr(btn, 'icon_lbl'): btn.icon_lbl.configure(text_color=default_icon_color)
+                    if hasattr(btn, 'text_lbl'): btn.text_lbl.configure(text_color=default_text_color)
+                else:
+                    btn.configure(fg_color="transparent", text_color=THEME["text_secondary"])
+        
+        self.current_page = page_id
+        
+        # Auto-Focus for AI
+        if page_id == "ai" and hasattr(self, 'ai_input'):
+            self.after(200, lambda: self.ai_input.focus_set())
+    
+    # ========================================
+    # DASHBOARD PAGE
+    # ========================================
+    def _build_dashboard_page(self):
+        return DashboardView.build(self)
+    
+    
+    # ========================================
+    # TELEGRAM PAGE
+    # ========================================
+    def _build_telegram_page(self):
+        return TelegramView.build(self)
+    
+    # ========================================
+    # MT5 PAGE
+    # ========================================
+    def _build_mt5_page(self):
+        return MT5View.build(self)
+    
+    # ========================================
+    # TRADING RULES PAGE (Two Column)
+    # ========================================
+    def _build_trading_page(self):
+        return TradingView.build(self)
+    
+    # ========================================
+    # RISK PAGE
+    # ========================================
+    def _build_risk_page(self):
+        return RiskView.build(self)
+    
+    
+    def toggle_password(self):
+        if self.show_pass.get():
+            self.entry_mt5_pass.configure(show="")
+        else:
+            self.entry_mt5_pass.configure(show="*")
+    
+    def test_telegram(self):
+        return CopierController.test_telegram(self)
+    
+    def test_mt5(self):
+        return CopierController.test_mt5(self)
+    
+    # ========================================
+    # AI PAGE
+    # ========================================
+    def _build_ai_page(self):
+        return AIView.build(self)
+
+    def _show_locked_overlay(self):
+        return AIView.show_locked_overlay(self)
+    
+    # ========================================
+    # SIGNAL ANALYSIS PAGE
+    # ========================================
+    def _build_analysis_page(self):
+        return AnalysisView.build(self)
+
+    def _build_logs_page(self):
+        return LogsView.build(self)
+
+    def _build_leaderboard_page(self):
+        return LeaderboardView.build(self)
+
+    def refresh_leaderboards(self):
+        return LeaderboardView.refresh_leaderboards(self)
+
+    def refresh_signals(self):
+        return MarketplaceView.refresh_signals(self)
+
+    def refresh_admin_stats(self):
+        return AdminView.refresh_admin_stats(self)
+
+    def show_changelog(self):
+        return self.show_page("journal")
+
+
+    def _build_education_page(self):
+        return EducationView.build(self)
+
+    def start_quiz(self):
+        return EducationView.start_quiz(self)
+
+    def reset_education_view(self):
+        return EducationView.reset_education_view(self)
+
+    def _start_async_quiz(self):
+        return EducationView.generate_quiz_thread(self)
+
+    def log(self, level, message):
+        """Displays a timestamped log message in the UI log box"""
+        color = {"ERROR": "🔴", "INFO": "🟢", "WARN": "🟡", "SUCCESS": "✅"}.get(level, "⚪")
+        if hasattr(self, "log_box") and self.log_box.winfo_exists():
+            self.log_box.configure(state="normal")
+            self.log_box.insert("end", f"{color} {level}    {message}\n")
+            self.log_box.see("end")
+            self.log_box.configure(state="disabled")
+        else:
+            print(f"[{level}] {message}")
+        
+        # Cloud Log Sync
+        if hasattr(self, "db_manager"):
+            threading.Thread(target=lambda: self.db_manager.push_log(level, message), daemon=True).start()
+
+    def clear_logs(self):
+        """Clears the UI log box"""
+        if hasattr(self, "log_box") and self.log_box.winfo_exists():
+            self.log_box.configure(state="normal")
+            self.log_box.delete("0.0", "end")
+            self.log_box.configure(state="disabled")
+
+    def export_logs(self):
+        """Saves current session logs to a file"""
+        try:
+            if not hasattr(self, "log_box") or not self.log_box.winfo_exists(): return
+            logs = self.log_box.get("0.0", "end")
+            with open("logs.txt", "w", encoding="utf-8") as f:
+                f.write(logs)
+            self.log("INFO", "✅ Logs exported to logs.txt")
+            os.startfile("logs.txt")
+        except Exception as e:
+            self.log("ERROR", f"Export failed: {e}")
+
+
+    # ========================================
+    # MONITORING & UI UPDATES
+    # ========================================
+    def start_connectivity_monitor(self):
+        """Starts the background UI update loop"""
+        threading.Thread(target=self.update_ui_loop, daemon=True).start()
+
+    def update_ui_loop(self):
+        """Periodic UI updates for status and guide"""
+        from index import check_internet, get_mt5_status, get_account_meta
+        while True:
+            try:
+                # 1. Internet Check
+                is_online = check_internet()
+                
+                # 2. MT5 Status
+                mt5_ok = get_mt5_status()
+                
+                # 3. Update Dashboard Logic
+                if hasattr(self, 'current_page') and self.current_page == "dashboard":
+                    # Guide Step 1: Telegram
+                    tg_ok = False
+                    if hasattr(self, 'entry_api_id') and self.entry_api_id.get().strip():
+                        tg_ok = True
+                    
+                    # Guide Step 3: Mode
+                    mode_text = "MANUAL"
+                    mode_color = "#f85149" # Red
+                    if hasattr(self, 'chk_auto_exec') and self.chk_auto_exec.get():
+                        if hasattr(self, 'ai_enabled') and self.ai_enabled.get():
+                            mode_text = "AI-AUTO"
+                            mode_color = "#3fb950" # Green
+                        else:
+                            mode_text = "DIRECT"
+                            mode_color = "#d29922" # Orange
+                    
+                    # Guide Step 4: Copier
+                    copier_text = "STOPPED"
+                    copier_color = "#f85149"
+                    if getattr(self, "copier_running", False):
+                        copier_text = "RUNNING"
+                        copier_color = "#3fb950"
+
+                    # UI Updates (Main Thread)
+                    def _update():
+                        # Status Cards (Legacy)
+                        if hasattr(self, 'status_internet'):
+                            color = "#3fb950" if is_online else "#f85149"
+                            text = "Online" if is_online else "Offline"
+                            self.status_internet.configure(text=f"● {text}", text_color=color)
+                            
+                        # Quick Guide Updates
+                        if hasattr(self, 'lbl_guide_s1'):
+                            color = "#3fb950" if tg_ok else "#f85149"
+                            self.lbl_guide_s1.configure(text_color=color)
+                        
+                        if hasattr(self, 'lbl_guide_s2'):
+                            color = "#3fb950" if mt5_ok else "#f85149"
+                            self.lbl_guide_s2.configure(text_color=color)
+                            
+                        if hasattr(self, 'lbl_guide_s3'):
+                            self.lbl_guide_s3.configure(text=f"3. {mode_text}", text_color=mode_color)
+                            
+                        if hasattr(self, 'lbl_guide_s4'):
+                            self.lbl_guide_s4.configure(text=f"4. {copier_text}", text_color=copier_color)
+                            
+                        # Account Meta
+                        if mt5_ok:
+                            meta = get_account_meta()
+                            if hasattr(self, 'card_balance'): self.card_balance.configure(text=f"${meta['balance']:,.2f}")
+                            if hasattr(self, 'card_equity'): self.card_equity.configure(text=f"${meta['equity']:,.2f}")
+                            
+                            pl_color = "#3fb950" if meta['profit'] >= 0 else "#f85149"
+                            if hasattr(self, 'card_pnl'): self.card_pnl.configure(text=f"${meta['profit']:,.2f}", text_color=pl_color)
+                            
+                            hist_color = "#3fb950" if meta['total_pl'] >= 0 else "#f85149"
+                            if hasattr(self, 'card_loss'): self.card_loss.configure(text=f"${meta['total_pl']:,.2f}", text_color=hist_color)
+
+                    if hasattr(self, 'safe_ui_update'):
+                        self.safe_ui_update(_update)
+                    else:
+                        try:
+                            if self.winfo_exists():
+                                self.after(0, _update)
+                        except:
+                            pass
+            except Exception as e:
+                print(f"// Monitor Error: {e}")
+            
+            time.sleep(3)
+
+
+    def send_ai_message(self):
+        """Handles AI Chat Input with Trial Limit Check"""
+        try:
+            if not hasattr(self, 'ai_input') or not self.ai_input.get().strip(): return
+            user_msg = self.ai_input.get().strip()
+            
+            # 1. Check Usage vs Limit
+            # Only apply limit if User is NOT providing their own Key AND not Pro
+            using_default_key = not os.getenv("AI_API_KEY") # If empty, using fallback
+            
+            if using_default_key and not self.is_pro:
+                usage = self.db_manager.get_ai_message_count()
+                limit = self.db_manager.get_total_ai_limit()
+                
+                if usage >= limit:
+                    AIView.show_locked_overlay(self)
+                    return
+
+            # 2. Clear & Send
+            self.ai_input.delete(0, 'end')
+            
+            self.ai_chat.configure(state="normal")
+            self.ai_chat.insert("end", f"\nYou: {user_msg}\n")
+            self.ai_chat.configure(state="disabled")
+            self.ai_chat.see("end")
+            
+            user_name = os.getenv("USER_NAME", "Trader")
+            user_name = os.getenv("USER_NAME", "Trader")
+            threading.Thread(target=lambda: AIManager.get_ai_response(self, user_msg, user_name), daemon=True).start()
+            
+            # --- AI TRACKING (ADMIN) ---
+            if hasattr(self, 'db_manager'):
+                 threading.Thread(target=self.db_manager.track_ai_usage, daemon=True).start()
+            
+        except Exception as e:
+            self.log("ERROR", f"AI Chat Error: {e}")
+
+    def _start_async_quiz(self):
+        """Launches the quiz generation in a background thread"""
+        threading.Thread(target=lambda: EducationView.generate_quiz_thread(self), daemon=True).start()
+
+    def save_config(self):
+        return ConfigAggregator.save_config(self)
+
+    def logout(self):
+        return AuthService.logout(self)
+        
+    def show_quota_warning(self, provider="Groq"):
+        return AppController.show_quota_warning(self, provider)
+    
+    def show_donation_info(self):
+        """Redirect to the dedicated donation page"""
+        self.show_page("donation")
+
+    def show_admin_broadcast(self, msg_data):
+        """Wrapper to call Admin Broadcast logic"""
+        return AppController.show_admin_broadcast(self, msg_data)
+
+    # --- CALLBACKS ---
+    def start_connectivity_monitor(self):
+        """Delegates connectivity monitoring to AppController"""
+        return AppController.start_connectivity_monitor(self)
+
+    def on_signal_detected(self, signal):
+        """Delegates signal handling to TradingController"""
+        return TradingController.on_signal_detected(self, signal)
+
+    # --- RESTORED TRADING & UTILITY WIRING ---
+    def start_copier(self):
+        return CopierController.start_copier(self)
+
+    def run_telegram(self):
+        return CopierController.run_telegram(self)
+
+    def emergency_close(self):
+        return CopierController.emergency_close(self)
+
+    def test_mt5(self):
+        return CopierController.test_mt5(self)
+
+    def test_telegram(self):
+        return CopierController.test_telegram(self)
+
+    def toggle_password(self):
+        """Toggles password visibility for MT5 and API Hash"""
+        try:
+            # Determine state from BooleanVar if exists, else toggle based on entry
+            should_show = True
+            if hasattr(self, 'show_pass'):
+                should_show = self.show_pass.get()
+            
+            char = "" if should_show else "*"
+            
+            if hasattr(self, 'entry_mt5_pass'):
+                self.entry_mt5_pass.configure(show=char)
+            if hasattr(self, 'entry_api_hash'):
+                self.entry_api_hash.configure(show=char)
+        except: pass
+
+    def show_auth_view(self, mode="login"):
+        return AuthView.build(self, mode)
+
+    def show_eula_view(self):
+        return EULAView.build(self)
+
+
+    # ========================================
+    # AUTH VIEW (SINGLE WINDOW - REDESIGNED)
+    # ========================================
+    
+    # ========================================
+    # EULA VIEW (SINGLE WINDOW)
+    # ========================================
+    
+    def open_history(self):
+        return CopierController.open_history(self)
+    
+    def open_tutorial(self):
+        return TutorialView.show(self)
+
+    def _get_changelog_versions(self):
+        """Returns the changelog data structure"""
+        return CHANGELOG_DATA
+    def _update_sltp_preview(self, *args):
+        try:
+            return TradingView.update_sltp_preview(self, *args)
+        except Exception as e:
+            print(f"// SL/TP Preview Error: {e}")
+    
+
+
+
+if __name__ == "__main__":
+    app = STCApp()
+    app.mainloop()

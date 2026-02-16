@@ -1,0 +1,224 @@
+
+// @ts-nocheck
+import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.2.0";
+
+const corsHeaders: Record<string, string> = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+};
+
+// --- EMAIL TEMPLATES (ITC Billionaire Edition) ---
+const EMAIL_STYLES = `
+    body { font-family: 'Inter', sans-serif; background-color: #050505; color: #ffffff; margin: 0; padding: 0; }
+    .container { max-width: 600px; margin: 20px auto; background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 12px; overflow: hidden; }
+    .header { padding: 40px 20px; text-align: center; background: linear-gradient(180deg, #111 0%, #0a0a0a 100%); border-bottom: 1px solid #1a1a1a; }
+    .content { padding: 40px; line-height: 1.6; }
+    .footer { padding: 20px; text-align: center; font-size: 12px; color: #444; border-top: 1px solid #1a1a1a; }
+    .highlight { color: #FFD700; font-weight: 700; }
+    .btn { display: inline-block; padding: 14px 28px; background: #FFD700; color: #000; text-decoration: none; border-radius: 6px; font-weight: 800; margin-top: 20px; }
+    .invoice-box { background: #111; padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px dashed #333; }
+    .invoice-row { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px; }
+`;
+
+const getSuccessEmail = (userEmail, tier, orderId, amount) => `
+    <html>
+    <head><style>${EMAIL_STYLES}</style></head>
+    <body style="font-family: sans-serif; background-color: #050505; color: #ffffff;">
+        <div class="container" style="max-width: 600px; margin: auto; background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 12px;">
+            <div class="header" style="padding: 40px; text-align: center; border-bottom: 1px solid #1a1a1a;">
+                <h1 style="color: #FFD700; margin: 0; font-size: 24px; letter-spacing: 2px;">ITC OFFICIAL INVOICE</h1>
+            </div>
+            <div class="content" style="padding: 40px;">
+                <p>Halo <span class="highlight" style="color: #FFD700; font-weight: bold;">Bos</span>,</p>
+                <p>Akses protokol <span class="highlight" style="color: #FFD700; font-weight: bold;">Neural Lane</span> Anda telah resmi diaktifkan. Infrastruktur sistem kami telah melakukan sinkronisasi dengan akun Anda.</p>
+                
+                <div class="invoice-box" style="background: #111; padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px dashed #333;">
+                    <div class="invoice-row" style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span>ID Transaksi:</span> <span class="highlight" style="color: #FFD700;">${orderId}</span></div>
+                    <div class="invoice-row" style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span>Layanan:</span> <span>Tier ${tier} Subscription</span></div>
+                    <div class="invoice-row" style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span>Status:</span> <span style="color: #10b981;">PAID / SETTLED</span></div>
+                    <div style="border-top: 1px solid #333; margin: 10px 0; padding-top: 10px; display: flex; justify-content: space-between;">
+                        <span style="font-weight: 700;">TOTAL:</span> <span class="highlight" style="color: #FFD700; font-weight: bold;">${amount}</span>
+                    </div>
+                </div>
+
+                <p>Silakan login ke aplikasi <b>ITC Desktop</b> untuk mulai mengoptimalkan alpha Anda. Jika Anda anggota baru, cek email instruksi konfigurasi password yang kami kirimkan terpisah.</p>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="https://telegramcopytrading.com/download" class="btn" style="background: #FFD700; color: #000; padding: 15px 30px; text-decoration: none; border-radius: 6px; font-weight: bold;">DOWNLOAD TERMINAL v4.1</a>
+                </div>
+            </div>
+            <div class="footer" style="padding: 20px; text-align: center; font-size: 11px; color: #444; border-top: 1px solid #1a1a1a;">
+                &copy; 2026 Intelligence Telegram CopyTrade (ITC).<br>
+                This is an automated institutional message. Confidentiality Protocol Active.
+            </div>
+        </div>
+    </body>
+    </html>
+`;
+
+const getFailureEmail = (tier, orderId) => `
+    <html>
+    <head><style>${EMAIL_STYLES}</style></head>
+    <body style="font-family: sans-serif; background-color: #050505; color: #ffffff;">
+        <div class="container" style="max-width: 600px; margin: auto; background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 12px;">
+            <div class="header" style="padding: 40px; text-align: center; border-bottom: 1px solid #1a1a1a;">
+                <h1 style="color: #ef4444; margin: 0; font-size: 24px; letter-spacing: 2px;">PAYMENT RECOVERY</h1>
+            </div>
+            <div class="content" style="padding: 40px;">
+                <p>Halo <span class="highlight" style="color: #FFD700; font-weight: bold;">Bos</span>,</p>
+                <p>Kami mendeteksi adanya gangguan pada sinkronisasi pembayaran untuk <span class="highlight" style="color: #FFD700; font-weight: bold;">Tier ${tier}</span> (Ref: ${orderId}).</p>
+                
+                <p>Jangan biarkan alpha Anda terhambat oleh masalah teknis. Pastikan saldo atau limit kartu Anda mencukupi, atau coba gunakan metode pembayaran lain melalui link di bawah ini.</p>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="https://telegramcopytrading.com/pricing" class="btn" style="background: #ef4444; color: #fff; padding: 15px 30px; text-decoration: none; border-radius: 6px; font-weight: bold;">RETRY CHECKOUT</a>
+                </div>
+
+                <p style="margin-top: 30px; font-size: 14px; color: #888;">Butuh bantuan mendesak? Hubungi Syndicate Support kami melalui portal member.</p>
+            </div>
+            <div class="footer" style="padding: 20px; text-align: center; font-size: 11px; color: #444; border-top: 1px solid #1a1a1a;">
+                &copy; 2026 Intelligence Telegram CopyTrade (ITC).<br>
+                Security & Execution Protection Protocol Active.
+            </div>
+        </div>
+    </body>
+    </html>
+`;
+
+serve(async (req: Request) => {
+    if (req.method === 'OPTIONS') return new Response('ok', { headers: corsHeaders });
+
+    try {
+        const supabaseAdmin = createClient(
+            Deno.env.get('SUPABASE_URL') ?? '',
+            Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
+        );
+
+        const payload = await req.json();
+        const { order_id, transaction_status, transaction_id, gross_amount, customer_details } = payload;
+
+        console.log(`// Webhook Received: OrderID=${order_id} | Status=${transaction_status}`);
+
+        // 1. Fetch Order Data safely
+        const { data: orderData, error: orderError } = await supabaseAdmin
+            .from('marketplace_orders')
+            .select('*')
+            .eq('order_id', order_id)
+            .single();
+
+        // 2. Resolve User Identity (Robust Logic)
+        let userEmail = customer_details?.email || "";
+        let tier = "STANDARD";
+        let formattedAmount = gross_amount ? `Rp ${parseInt(gross_amount).toLocaleString('id-ID')}` : "N/A";
+
+        if (orderData) {
+            tier = orderData.preset_name || orderData.preset_id || "STANDARD";
+            if (!userEmail && orderData.buyer_id && orderData.buyer_id.includes('@')) {
+                userEmail = orderData.buyer_id;
+            }
+        } else {
+            console.warn(`// Warning: Order ${order_id} not found in DB. Proceeding with payload data.`);
+        }
+
+        if (!userEmail) {
+            console.error(`// Could not resolve email for order ${order_id}. Critical failure.`);
+            return new Response("Email Resolution Failed", { status: 400 });
+        }
+
+        tier = tier.toUpperCase();
+
+        // 3. Logic based on status
+        if (['capture', 'settlement'].includes(transaction_status)) {
+            console.log(`// Processing SUCCESS for ${userEmail}`);
+
+            const expiryDate = new Date();
+            expiryDate.setDate(expiryDate.getDate() + 30);
+
+            // Upsert entitlement safely
+            const { error: upsertError } = await supabaseAdmin.from('entitlements').upsert({
+                email: userEmail,
+                tier: tier,
+                source: 'WEB_WEBHOOK',
+                payment_processor_id: transaction_id || order_id,
+                valid_until: expiryDate.toISOString(),
+                is_active: true,
+                updated_at: new Date().toISOString()
+            }, { onConflict: 'email, tier' });
+
+            if (upsertError) console.error(`// Upsert Error: ${upsertError.message}`);
+
+            const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY');
+            if (!RESEND_API_KEY) {
+                console.error("❌ MISSING RESEND_API_KEY: Email functions will fail.");
+            }
+
+            /* ... code ... */
+
+            // B. Send Branded Invoice Email
+            try {
+                await fetch('https://api.resend.com/emails', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${RESEND_API_KEY}`
+                    },
+                    body: JSON.stringify({
+                        from: 'ITC <noreply@telegramcopytrading.com>',
+                        to: [userEmail],
+                        subject: `[INVOICE] Konfirmasi Aktivasi ITC - ${order_id}`,
+                        html: getSuccessEmail(userEmail, tier, order_id, formattedAmount)
+                    })
+                });
+            } catch (err) {
+                console.error(`// Email Dispatch Error (Success): ${err.message}`);
+            }
+
+            // C. Invite to Auth System if new
+            try {
+                const { data: userList } = await supabaseAdmin.auth.admin.listUsers();
+                const userExists = userList?.users?.find(u => u.email === userEmail);
+                if (!userExists) {
+                    await supabaseAdmin.auth.admin.inviteUserByEmail(userEmail);
+                    console.log(`// Invite sent to ${userEmail}`);
+                }
+            } catch (err) {
+                console.warn(`// Auth Invite Skip/Error: ${err.message}`);
+            }
+
+        } else if (['deny', 'cancel', 'expire', 'failure'].includes(transaction_status)) {
+            console.log(`// Processing FAILURE for ${userEmail}`);
+
+            try {
+                await fetch('https://api.resend.com/emails', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${RESEND_API_KEY}`
+                    },
+                    body: JSON.stringify({
+                        from: 'ITC <support@telegramcopytrading.com>',
+                        to: [userEmail],
+                        subject: `PENTING: Masalah Sinkronisasi Pembayaran ITC - ${order_id}`,
+                        html: getFailureEmail(tier, order_id)
+                    })
+                });
+            } catch (err) {
+                console.error(`// Email Dispatch Error (Failure): ${err.message}`);
+            }
+        }
+
+        return new Response(JSON.stringify({ status: "processed" }), {
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+            status: 200,
+        });
+
+    } catch (error: any) {
+        console.error(`// Global Webhook Error: ${error.message}`);
+        return new Response(JSON.stringify({ error: error.message }), {
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+            status: 500,
+        });
+    }
+});
+

@@ -1,0 +1,22 @@
+=== SUBSCRIPTION CYCLE VERIFICATION ===
+// Supabase: Session lost, using fallback ID: 1fcd8635-0cd0-4582-9375-4f28a41f2446
+Testing Profile: Monthly User
+   Tier Detected: GOLD
+   Cycle Detected: MONTHLY
+   => Badge Result: GOLD PRO ò MONTHLY
+--------------------------------------------------
+Testing Profile: Yearly User
+   Tier Detected: PLATINUM
+   Cycle Detected: YEARLY
+   => Badge Result: PLATINUM VIP ò YEARLY
+--------------------------------------------------
+Testing Profile: Lifetime User
+   Tier Detected: INSTITUTIONAL
+   Cycle Detected: LIFETIME
+   => Badge Result: INSTITUTIONAL ò LIFETIME
+--------------------------------------------------
+Testing Profile: Standard User
+   Tier Detected: STANDARD
+   Cycle Detected: MONTHLY
+   => Badge Result: tier_standard
+--------------------------------------------------

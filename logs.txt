@@ -1,0 +1,8 @@
+🟢 INFO    System ready. Configure and start.
+🟢 INFO    Logs exported to logs.txt
+🟢 INFO    ⚖️ EULA Accepted. All systems active.
+🟢 INFO    🚀 Starting copier...
+🔴 ERROR    Telegram error: 'NoneType' object has no attribute 'run'
+🟢 INFO    🚀 Starting copier...
+🔴 ERROR    Telegram error: 'NoneType' object has no attribute 'run'
+

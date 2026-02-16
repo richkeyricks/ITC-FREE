@@ -1,0 +1,12 @@
+Testing: https://nfs.faireconomy.media/ff_calendar_thisweek.xml
+Status: 200
+Content Length: 30382
+Snippet: <?xml version="1.0" encoding="windows-1252"?>
+<weeklyevents>
+	<event>
+		<title>Lower House Elections</title>
+		<country>JPY</country>
+		<date><![CDATA[02-08-2026]]></date>
+		<time><![CDATA[6:00am]]></
+Testing: https://www.myfxbook.com/rss/forex-economic-calendar
+Error: HTTPSConnectionPool(host='www.myfxbook.com', port=443): Read timed out. (read timeout=10)

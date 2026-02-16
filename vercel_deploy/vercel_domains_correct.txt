@@ -1,0 +1,23 @@
+npm verbose cli C:\Program Files\nodejs\node.exe C:\Users\Richkeyrick\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
+npm info using npm@11.4.1
+npm info using node@v22.14.0
+npm verbose title npm exec vercel domains ls --scope telegramcopytrade
+npm verbose argv "exec" "--" "vercel" "domains" "ls" "--scope" "telegramcopytrade"
+npm verbose logfile logs-max:10 dir:C:\Users\Richkeyrick\AppData\Local\npm-cache\_logs\2026-02-09T04_59_54_832Z-
+npm verbose logfile C:\Users\Richkeyrick\AppData\Local\npm-cache\_logs\2026-02-09T04_59_54_832Z-debug-0.log
+(node:19868) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Vercel CLI 32.7.2
+Fetching Domains under telegramcopytrade
+> 1 Domain found under telegramcopytrade [688ms]
+ 
+  Domain                     Registrar           Nameservers    Expiration Date    Creator             Age
+  telegramcopytrading.com    Third Party         Vercel         -                  technolog           20h
+ 
+
+npm verbose cwd C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\vercel_deploy
+npm verbose os Windows_NT 10.0.22631
+npm verbose node v22.14.0
+npm verbose npm  v11.4.1
+npm verbose exit 0
+npm info ok

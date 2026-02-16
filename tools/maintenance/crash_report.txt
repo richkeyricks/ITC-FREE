@@ -1,0 +1,230 @@
+
+
+--- CRASH LOG 2026-01-24 18:00:55 ---
+Traceback (most recent call last):
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 3584, in <module>
+    app = STCApp()
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 107, in __init__
+    set_signal_callback(self.on_signal_detected)
+  File "C:\Program Files\Python310\lib\tkinter\__init__.py", line 2383, in __getattr__
+    return getattr(self.tk, attr)
+AttributeError: '_tkinter.tkapp' object has no attribute 'on_signal_detected'
+
+
+--- CRASH LOG 2026-01-24 20:25:20 ---
+Traceback (most recent call last):
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\logic\auth_service.py", line 31, in check_initial_auth
+    parent.show_auth_view(mode="login")
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 433, in show_auth_view
+    return AuthView.build(self, mode)
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\ui\auth_view.py", line 18, in build
+    theme = parent.get_theme_data() if hasattr(parent, 'get_theme_data') else parent.theme_data # Dynamic access
+  File "C:\Program Files\Python310\lib\tkinter\__init__.py", line 2383, in __getattr__
+    return getattr(self.tk, attr)
+AttributeError: '_tkinter.tkapp' object has no attribute 'theme_data'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 498, in <module>
+    app = STCApp()
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 153, in __init__
+    self.check_language_setup()
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 178, in check_language_setup
+    self.check_initial_auth()
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 227, in check_initial_auth
+    return AuthService.check_initial_auth(self)
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\logic\auth_service.py", line 33, in check_initial_auth
+    parent.log("ERROR", f"Routing Error: {e}")
+  File "C:\Program Files\Python310\lib\tkinter\__init__.py", line 2383, in __getattr__
+    return getattr(self.tk, attr)
+AttributeError: '_tkinter.tkapp' object has no attribute 'log'
+
+
+--- CRASH LOG 2026-01-24 20:29:18 ---
+Traceback (most recent call last):
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\logic\auth_service.py", line 31, in check_initial_auth
+    parent.show_auth_view(mode="login")
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 467, in show_auth_view
+    return AuthView.build(self, mode)
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\ui\auth_view.py", line 18, in build
+    theme = parent.get_theme_data() if hasattr(parent, 'get_theme_data') else parent.theme_data # Dynamic access
+  File "C:\Program Files\Python310\lib\tkinter\__init__.py", line 2383, in __getattr__
+    return getattr(self.tk, attr)
+AttributeError: '_tkinter.tkapp' object has no attribute 'theme_data'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 532, in <module>
+    app = STCApp()
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 153, in __init__
+    self.check_language_setup()
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 178, in check_language_setup
+    self.check_initial_auth()
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 227, in check_initial_auth
+    return AuthService.check_initial_auth(self)
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\logic\auth_service.py", line 34, in check_initial_auth
+    parent.show_auth_view(mode="login")
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 467, in show_auth_view
+    return AuthView.build(self, mode)
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\ui\auth_view.py", line 18, in build
+    theme = parent.get_theme_data() if hasattr(parent, 'get_theme_data') else parent.theme_data # Dynamic access
+  File "C:\Program Files\Python310\lib\tkinter\__init__.py", line 2383, in __getattr__
+    return getattr(self.tk, attr)
+AttributeError: '_tkinter.tkapp' object has no attribute 'theme_data'
+
+
+--- CRASH LOG 2026-01-25 21:38:14 ---
+Traceback (most recent call last):
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\logic\auth_service.py", line 31, in check_initial_auth
+    parent.show_auth_view(mode="login")
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 802, in show_auth_view
+    return AuthView.build(self, mode)
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\ui\auth_view.py", line 165, in build
+    btn_submit = ctk.CTkButton(form_frame, text=btn_desc, font=("Segoe UI Bold", 15),
+NameError: name 'btn_desc' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 854, in <module>
+    app = STCApp()
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 197, in __init__
+    self.check_language_setup()
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 239, in check_language_setup
+    self.check_initial_auth()
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 301, in check_initial_auth
+    return AuthService.check_initial_auth(self)
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\logic\auth_service.py", line 34, in check_initial_auth
+    parent.show_auth_view(mode="login")
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 802, in show_auth_view
+    return AuthView.build(self, mode)
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\ui\auth_view.py", line 165, in build
+    btn_submit = ctk.CTkButton(form_frame, text=btn_desc, font=("Segoe UI Bold", 15),
+NameError: name 'btn_desc' is not defined
+
+
+--- CRASH LOG 2026-01-25 21:38:38 ---
+Traceback (most recent call last):
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\logic\auth_service.py", line 31, in check_initial_auth
+    parent.show_auth_view(mode="login")
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 802, in show_auth_view
+    return AuthView.build(self, mode)
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\ui\auth_view.py", line 165, in build
+    btn_submit = ctk.CTkButton(form_frame, text=btn_desc, font=("Segoe UI Bold", 15),
+NameError: name 'btn_desc' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 854, in <module>
+    app = STCApp()
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 197, in __init__
+    self.check_language_setup()
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 239, in check_language_setup
+    self.check_initial_auth()
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 301, in check_initial_auth
+    return AuthService.check_initial_auth(self)
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\logic\auth_service.py", line 34, in check_initial_auth
+    parent.show_auth_view(mode="login")
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 802, in show_auth_view
+    return AuthView.build(self, mode)
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\ui\auth_view.py", line 165, in build
+    btn_submit = ctk.CTkButton(form_frame, text=btn_desc, font=("Segoe UI Bold", 15),
+NameError: name 'btn_desc' is not defined
+
+
+--- CRASH LOG 2026-01-25 21:42:06 ---
+Traceback (most recent call last):
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\logic\auth_service.py", line 31, in check_initial_auth
+    parent.show_auth_view(mode="login")
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 795, in show_auth_view
+    return AuthView.build(self, mode)
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\ui\auth_view.py", line 165, in build
+    btn_submit = ctk.CTkButton(form_frame, text=btn_desc, font=("Segoe UI Bold", 15),
+NameError: name 'btn_desc' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 847, in <module>
+    app = STCApp()
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 194, in __init__
+    self.check_language_setup()
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 236, in check_language_setup
+    self.check_initial_auth()
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 298, in check_initial_auth
+    return AuthService.check_initial_auth(self)
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\logic\auth_service.py", line 34, in check_initial_auth
+    parent.show_auth_view(mode="login")
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 795, in show_auth_view
+    return AuthView.build(self, mode)
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\ui\auth_view.py", line 165, in build
+    btn_submit = ctk.CTkButton(form_frame, text=btn_desc, font=("Segoe UI Bold", 15),
+NameError: name 'btn_desc' is not defined
+
+
+--- CRASH LOG 2026-01-25 21:46:24 ---
+Traceback (most recent call last):
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\logic\auth_service.py", line 31, in check_initial_auth
+    parent.show_auth_view(mode="login")
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 795, in show_auth_view
+    return AuthView.build(self, mode)
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\ui\auth_view.py", line 165, in build
+    btn_submit = ctk.CTkButton(form_frame, text=btn_desc, font=("Segoe UI Bold", 15),
+NameError: name 'btn_desc' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 847, in <module>
+    app = STCApp()
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 194, in __init__
+    self.check_language_setup()
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 236, in check_language_setup
+    self.check_initial_auth()
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 298, in check_initial_auth
+    return AuthService.check_initial_auth(self)
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\logic\auth_service.py", line 34, in check_initial_auth
+    parent.show_auth_view(mode="login")
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 795, in show_auth_view
+    return AuthView.build(self, mode)
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\ui\auth_view.py", line 165, in build
+    btn_submit = ctk.CTkButton(form_frame, text=btn_desc, font=("Segoe UI Bold", 15),
+NameError: name 'btn_desc' is not defined
+
+
+--- CRASH LOG 2026-01-27 13:05:13 ---
+Traceback (most recent call last):
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 891, in <module>
+    app = STCApp()
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 145, in __init__
+    self.loading_splash = SplashScreen(self)
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\modules\ui\splash_screen.py", line 47, in __init__
+    ctk.CTkLabel(
+  File "C:\Users\Richkeyrick\AppData\Roaming\Python\Python310\site-packages\customtkinter\windows\widgets\ctk_label.py", line 101, in __init__
+    check_kwargs_empty(kwargs, raise_error=True)
+  File "C:\Users\Richkeyrick\AppData\Roaming\Python\Python310\site-packages\customtkinter\windows\widgets\utility\utility_functions.py", line 18, in check_kwargs_empty
+    raise ValueError(f"{list(kwargs_dict.keys())} are not supported arguments. Look at the documentation for supported arguments.")
+ValueError: ['letter_spacing'] are not supported arguments. Look at the documentation for supported arguments.
+
+
+--- CRASH LOG 2026-01-31 00:19:58 ---
+Traceback (most recent call last):
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 942, in <module>
+    app = STCApp()
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 188, in __init__
+    index.set_signal_callback(self.handle_signal)
+  File "C:\Program Files\Python310\lib\tkinter\__init__.py", line 2383, in __getattr__
+    return getattr(self.tk, attr)
+AttributeError: '_tkinter.tkapp' object has no attribute 'handle_signal'
+
+
+--- CRASH LOG 2026-02-08 21:25:34 ---
+Traceback (most recent call last):
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 967, in <module>
+    app = STCApp()
+  File "C:\APLIKASI YANG DIBUAT\TELEGRAM MT5\src\gui.py", line 177, in __init__
+    self.affiliate_service = AffiliateService(self.db_manager)
+NameError: name 'AffiliateService' is not defined

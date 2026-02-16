@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connection Interrupted | ITC +AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #111;
+            color: #ef4444;
+            /* Red */
+            font-family: 'JetBrains Mono', monospace;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            font-size: 14px;
+            max-width: 400px;
+            margin: 0 auto 30px auto;
+        }
+
+        .btn {
+            background: transparent;
+            border: 1px solid #ef4444;
+            color: #ef4444;
+            padding: 12px 24px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: #ef4444;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <div style="font-size: 40px; margin-bottom: 20px;">⚠️</div>
+        <h1>Connection Interrupted</h1>
+        <p>Secure link could not be established. This is likely a temporary network anomaly. Please re-initiate the
+            handshake.</p>
+
+        <button class="btn" onclick="window.close()">Re-Establish Link</button>
+    </div>
+
+</body>
+
+</html>

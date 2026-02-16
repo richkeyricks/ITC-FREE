@@ -1,0 +1,479 @@
+commit 0769786286eae5222562335cb728c6ea128284dc
+Author: Richkeyrick <richkeyrick@gmail.com>
+Date:   Thu Jan 29 07:21:24 2026 +0700
+
+    feat(seo): military grade seo assets, robots, sitemap, and header fix
+
+diff --git a/src/modules/ui/broker_view.py b/src/modules/ui/broker_view.py
+new file mode 100644
+index 0000000..3ed021c
+--- /dev/null
++++ b/src/modules/ui/broker_view.py
+@@ -0,0 +1,83 @@
++import webbrowser
++import customtkinter as ctk
++from ui_theme import THEME_DARK, FONTS
++
++class BrokerView:
++    """
++    Standalone View for Official Brokers.
++    Extracted from LeaderboardView for dedicated Sidebar access.
++    """
++    
++    @staticmethod
++    def build(parent):
++        """Builds the Brokers interface."""
++        theme = parent.get_theme_data() if hasattr(parent, 'get_theme_data') else THEME_DARK
++        
++        page = ctk.CTkFrame(parent.main_container, fg_color="transparent")
++        
++        # --- HEADER ---
++        header = ctk.CTkFrame(page, fg_color="transparent")
++        header.pack(fill="x", pady=(10, 5))
++        
++        ctk.CTkLabel(header, text="🏦 OFFICIAL BROKERS", font=("Segoe UI Bold", 26), 
++                     text_color=theme["accent_primary"]).pack(side="top", anchor="center")
++        ctk.CTkLabel(header, text="Official & Regulated Partners", font=("Segoe UI", 12),
++                     text_color=theme["text_secondary"]).pack(side="top", anchor="center")
++
++        # --- SCROLLABLE LIST ---
++        content_area = ctk.CTkScrollableFrame(page, fg_color="transparent")
++        content_area.pack(fill="both", expand=True, padx=20, pady=10)
++        
++        # Fetch Data
++        items = parent.translator.get_brokers()
++        
++        # Logic: Dedupe & Force HSB
++        unique_items = []
++        seen = set()
++        for x in items:
++            if x['name'] not in seen:
++                unique_items.append(x)
++                seen.add(x['name'])
++                
++        if not any("HSB" in x['name'] for x in unique_items):
++             unique_items.insert(0, {"name": "HSB Investasi (Official)", "desc": "🛡️ Indo: Regulated Bappebti. Most Trusted Local Broker.", "url": "https://www.hsb.co.id/"})
++
++        # Render Cards (Gold Theme)
++        for item in unique_items:
++            card = ctk.CTkFrame(content_area, fg_color=theme["bg_secondary"], corner_radius=10, 
++                              border_width=1, border_color=theme["border_default"])
++            card.pack(fill="x", pady=6)
++            
++            # Hover Effect
++            def on_enter(e, f=card, c=theme["bg_tertiary"]): f.configure(fg_color=c)
++            def on_leave(e, f=card, c=theme["bg_secondary"]): f.configure(fg_color=c)
++            card.bind("<Enter>", on_enter)
++            card.bind("<Leave>", on_leave)
++            
++            h_frame = ctk.CTkFrame(card, fg_color="transparent")
++            h_frame.pack(fill="x", padx=15, pady=12)
++            
++            is_vip = item.get("is_affiliate") or "HSB" in item['name']
++            icon = "🔥" if is_vip else "🏦"
++            nm_col = "#f59e0b" if is_vip else theme["text_primary"]
++            
++            # Title
++            title_lbl = ctk.CTkLabel(h_frame, text=f"{icon}  {item['name']}", 
++                                   font=("Segoe UI Bold", 16), text_color=nm_col)
++            title_lbl.pack(side="left")
++            
++            # Desc
++            desc = ctk.CTkLabel(card, text=item.get('desc') or item.get('reason'), font=("Segoe UI", 12), 
++                              text_color=theme["text_secondary"], bg_color="transparent", justify="left", anchor="w")
++            desc.pack(fill="x", padx=15, pady=(0, 10))
++            
++            # CTA Button
++            btn_txt = "OPEN ACCOUNT 🚀" if is_vip else "VISIT BROKER"
++            btn_col = "#f59e0b" if is_vip else theme["bg_tertiary"]
++            text_col = "black" if is_vip else theme["text_primary"]
++            
++            ctk.CTkButton(card, text=btn_txt, fg_color=btn_col, hover_color="#d97706" if is_vip else theme["border_active"],
++                          text_color=text_col, height=36, font=("Segoe UI Bold", 12),
++                          command=lambda u=item['url']: webbrowser.open_new_tab(u)).pack(fill="x", padx=15, pady=(0, 15))
++
++        return page
+
+commit 7f7e969f80b79f541a1954f0465ab61c8d12c239
+Author: Richkeyrick <richkeyrick@gmail.com>
+Date:   Thu Jan 29 06:21:54 2026 +0700
+
+    security(web): isolated web structures for public deployment
+
+diff --git a/src/modules/ui/broker_view.py b/src/modules/ui/broker_view.py
+deleted file mode 100644
+index 3ed021c..0000000
+--- a/src/modules/ui/broker_view.py
++++ /dev/null
+@@ -1,83 +0,0 @@
+-import webbrowser
+-import customtkinter as ctk
+-from ui_theme import THEME_DARK, FONTS
+-
+-class BrokerView:
+-    """
+-    Standalone View for Official Brokers.
+-    Extracted from LeaderboardView for dedicated Sidebar access.
+-    """
+-    
+-    @staticmethod
+-    def build(parent):
+-        """Builds the Brokers interface."""
+-        theme = parent.get_theme_data() if hasattr(parent, 'get_theme_data') else THEME_DARK
+-        
+-        page = ctk.CTkFrame(parent.main_container, fg_color="transparent")
+-        
+-        # --- HEADER ---
+-        header = ctk.CTkFrame(page, fg_color="transparent")
+-        header.pack(fill="x", pady=(10, 5))
+-        
+-        ctk.CTkLabel(header, text="🏦 OFFICIAL BROKERS", font=("Segoe UI Bold", 26), 
+-                     text_color=theme["accent_primary"]).pack(side="top", anchor="center")
+-        ctk.CTkLabel(header, text="Official & Regulated Partners", font=("Segoe UI", 12),
+-                     text_color=theme["text_secondary"]).pack(side="top", anchor="center")
+-
+-        # --- SCROLLABLE LIST ---
+-        content_area = ctk.CTkScrollableFrame(page, fg_color="transparent")
+-        content_area.pack(fill="both", expand=True, padx=20, pady=10)
+-        
+-        # Fetch Data
+-        items = parent.translator.get_brokers()
+-        
+-        # Logic: Dedupe & Force HSB
+-        unique_items = []
+-        seen = set()
+-        for x in items:
+-            if x['name'] not in seen:
+-                unique_items.append(x)
+-                seen.add(x['name'])
+-                
+-        if not any("HSB" in x['name'] for x in unique_items):
+-             unique_items.insert(0, {"name": "HSB Investasi (Official)", "desc": "🛡️ Indo: Regulated Bappebti. Most Trusted Local Broker.", "url": "https://www.hsb.co.id/"})
+-
+-        # Render Cards (Gold Theme)
+-        for item in unique_items:
+-            card = ctk.CTkFrame(content_area, fg_color=theme["bg_secondary"], corner_radius=10, 
+-                              border_width=1, border_color=theme["border_default"])
+-            card.pack(fill="x", pady=6)
+-            
+-            # Hover Effect
+-            def on_enter(e, f=card, c=theme["bg_tertiary"]): f.configure(fg_color=c)
+-            def on_leave(e, f=card, c=theme["bg_secondary"]): f.configure(fg_color=c)
+-            card.bind("<Enter>", on_enter)
+-            card.bind("<Leave>", on_leave)
+-            
+-            h_frame = ctk.CTkFrame(card, fg_color="transparent")
+-            h_frame.pack(fill="x", padx=15, pady=12)
+-            
+-            is_vip = item.get("is_affiliate") or "HSB" in item['name']
+-            icon = "🔥" if is_vip else "🏦"
+-            nm_col = "#f59e0b" if is_vip else theme["text_primary"]
+-            
+-            # Title
+-            title_lbl = ctk.CTkLabel(h_frame, text=f"{icon}  {item['name']}", 
+-                                   font=("Segoe UI Bold", 16), text_color=nm_col)
+-            title_lbl.pack(side="left")
+-            
+-            # Desc
+-            desc = ctk.CTkLabel(card, text=item.get('desc') or item.get('reason'), font=("Segoe UI", 12), 
+-                              text_color=theme["text_secondary"], bg_color="transparent", justify="left", anchor="w")
+-            desc.pack(fill="x", padx=15, pady=(0, 10))
+-            
+-            # CTA Button
+-            btn_txt = "OPEN ACCOUNT 🚀" if is_vip else "VISIT BROKER"
+-            btn_col = "#f59e0b" if is_vip else theme["bg_tertiary"]
+-            text_col = "black" if is_vip else theme["text_primary"]
+-            
+-            ctk.CTkButton(card, text=btn_txt, fg_color=btn_col, hover_color="#d97706" if is_vip else theme["border_active"],
+-                          text_color=text_col, height=36, font=("Segoe UI Bold", 12),
+-                          command=lambda u=item['url']: webbrowser.open_new_tab(u)).pack(fill="x", padx=15, pady=(0, 15))
+-
+-        return page
+
+commit c4d061b7cedfbd2d2883161ada1e41ecaec4f4fb
+Author: Richkeyrick <richkeyrick@gmail.com>
+Date:   Thu Jan 29 06:21:09 2026 +0700
+
+    feat(private): Full Application Backup v33.0.0 (SECURE ADMIN ONLY)
+
+diff --git a/src/modules/ui/broker_view.py b/src/modules/ui/broker_view.py
+new file mode 100644
+index 0000000..3ed021c
+--- /dev/null
++++ b/src/modules/ui/broker_view.py
+@@ -0,0 +1,83 @@
++import webbrowser
++import customtkinter as ctk
++from ui_theme import THEME_DARK, FONTS
++
++class BrokerView:
++    """
++    Standalone View for Official Brokers.
++    Extracted from LeaderboardView for dedicated Sidebar access.
++    """
++    
++    @staticmethod
++    def build(parent):
++        """Builds the Brokers interface."""
++        theme = parent.get_theme_data() if hasattr(parent, 'get_theme_data') else THEME_DARK
++        
++        page = ctk.CTkFrame(parent.main_container, fg_color="transparent")
++        
++        # --- HEADER ---
++        header = ctk.CTkFrame(page, fg_color="transparent")
++        header.pack(fill="x", pady=(10, 5))
++        
++        ctk.CTkLabel(header, text="🏦 OFFICIAL BROKERS", font=("Segoe UI Bold", 26), 
++                     text_color=theme["accent_primary"]).pack(side="top", anchor="center")
++        ctk.CTkLabel(header, text="Official & Regulated Partners", font=("Segoe UI", 12),
++                     text_color=theme["text_secondary"]).pack(side="top", anchor="center")
++
++        # --- SCROLLABLE LIST ---
++        content_area = ctk.CTkScrollableFrame(page, fg_color="transparent")
++        content_area.pack(fill="both", expand=True, padx=20, pady=10)
++        
++        # Fetch Data
++        items = parent.translator.get_brokers()
++        
++        # Logic: Dedupe & Force HSB
++        unique_items = []
++        seen = set()
++        for x in items:
++            if x['name'] not in seen:
++                unique_items.append(x)
++                seen.add(x['name'])
++                
++        if not any("HSB" in x['name'] for x in unique_items):
++             unique_items.insert(0, {"name": "HSB Investasi (Official)", "desc": "🛡️ Indo: Regulated Bappebti. Most Trusted Local Broker.", "url": "https://www.hsb.co.id/"})
++
++        # Render Cards (Gold Theme)
++        for item in unique_items:
++            card = ctk.CTkFrame(content_area, fg_color=theme["bg_secondary"], corner_radius=10, 
++                              border_width=1, border_color=theme["border_default"])
++            card.pack(fill="x", pady=6)
++            
++            # Hover Effect
++            def on_enter(e, f=card, c=theme["bg_tertiary"]): f.configure(fg_color=c)
++            def on_leave(e, f=card, c=theme["bg_secondary"]): f.configure(fg_color=c)
++            card.bind("<Enter>", on_enter)
++            card.bind("<Leave>", on_leave)
++            
++            h_frame = ctk.CTkFrame(card, fg_color="transparent")
++            h_frame.pack(fill="x", padx=15, pady=12)
++            
++            is_vip = item.get("is_affiliate") or "HSB" in item['name']
++            icon = "🔥" if is_vip else "🏦"
++            nm_col = "#f59e0b" if is_vip else theme["text_primary"]
++            
++            # Title
++            title_lbl = ctk.CTkLabel(h_frame, text=f"{icon}  {item['name']}", 
++                                   font=("Segoe UI Bold", 16), text_color=nm_col)
++            title_lbl.pack(side="left")
++            
++            # Desc
++            desc = ctk.CTkLabel(card, text=item.get('desc') or item.get('reason'), font=("Segoe UI", 12), 
++                              text_color=theme["text_secondary"], bg_color="transparent", justify="left", anchor="w")
++            desc.pack(fill="x", padx=15, pady=(0, 10))
++            
++            # CTA Button
++            btn_txt = "OPEN ACCOUNT 🚀" if is_vip else "VISIT BROKER"
++            btn_col = "#f59e0b" if is_vip else theme["bg_tertiary"]
++            text_col = "black" if is_vip else theme["text_primary"]
++            
++            ctk.CTkButton(card, text=btn_txt, fg_color=btn_col, hover_color="#d97706" if is_vip else theme["border_active"],
++                          text_color=text_col, height=36, font=("Segoe UI Bold", 12),
++                          command=lambda u=item['url']: webbrowser.open_new_tab(u)).pack(fill="x", padx=15, pady=(0, 15))
++
++        return page
+
+commit ccec36e40e2e1ad4410181cf2428b5d1bfa80750
+Author: Richkeyrick <richkeyrick@gmail.com>
+Date:   Thu Jan 29 04:57:05 2026 +0700
+
+    security(web): sanitize repository - remove application source code, keeping only Vercel deployment files
+
+diff --git a/src/modules/ui/broker_view.py b/src/modules/ui/broker_view.py
+deleted file mode 100644
+index 3ed021c..0000000
+--- a/src/modules/ui/broker_view.py
++++ /dev/null
+@@ -1,83 +0,0 @@
+-import webbrowser
+-import customtkinter as ctk
+-from ui_theme import THEME_DARK, FONTS
+-
+-class BrokerView:
+-    """
+-    Standalone View for Official Brokers.
+-    Extracted from LeaderboardView for dedicated Sidebar access.
+-    """
+-    
+-    @staticmethod
+-    def build(parent):
+-        """Builds the Brokers interface."""
+-        theme = parent.get_theme_data() if hasattr(parent, 'get_theme_data') else THEME_DARK
+-        
+-        page = ctk.CTkFrame(parent.main_container, fg_color="transparent")
+-        
+-        # --- HEADER ---
+-        header = ctk.CTkFrame(page, fg_color="transparent")
+-        header.pack(fill="x", pady=(10, 5))
+-        
+-        ctk.CTkLabel(header, text="🏦 OFFICIAL BROKERS", font=("Segoe UI Bold", 26), 
+-                     text_color=theme["accent_primary"]).pack(side="top", anchor="center")
+-        ctk.CTkLabel(header, text="Official & Regulated Partners", font=("Segoe UI", 12),
+-                     text_color=theme["text_secondary"]).pack(side="top", anchor="center")
+-
+-        # --- SCROLLABLE LIST ---
+-        content_area = ctk.CTkScrollableFrame(page, fg_color="transparent")
+-        content_area.pack(fill="both", expand=True, padx=20, pady=10)
+-        
+-        # Fetch Data
+-        items = parent.translator.get_brokers()
+-        
+-        # Logic: Dedupe & Force HSB
+-        unique_items = []
+-        seen = set()
+-        for x in items:
+-            if x['name'] not in seen:
+-                unique_items.append(x)
+-                seen.add(x['name'])
+-                
+-        if not any("HSB" in x['name'] for x in unique_items):
+-             unique_items.insert(0, {"name": "HSB Investasi (Official)", "desc": "🛡️ Indo: Regulated Bappebti. Most Trusted Local Broker.", "url": "https://www.hsb.co.id/"})
+-
+-        # Render Cards (Gold Theme)
+-        for item in unique_items:
+-            card = ctk.CTkFrame(content_area, fg_color=theme["bg_secondary"], corner_radius=10, 
+-                              border_width=1, border_color=theme["border_default"])
+-            card.pack(fill="x", pady=6)
+-            
+-            # Hover Effect
+-            def on_enter(e, f=card, c=theme["bg_tertiary"]): f.configure(fg_color=c)
+-            def on_leave(e, f=card, c=theme["bg_secondary"]): f.configure(fg_color=c)
+-            card.bind("<Enter>", on_enter)
+-            card.bind("<Leave>", on_leave)
+-            
+-            h_frame = ctk.CTkFrame(card, fg_color="transparent")
+-            h_frame.pack(fill="x", padx=15, pady=12)
+-            
+-            is_vip = item.get("is_affiliate") or "HSB" in item['name']
+-            icon = "🔥" if is_vip else "🏦"
+-            nm_col = "#f59e0b" if is_vip else theme["text_primary"]
+-            
+-            # Title
+-            title_lbl = ctk.CTkLabel(h_frame, text=f"{icon}  {item['name']}", 
+-                                   font=("Segoe UI Bold", 16), text_color=nm_col)
+-            title_lbl.pack(side="left")
+-            
+-            # Desc
+-            desc = ctk.CTkLabel(card, text=item.get('desc') or item.get('reason'), font=("Segoe UI", 12), 
+-                              text_color=theme["text_secondary"], bg_color="transparent", justify="left", anchor="w")
+-            desc.pack(fill="x", padx=15, pady=(0, 10))
+-            
+-            # CTA Button
+-            btn_txt = "OPEN ACCOUNT 🚀" if is_vip else "VISIT BROKER"
+-            btn_col = "#f59e0b" if is_vip else theme["bg_tertiary"]
+-            text_col = "black" if is_vip else theme["text_primary"]
+-            
+-            ctk.CTkButton(card, text=btn_txt, fg_color=btn_col, hover_color="#d97706" if is_vip else theme["border_active"],
+-                          text_color=text_col, height=36, font=("Segoe UI Bold", 12),
+-                          command=lambda u=item['url']: webbrowser.open_new_tab(u)).pack(fill="x", padx=15, pady=(0, 15))
+-
+-        return page
+
+commit bb962f162375529e94e121f300b101d55ebc61cc
+Author: Richkeyrick <richkeyrick@gmail.com>
+Date:   Wed Jan 28 15:19:15 2026 +0700
+
+    Rebrand to Haineo AI & Dual-Zone Architecture
+
+diff --git a/src/modules/ui/broker_view.py b/src/modules/ui/broker_view.py
+new file mode 100644
+index 0000000..3ed021c
+--- /dev/null
++++ b/src/modules/ui/broker_view.py
+@@ -0,0 +1,83 @@
++import webbrowser
++import customtkinter as ctk
++from ui_theme import THEME_DARK, FONTS
++
++class BrokerView:
++    """
++    Standalone View for Official Brokers.
++    Extracted from LeaderboardView for dedicated Sidebar access.
++    """
++    
++    @staticmethod
++    def build(parent):
++        """Builds the Brokers interface."""
++        theme = parent.get_theme_data() if hasattr(parent, 'get_theme_data') else THEME_DARK
++        
++        page = ctk.CTkFrame(parent.main_container, fg_color="transparent")
++        
++        # --- HEADER ---
++        header = ctk.CTkFrame(page, fg_color="transparent")
++        header.pack(fill="x", pady=(10, 5))
++        
++        ctk.CTkLabel(header, text="🏦 OFFICIAL BROKERS", font=("Segoe UI Bold", 26), 
++                     text_color=theme["accent_primary"]).pack(side="top", anchor="center")
++        ctk.CTkLabel(header, text="Official & Regulated Partners", font=("Segoe UI", 12),
++                     text_color=theme["text_secondary"]).pack(side="top", anchor="center")
++
++        # --- SCROLLABLE LIST ---
++        content_area = ctk.CTkScrollableFrame(page, fg_color="transparent")
++        content_area.pack(fill="both", expand=True, padx=20, pady=10)
++        
++        # Fetch Data
++        items = parent.translator.get_brokers()
++        
++        # Logic: Dedupe & Force HSB
++        unique_items = []
++        seen = set()
++        for x in items:
++            if x['name'] not in seen:
++                unique_items.append(x)
++                seen.add(x['name'])
++                
++        if not any("HSB" in x['name'] for x in unique_items):
++             unique_items.insert(0, {"name": "HSB Investasi (Official)", "desc": "🛡️ Indo: Regulated Bappebti. Most Trusted Local Broker.", "url": "https://www.hsb.co.id/"})
++
++        # Render Cards (Gold Theme)
++        for item in unique_items:
++            card = ctk.CTkFrame(content_area, fg_color=theme["bg_secondary"], corner_radius=10, 
++                              border_width=1, border_color=theme["border_default"])
++            card.pack(fill="x", pady=6)
++            
++            # Hover Effect
++            def on_enter(e, f=card, c=theme["bg_tertiary"]): f.configure(fg_color=c)
++            def on_leave(e, f=card, c=theme["bg_secondary"]): f.configure(fg_color=c)
++            card.bind("<Enter>", on_enter)
++            card.bind("<Leave>", on_leave)
++            
++            h_frame = ctk.CTkFrame(card, fg_color="transparent")
++            h_frame.pack(fill="x", padx=15, pady=12)
++            
++            is_vip = item.get("is_affiliate") or "HSB" in item['name']
++            icon = "🔥" if is_vip else "🏦"
++            nm_col = "#f59e0b" if is_vip else theme["text_primary"]
++            
++            # Title
++            title_lbl = ctk.CTkLabel(h_frame, text=f"{icon}  {item['name']}", 
++                                   font=("Segoe UI Bold", 16), text_color=nm_col)
++            title_lbl.pack(side="left")
++            
++            # Desc
++            desc = ctk.CTkLabel(card, text=item.get('desc') or item.get('reason'), font=("Segoe UI", 12), 
++                              text_color=theme["text_secondary"], bg_color="transparent", justify="left", anchor="w")
++            desc.pack(fill="x", padx=15, pady=(0, 10))
++            
++            # CTA Button
++            btn_txt = "OPEN ACCOUNT 🚀" if is_vip else "VISIT BROKER"
++            btn_col = "#f59e0b" if is_vip else theme["bg_tertiary"]
++            text_col = "black" if is_vip else theme["text_primary"]
++            
++            ctk.CTkButton(card, text=btn_txt, fg_color=btn_col, hover_color="#d97706" if is_vip else theme["border_active"],
++                          text_color=text_col, height=36, font=("Segoe UI Bold", 12),
++                          command=lambda u=item['url']: webbrowser.open_new_tab(u)).pack(fill="x", padx=15, pady=(0, 15))
++
++        return page

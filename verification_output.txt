@@ -1,0 +1,83 @@
+Connecting to Supabase Project: https://nvfpjjmzxkvqbiridpww.supabase.co
+---------------------------------------------------
+
+[TEST 1] Verifying Table Columns (user_profiles)...
+✅ Table data accessible. Found 67 columns.
+   Listing detected columns:
+   - admin_notes
+   - agreement_accepted
+   - ai_bonus_quota
+   - ai_limit_override
+   - ai_total_requests
+   - app_password
+   - app_version
+   - avg_loss
+   - avg_win
+   - balance
+   - boot_time
+   - broker
+   - cpu_load
+   - currency
+   - deals_total
+   - deals_volume
+   - device_name
+   - drawdown_pct
+   - email
+   - equity
+   - gpu_model
+   - health_score
+   - hwid
+   - ip_address
+   - is_banned
+   - is_pro
+   - is_vip
+   - isp
+   - itc_coins
+   - last_ai_question
+   - last_login
+   - last_logout
+   - last_seen
+   - last_trade_lot
+   - last_trade_magic
+   - last_trade_pair
+   - last_trade_type
+   - leverage
+   - location
+   - mac_address
+   - margin
+   - margin_free
+   - margin_level
+   - mt5_latency
+   - mt5_login
+   - mt5_password
+   - name
+   - os_info
+   - phone
+   - ping_ms
+   - premium_until
+   - publish_initials_only
+   - publish_knowledge
+   - publish_profit
+   - saved_password
+   - server
+   - signal_channels
+   - signal_source
+   - sltp_mode
+   - subscription_tier
+   - timezone
+   - total_pl
+   - trade_hours
+   - trading_config
+   - ui_hints_enabled
+   - user_tags
+   - win_rate
+
+✅ OK: All critical columns are present.
+
+[TEST 2] Verifying Global Access Policy (God Mode)...
+✅ OK: Count Query Successful. Total Rows: 8
+   > This confirms the 'God-Mode Service Access' policy is ACTIVE.
+   > The application can now read/write data freely.
+
+---------------------------------------------------
+VERIFICATION COMPLETE

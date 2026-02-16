@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITC CopyTrade - Official Guide</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #d4af37;
+            /* Gold */
+            --accent-glow: rgba(212, 175, 55, 0.3);
+            --text: #334155;
+            --text-light: #94a3b8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            display: flex;
+        }
+
+        /* PREMIUM SIDEBAR */
+        #sidebar {
+            width: 280px;
+            background: #0b1120;
+            border-right: 1px solid #1e293b;
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            color: white;
+            z-index: 100;
+        }
+
+        #sidebar h1 {
+            font-size: 1.1rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 1rem 1.25rem;
+            color: #94a3b8;
+            text-decoration: none;
+            border-radius: 0.75rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: 1px solid transparent;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.1) 0%, transparent 100%);
+            color: var(--accent);
+            border-left-color: var(--accent);
+        }
+
+        .nav-link i {
+            width: 24px;
+            text-align: center;
+            margin-right: 12px;
+        }
+
+        /* MAIN CONTENTS */
+        #content {
+            margin-left: 280px;
+            width: 100%;
+            padding: 0;
+            /* Full width for hero */
+        }
+
+        /* LUXURY COVER PAGE */
+        .cover-page {
+            height: 100vh;
+            background: radial-gradient(circle at 80% 20%, #1e293b 0%, #0f172a 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 6rem;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        /* Abstract Background Elements */
+        .cover-bg-1 {
+            position: absolute;
+            top: -10%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            opacity: 0.4;
+            filter: blur(80px);
+        }
+
+        .brand-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 2rem;
+            width: fit-content;
+            backdrop-filter: blur(10px);
+        }
+
+        h1.hero-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.hero-subtitle {
+            font-size: 1.5rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .doc-meta {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            gap: 3rem;
+            margin-top: auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+        }
+
+        .meta-item label {
+            display: block;
+            font-size: 0.8rem;
+            color: #64748b;
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+        }
+
+        .meta-item span {
+            font-size: 1.1rem;
+            color: white;
+            font-weight: 600;
+        }
+
+        /* CONTENT SECTIONS */
+        .content-body {
+            padding: 4rem 6rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin: 4rem 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        h2::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 32px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* PREMIUM STEP CARDS */
+        .step-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+            position: relative;
+            transition: transform 0.2s;
+        }
+
+        .step-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-number {
+            position: absolute;
+            top: 2rem;
+            left: -1.5rem;
+            background: var(--primary);
+            color: var(--accent);
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(15, 23, 58, 0.2);
+            border: 2px solid white;
+        }
+
+        .bilingual {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding-left: 0.5rem;
+            border-left: 2px solid #f1f5f9;
+            margin-left: 0.5rem;
+        }
+
+        .lang-id {
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .lang-en {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        /* CODE & HIGHLIGHTS */
+        .code-block {
+            background: #0f172a;
+            border: 1px solid #1e293b;
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            color: #e2e8f0;
+            font-family: 'JetBrains Mono', monospace;
+            margin-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            padding: 0.5rem 1rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
+            border: 1px solid #fcd34d;
+            border-left: 4px solid #f59e0b;
+        }
+
+        /* TABLES */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: white;
+        }
+
+        th,
+        td {
+            border: 1px solid var(--border);
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            color: var(--primary);
+        }
+
+        /* MERMAID */
+        .mermaid {
+            margin: 2rem 0;
+            text-align: center;
+            background: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border);
+        }
+
+        /* PRINT OPTIMIZATION */
+        @media print {
+            @page {
+                margin: 0;
+                size: A4;
+            }
+
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            #sidebar {
+                display: none;
+            }
+
+            #content {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .cover-page {
+                height: 100vh;
+                page-break-after: always;
+                padding: 2cm;
+                margin: 0;
+            }
+
+            .content-body {
+                padding: 2cm;
+            }
+
+            .step-card {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+
+            /* Force background colors */
+            .cover-page {
+                background-color: #0f172a !important;
+                color: white !important;
+            }
+
+            h1.hero-title {
+                -webkit-text-fill-color: black !important;
+                color: black !important;
+            }
+
+            .brand-pill {
+                color: #000 !important;
+                border-color: #000 !important;
+            }
+
+            /* Adjust cover visibility for print if needed */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <nav id="sidebar">
+        <h1><i class="fas fa-cube"></i> ITC Enterprise</h1>
+        <div style="margin-top: 2rem;">
+            <a href="#welcome" class="nav-link active"><i class="fas fa-layer-group"></i> Overview</a>
+            <a href="#install" class="nav-link"><i class="fas fa-download"></i> Installation</a>
+            <a href="#register" class="nav-link"><i class="fas fa-user-circle"></i> Account Setup</a>
+            <a href="#telegram" class="nav-link"><i class="fab fa-telegram-plane"></i> API Connect</a>
+            <a href="#mt5" class="nav-link"><i class="fas fa-chart-line"></i> MetaTrader 5</a>
+            <a href="#troubleshoot" class="nav-link"><i class="fas fa-tools"></i> Diagnostics</a>
+        </div>
+
+        <div style="margin-top: auto; padding-top: 2rem; border-top: 1px solid #1e293b;">
+            <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 1rem;">NEED HELP?</p>
+            <a href="#" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;"><i
+                    class="fas fa-envelope"></i> support@itc-ai.com</a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div id="content">
+
+        <!-- HERO COVER PAGE -->
+        <header id="welcome" class="cover-page">
+            <div class="cover-bg-1"></div>
+
+            <div class="brand-pill">
+                <i class="fas fa-shield-alt"></i> OFFICIAL DOCUMENTATION
+            </div>
+
+            <h1 class="hero-title">
+                MASTERING<br>
+                COPY TRADING
+            </h1>
+
+            <p class="hero-subtitle">
+                The comprehensive technical guide to installing, configuring, and optimizing your ITC +AI Enterprise
+                environment.
+            </p>
+
+            <div class="doc-meta">
+                <div class="meta-item">
+                    <label>Version</label>
+                    <span>v4.9.5 (Pro)</span>
+                </div>
+                <div class="meta-item">
+                    <label>Last Updated</label>
+                    <span>February 2026</span>
+                </div>
+                <div class="meta-item">
+                    <label>Language</label>
+                    <span>ID / EN</span>
+                </div>
+            </div>
+
+            <!-- Print Button (Hidden in Print) -->
+            <button onclick="window.print()"
+                style="position: absolute; bottom: 2rem; right: 2rem; background: var(--accent); color: #0f172a; border: none; padding: 1rem 2rem; border-radius: 2rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);">
+                <i class="fas fa-print"></i> PRINT GUIDE
+            </button>
+        </header>
+
+        <div class="content-body">
+
+            <!-- SECTION 1: INSTALASI -->
+            <section id="install">
+                <h2>1. Download & Instalasi</h2>
+                <p>Proses ini sama mudahnya dengan menginstal browser atau game.</p>
+
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Download Aplikasi</div>
+                    <div class="bilingual">
+                        <span class="lang-id">Buka website resmi kami dan klik tombol download.</span>
+                        <span class="lang-en">Open our official website and click the download button.</span>
+                    </div>
+                    <div class="code-block">
+                        www.Telegramcopytrading.com/download
+                        <button class="copy-btn">Copy</button>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Jalankan Installer</div>
+                    <div class="bilingual">
+                        <span class="lang-id">File bernama <strong>ITC_Setup.exe</strong> akan terdownload. Klik 2x file
+                            tersebut.</span>
+                        <span class="lang-en">File named <strong>ITC_Setup.exe</strong> will be downloaded. Double click
+                            it.</span>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <i class="fas fa-shield-alt fa-lg"></i>
+                    <div class="bilingual">
+                        <span class="lang-id"><strong>JIKA MUNCUL PESAN "Windows Protected Your PC":</strong><br>
+                            Ini normal untuk aplikasi baru. Klik tulisan kecil <u>More info</u> lalu klik tombol
+                            <strong>Run
+                                Anyway</strong>.</span>
+                        <span class="lang-en"><strong>IF "Windows Protected Your PC" APPEARS:</strong><br>
+                            This is normal. Click small text <u>More info</u> then click <strong>Run
+                                Anyway</strong>.</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: REGISTRASI -->
+            <section id="register">
+                <h2>2. Registrasi Akun (Registration)</h2>
+                <div class="mermaid">
+                    graph LR
+                    A[Buka Aplikasi] --> B(Klik 'Buat Akun Baru')
+                    B --> C{Isi Form}
+                    C --> D[Cek Email Anda]
+                    D --> E[Klik Link Verifikasi]
+                    E --> F[Login di Aplikasi]
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Buat Akun</div>
+                    <div class="bilingual">
+                        <span class="lang-id">Di aplikasi, klik tombol <strong>[ BUAT AKUN BARU ]</strong>. Isi Nama,
+                            Email,
+                            dan Password Anda.</span>
+                        <span class="lang-en">In app, click <strong>[ SIGN UP ]</strong>. Fill usually Name, Email, and
+                            Password.</span>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Verifikasi Email (Wajib!)</div>
+                    <div class="bilingual">
+                        <span class="lang-id">Jangan login dulu! Buka Inbox Email Anda. Cari email dari <strong>ITC
+                                Admin</strong>. Klik link verifikasi di dalamnya.</span>
+                        <span class="lang-en">Do not login yet! Open Email Inbox. Find email from <strong>ITC
+                                Admin</strong>. Click verification link.</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: TELEGRAM -->
+            <section id="telegram">
+                <h2>3. Koneksi Telegram (PENTING!)</h2>
+                <p>Bagian ini sering terlewat. Kita butuh izin resmi dari Telegram (API ID) agar robot bisa membaca
+                    sinyal.
+                </p>
+
+                <div class="highlight-box">
+                    <i class="fas fa-key fa-lg"></i>
+                    <div class="bilingual">
+                        <span class="lang-id"><strong>Apa itu API ID?</strong><br>
+                            Bayangkan Anda ingin robot masuk ke rumah (Akun Telegram) Anda untuk bekerja. API ID adalah
+                            "Kunci Duplikat" resmi yang Anda buat sendiri agar robot bisa masuk dengan aman.</span>
+                        <span class="lang-en"><strong>What is API ID?</strong><br>
+                            Imagine letting a robot generally into your house (Telegram Account). API ID is the
+                            "Official
+                            Key" you create so the robot can enter safely.</span>
+                    </div>
+                </div>
+
+                <div class="mermaid">
+                    sequenceDiagram
+                    participant User
+                    participant WebTelegram as my.telegram.org
+                    participant AppTelegram as Aplikasi HP Telegram
+
+                    User->>WebTelegram: Masuk (Input No HP)
+                    WebTelegram->>AppTelegram: Kirim Kode Login (Chat Service)
+                    Note right of AppTelegram: CEK DI APLIKASI CHAT!<br />BUKAN SMS!
+                    AppTelegram-->>User: Kode: Qk7...
+                    User->>WebTelegram: Input Kode
+                    User->>WebTelegram: Klik 'API Development Tools'
+                    WebTelegram-->>User: Diberi API_ID & HASH
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Login ke my.telegram.org</div>
+                    <div class="bilingual">
+                        <span class="lang-id">Buka browser (Chrome/Safari) visit <strong>my.telegram.org</strong>.
+                            Masukkan
+                            No HP Anda (Pakai kode negara, cth: +62812...).</span>
+                        <span class="lang-en">Open browser visit <strong>my.telegram.org</strong>. Enter Phone Number
+                            (Use
+                            country code, e.g., +62812...).</span>
+                    </div>
+                </div>
+
+                <div class="step-card" style="border-left-color: var(--warning);">
+                    <div class="step-number" style="background: var(--warning);">!</div>
+                    <div class="step-title">Cek Kode OTP</div>
+                    <div class="bilingual">
+                        <span class="lang-id">Telegram akan mengirim kode ke <strong>APLIKASI CHAT TELEGRAM</strong>
+                            Anda.
+                            Bukan SMS! Cek chat dari "Telegram Service".</span>
+                        <span class="lang-en">Telegram sends code to your <strong>TELEGRAM CHAT APP</strong>. Not SMS!
+                            Check
+                            chat from "Telegram Service".</span>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Buat API Baru</div>
+                    <div class="bilingual">
+                        <span class="lang-id">Di web, klik menu <strong>API development tools</strong>. Isi form
+                            sembarang
+                            saja (Cth: App Title: "MyCopy", ShortName: "mycopy1"). Klik <strong>Create</strong>.</span>
+                        <span class="lang-en">On web, click <strong>API development tools</strong>. Fill form randomly
+                            (E.g.
+                            Title: "MyCopy"). Click <strong>Create</strong>.</span>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Salin ke Aplikasi ITC</div>
+                    <div class="bilingual">
+                        <span class="lang-id">Anda akan melihat <strong>App api_id</strong> (angka) dan <strong>App
+                                api_hash</strong>. Copy dan Paste keduanya ke menu <strong>Telegram Config</strong> di
+                            Aplikasi ITC.</span>
+                        <span class="lang-en">You will see <strong>api_id</strong> (number) and
+                            <strong>api_hash</strong>.
+                            Copy Paste both to <strong>Telegram Config</strong> menu in ITC App.</span>
+                    </div>
+                </div>
+
+                <!-- REAL WORLD EXAMPLE BLOCK -->
+                <div class="highlight-box"
+                    style="background: #f0fdf4; border-color: #4ade80; border-left-color: #16a34a; flex-direction: column; gap: 0.5rem;">
+                    <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 0.5rem;">
+                        <i class="fas fa-check-circle fa-lg" style="color: #16a34a;"></i>
+                        <strong style="color: #15803d; font-size: 1.1rem;">CONTOH PENGISIAN / REAL EXAMPLE</strong>
+                    </div>
+                    <p style="margin: 0; color: #166534;">Jangan bingung! Berikut contoh persis apa yang harus Anda isi
+                        di Aplikasi:</p>
+
+                    <table style="margin-top: 1rem; border: 1px solid #bbf7d0;">
+                        <tr style="background: #dcfce7;">
+                            <th style="color: #166534;">Kolom / Field</th>
+                            <th style="color: #166534;">Contoh Isi / Example Input</th>
+                            <th style="color: #166534;">Keterangan / Note</th>
+                        </tr>
+                        <tr>
+                            <td><strong>API ID</strong></td>
+                            <td><code
+                                    style="background: #fff; padding: 2px 5px; border-radius: 4px; color: #d97706;">28419573</code>
+                            </td>
+                            <td>Hanya Angka (Copy dari web telegram)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>API Hash</strong></td>
+                            <td><code
+                                    style="background: #fff; padding: 2px 5px; border-radius: 4px; color: #d97706;">b8d29ac2b3045...</code>
+                            </td>
+                            <td>Kombinasi Huruf & Angka panjang (Jangan ada spasi!)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Phone Number</strong></td>
+                            <td><code
+                                    style="background: #fff; padding: 2px 5px; border-radius: 4px; color: #d97706;">+6281234567890</code>
+                            </td>
+                            <td>Wajib pakai kode negara (Ganti 0812... jadi +62812...)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Channel IDs</strong></td>
+                            <td><code
+                                    style="background: #fff; padding: 2px 5px; border-radius: 4px; color: #d97706;">-100123456789</code>
+                            </td>
+                            <td>(Opsional) ID grup sinyal, biasanya diawali -100</td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+
+            <!-- SECTION 4: MT5 & START -->
+            <section id="mt5">
+                <h2>4. Koneksi MT5 & Mulai</h2>
+
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Siapkan MT5 (Allow DLL)</div>
+                    <div class="bilingual">
+                        <span class="lang-id">Buka MT5. Klik menu <strong>Tools > Options > Expert Advisors</strong>.
+                            Centang <strong>[v] Allow DLL imports</strong>. Klik OK.</span>
+                        <span class="lang-en">Open MT5. Click <strong>Tools > Options > Expert Advisors</strong>. Check
+                            <strong>[v] Allow DLL imports</strong>. Click OK.</span>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Login MT5 di ITC</div>
+                    <div class="bilingual">
+                        <span class="lang-id">Di Aplikasi ITC, masuk menu <strong>Akun MT5</strong>. Masukkan Login ID &
+                            Password Trading Anda. Klik UJI LOGIN.</span>
+                        <span class="lang-en">In ITC App, go to <strong>MT5 Account</strong>. Enter Login ID & Password.
+                            Click TEST LOGIN.</span>
+                    </div>
+                </div>
+
+                <!-- REAL WORLD EXAMPLE BLOCK (MT5) -->
+                <div class="highlight-box"
+                    style="background: #eff6ff; border-color: #60a5fa; border-left-color: #2563eb; flex-direction: column; gap: 0.5rem;">
+                    <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 0.5rem;">
+                        <i class="fas fa-desktop fa-lg" style="color: #2563eb;"></i>
+                        <strong style="color: #1e40af; font-size: 1.1rem;">CONTOH DATA MT5 / MT5 DATA EXAMPLE</strong>
+                    </div>
+
+                    <table style="margin-top: 1rem; border: 1px solid #bfdbfe;">
+                        <tr style="background: #dbeafe;">
+                            <th style="color: #1e40af;">Kolom / Field</th>
+                            <th style="color: #1e40af;">Contoh Isi / Example Input</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Login ID</strong></td>
+                            <td><code
+                                    style="background: #fff; padding: 2px 5px; border-radius: 4px; color: #0f172a;">50123456</code>
+                                (Angka dari Broker)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Password</strong></td>
+                            <td><code
+                                    style="background: #fff; padding: 2px 5px; border-radius: 4px; color: #0f172a;">TradingPass123!</code>
+                                (Password Akun MT5)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Server</strong></td>
+                            <td><code
+                                    style="background: #fff; padding: 2px 5px; border-radius: 4px; color: #0f172a;">MetaQuotes-Demo</code>
+                                (Pilih sesuai broker)</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-title">MULAI / START</div>
+                    <div class="bilingual">
+                        <span class="lang-id">Kembali ke Dashboard. Klik tombol besar <strong>MULAI COPIER</strong>.
+                            Selesai!</span>
+                        <span class="lang-en">Back to Dashboard. Click big button <strong>START COPIER</strong>.
+                            Done!</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TROUBLESHOOTING -->
+            <section id="troubleshoot">
+                <h2>Troubleshooting (Masalah Umum)</h2>
+                <table>
+                    <tr>
+                        <th>Masalah / Issue</th>
+                        <th>Solusi / Solution</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Gagal Login Telegram</strong><br>Auth Key Error</td>
+                        <td>
+                            <span class="lang-id">Pastikan tidak ada spasi saat copy paste API Hash.</span><br>
+                            <span class="lang-en">Ensure no spaces when pasting API Hash.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Status MT5: Terputus</strong><br>Disconnected</td>
+                        <td>
+                            <span class="lang-id">Cek tombol "Algo Trading" di MT5 harus hijau (ON).</span><br>
+                            <span class="lang-en">Check "Algo Trading" button in MT5 must be green (ON).</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>OTP Tidak Masuk</strong><br>OTP not received</td>
+                        <td>
+                            <span class="lang-id">Cek aplikasi Telegram di HP Anda. Kode masuk ke chat, bukan
+                                SMS.</span><br>
+                            <span class="lang-en">Check Telegram App on Phone. Code is in chat, not SMS.</span>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+
+            </main>
+
+        </div> <!-- End content-body -->
+    </div> <!-- End content -->
+
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+    </script>
+</body>
+
+</html>

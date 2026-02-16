@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Authorization | ITC +AI</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background-color: #0f172a;
+            /* Navy Blue */
+            color: #38bdf8;
+            /* Cyan */
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .terminal {
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .terminal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #38bdf8, transparent);
+            animation: scan 3s linear infinite;
+        }
+
+        h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 20px;
+        }
+
+        .status {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+        }
+
+        .receipt {
+            text-align: left;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #94a3b8;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .val {
+            color: #fff;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #38bdf8;
+            color: #0f172a;
+            padding: 12px 24px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 2px;
+        }
+
+        @keyframes scan {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="terminal">
+        <h1>Secure Protocol v2.56</h1>
+
+        <div class="status">ACCESS GRANTED</div>
+        <div style="color: #64748b; font-size: 14px;">Global Authorization Confirmed.</div>
+
+        <div class="receipt">
+            <div class="row"><span>STATUS</span> <span class="val" style="color:#4ade80">CLEARED</span></div>
+            <div class="row"><span>PROTOCOL</span> <span class="val">SSL/TLS 256-bit</span></div>
+            <div class="row"><span>LATENCY</span> <span class="val">1.2ms</span></div>
+            <div class="row" style="margin-top:10px; padding-top:10px; border-top:1px dashed #333;">
+                <span>LICENSE</span> <span class="val">UNLIMITED</span>
+            </div>
+        </div>
+
+        <button class="btn" onclick="window.close()">Initialize System</button>
+    </div>
+
+</body>
+
+</html>
