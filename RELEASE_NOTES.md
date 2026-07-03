@@ -19,6 +19,43 @@ This cumulative release aggregates all innovations and optimizations up to versi
 *   🔒 **Absolute Communication Encryption**: Enforced TLS-1.2 security standard across all data exchange pathways, eliminating potential protocol disruptions in network environments.
 *   🤖 **AI Companion — Refined Interface**: Enhanced aesthetics and interaction controls for the AI companion module, including more intuitive conversation management.
 
+#### ⚡ v7.7.1: Welcome Protocol & Branded Identity
+*   ✉️ **Welcome Email System**: Integration of serverless Resend API for custom branded HTML onboarding emails.
+*   **VIP Membership Card in Email**: Welcome emails now embed the premium digital membership card displaying identity, validity, and tier.
+*   🎨 **Tier-Adaptive Card Styling**: Accent colors on email membership cards dynamically change based on tier while keeping a cohesive dark-theme background.
+*   👥 **Admin Backup Copy (BCC)**: Automatic duplication of all outgoing welcome emails to the designated admin inbox for compliance and auditing.
+*   🖥️ **Desktop Client Integration**: Added a "Send Welcome Email" action button to the desktop application's user management panel to trigger welcome emails directly.
+*   🗄️ **User Management SQL Migration**: Schema upgrade introducing `welcome_email_log` database tracking.
+
+#### ⚡ v7.5.5: Member Tier Card & Mobile UI Polish
+*   💎 **Member Tier Card**: Premium luxury membership card with styling that scales based on subscription tier (Starter → Gold → Platinum → Institutional).
+*   📱 **Structured Mobile Header**: Clean two-column layout. Left side shows stacked greeting, tier, and username. Right side is a compact 2x2 action grid.
+*   🎨 **Symmetrical Action Grid**: 2x2 grid containing consistently-sized, rounded action tiles.
+*   🟢 **Server LIVE Indicator**: Live server health badge visible on the main panel for standard users.
+*   🤖 **AI Companion Chat Cleanup**: Redesigned the "Clear Chat" control to a compact red circle for system-wide consistency.
+*   🧹 **Logout Button Overhaul**: Compact red rounded icon button replacing the text/emoji logout button.
+*   💻 **Mobile App Button Simplification**: Shortened "Windows App" download label to "💻 APP" to prevent text wrapping.
+*   👑 **Lifetime Badge Relocation**: Moved from floating beside the tier badge into its own dedicated grid cell in the 2x2 action grid.
+
+#### ⚡ v7.5.1: MT5 Thread-Safety & TLS Enforcement
+*   ⚡ **Thread-safe MT5 Status Handling**: MT5Service.get_terminal_info uses self.initialize() with cooldown to avoid UI freeze when MT5 is not configured.
+*   🔌 **Async MT5 Connection Testing**: CopierController.test_mt5 runs in a background thread, keeping the UI responsive.
+*   🔒 **Global TLS-1.2 Enforcement**: Central SSL monkey-patch forces TLS-1.2 across HTTP clients, preventing SSL EOF errors on Windows.
+*   🚀 **Handshake Performance Optimization**: Reduced artificial delays during startup for faster UI availability.
+*   🛡️ **Menu Freeze Fix**: Resolved GIL starvation caused by direct mt5.initialize calls preventing unclickable UI.
+*   🧹 **Plaintext Password Removal**: Deleted any leftover saved_password fields from profile sync logic.
+*   🔐 **Session Isolation**: Ensured runtime-only session state, avoiding leakage through persisted files.
+*   🔔 **UI Glitch Sanitization**: Fixed stray self.update() calls that could cause flicker on slow machines.
+
+#### ⚡ v7.2.7: Security Hardening & Handshake Speedup
+*   🛡️ **Supabase Client Rate Limiter**: Rate limiting on client connection recreation (recreate_client) to prevent connection pool storms.
+*   🔒 **Plaintext Password Storage Removal**: Removed plaintext saved_password fields from profile synchronization to comply with strict security standards.
+*   🔐 **Session State Isolation**: Local permission evaluations shifted to secure runtime-only memory states instead of relying on persistent local disk variables.
+*   🛡️ **Session Verification Enforcement**: Required active authentication state validation directly with the cloud service provider, replacing unverified local cached session IDs.
+*   🧹 **Session Cleanup on Logout**: Logout routine completely wipes all cached profiles, verified session states, runtime environment variables, and local identity tokens to ensure multi-user isolation.
+*   🚀 **Handshake Sequence Speedup**: Optimized boot sequence from 6.2 seconds down to 1.7 seconds.
+*   ⚡ **MT5 Connection Pulse Speedup**: Reduced connection verification retries inside the handshake pulse step from 5 attempts (1.0s interval) to 2 attempts (0.5s interval).
+
 #### ⚡ v7.2.6: Thread Stability & Performance
 *   ⚡ **Non-Blocking Telemetry Synchronization**: Refined user profile retrieval to behave asynchronously with a 60-second caching mechanism, ensuring the UI remains highly responsive during cloud data processing.
 *   🔌 **Optimized MT5 Process Discovery**: Implemented active MT5 terminal detection utilizing OS process discovery, preventing synchronization delays on the main thread.
