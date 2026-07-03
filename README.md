@@ -54,8 +54,8 @@ Automated Trading, Fintech, CopyTrade, Crypto, Forex, Institutional Grade.
 </p>
 
 <p align="center">
-  <a href="https://github.com/richkeyricks/ITC-FREE/releases/download/v4.9.5/ITC_PRO_AI_Trading_Assistant_v4.9.5.zip">
-    <img src="https://img.shields.io/badge/Download-Release_ZIP_(75MB)-blue?style=for-the-badge&logo=github" alt="Download ZIP"/>
+  <a href="https://github.com/richkeyricks/ITC-FREE/releases/download/v7.2.6/ITC_Plus_AI_Enterprise-v7.2.6.zip">
+    <img src="https://img.shields.io/badge/Download-Release_ZIP-blue?style=for-the-badge&logo=github" alt="Download ZIP"/>
   </a>
   <a href="./ITC_Official_Manual.pdf">
     <img src="https://img.shields.io/badge/View-User_Manual_(PDF)-orange?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="View PDF"/>
@@ -64,32 +64,24 @@ Automated Trading, Fintech, CopyTrade, Crypto, Forex, Institutional Grade.
 
 ---
 
-## 🚀 Telegram Mastery Release v4.9.5 (Stable)
+## ⚡ Thread Stability & Asynchronous Transmission Optimization v7.2.6 (03 Jul 2026)
 
 **INTELLIGENCE TELEGRAM COPYTRADE (ITC) +AI**
-*Official Production Build - The Telegram Mastery.*
+*Official Production Build - Thread Stability & Asynchronous Transmission Optimization*
 
-This massive update redefines the core connectivity of the application. We have achieved **Industrial-Grade Stability** with a completely rewritten Copier Engine and integrated **In-App Telegram Login**. No more external API configuration nightmares—just login and trade.
+Update v7.2.6 refines the operational reliability of the system through multi-threading communication stabilization and asynchronous visual path optimization.
 
-### ⚡ The Telegram Mastery (v4.9.x)
-*   📱 **In-App Telegram Login:** Seamless entry with built-in OTP Popup. Login directly within the app without complex developer console configurations.
-*   🛡️ **Industrial-Grade Copier Engine:** A full rewrite of the signal processing core using isolated async workers. Zero-latency handling for high-volume signal channels.
-*   🔒 **Double-Click Guard:** Automated protection against accidental duplicate processes during start/stop operations, ensuring session integrity.
-*   🧹 **Clean Shutdown Protocol:** Structured termination logic that eliminates "zombie processes" and hanging sessions.
-*   🔄 **Natural Stop Mechanism:** Ensures all async operations complete gracefully before disconnection.
-
-### 🧠 Intelligence & Resilience (v4.8.x - v4.9.0)
-*   🧠 **Intelligence Terminal:** Discarding the old "News Center," this new module offers tactical AI-powered market briefings and deep analysis.
-*   📡 **Telegram Stability Engine:** Re-architected connection management to prevent disconnects during critical trading hours (Graceful Reconnect).
-*   🎯 **Interactive Quick Start:** Non-linear configuration stepper allowing instant navigation to any setup phase.
+### ⚡ Thread Stability & Asynchronous Transmission Optimization Updates
+*   ⚡ **Non-Blocking Telemetry Synchronization**: Refined user profile retrieval to behave asynchronously with a 60-second caching mechanism, ensuring the UI remains highly responsive during cloud data processing.
+*   🔌 **Optimized MT5 Process Discovery**: Implemented active MT5 terminal detection utilizing OS process discovery, preventing synchronization delays on the main thread.
+*   🤖 **Direct Neural API Fallback**: Transited AI processing routes directly to the primary endpoints to enhance market analysis response speeds, eliminating middleman server dependencies.
+*   🔔 **Fluid Notification Interface**: Refined visual properties of system notifications to ensure seamless graphic rendering across Windows environments.
 
 ### 📦 Installation
-1.  **Download** the [**ITC_PRO_AI_Trading_Assistant_v4.9.5.zip**](https://github.com/richkeyricks/ITC-FREE/releases/download/v4.9.5/ITC_PRO_AI_Trading_Assistant_v4.9.5.zip) below.
-2.  **Extract** to your preferred high-performance directory.
-3.  **Run** the executable inside the package.
+1.  **Download** the `ITC_Plus_AI_Enterprise-v7.2.6.zip` via the button above.
+2.  Extract to your preferred high-performance directory.
+3.  Run `ITC_Plus_AI_Enterprise.exe`.
 4.  No Python installation required.
-
-[**Download Release v4.9.5 ZIP**](https://github.com/richkeyricks/ITC-FREE/releases/download/v4.9.5/ITC_PRO_AI_Trading_Assistant_v4.9.5.zip)
 
 > *Built from Technolog Store - Richkeyrick Dev. Powered by Haineo AI OS Lab Network Vision AI.*
 

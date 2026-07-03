@@ -12,4 +12,6 @@
 !assets/**
 !docs/
 !docs/**
+!releases/
+!releases/**
 !.gitignore
