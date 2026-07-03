@@ -54,7 +54,7 @@ Automated Trading, Fintech, CopyTrade, Crypto, Forex, Institutional Grade.
 </p>
 
 <p align="center">
-  <a href="https://github.com/richkeyricks/ITC-FREE/releases/download/v7.2.6/ITC_Plus_AI_Enterprise-v7.2.6.zip">
+  <a href="https://github.com/richkeyricks/ITC-FREE/releases/download/v8.0.1/ITC_Plus_AI_Enterprise-v8.0.1.zip">
     <img src="https://img.shields.io/badge/Download-Release_ZIP-blue?style=for-the-badge&logo=github" alt="Download ZIP"/>
   </a>
   <a href="./ITC_Official_Manual.pdf">
@@ -64,21 +64,25 @@ Automated Trading, Fintech, CopyTrade, Crypto, Forex, Institutional Grade.
 
 ---
 
-## ⚡ Thread Stability & Asynchronous Transmission Optimization v7.2.6 (03 Jul 2026)
+## ⚡ Identity Evolution & Multi-Layered Security v8.0.1 (03 Jul 2026)
 
 **INTELLIGENCE TELEGRAM COPYTRADE (ITC) +AI**
-*Official Production Build - Thread Stability & Asynchronous Transmission Optimization*
+*Official Production Build - Identity Evolution & Multi-Layered Security*
 
-Update v7.2.6 refines the operational reliability of the system through multi-threading communication stabilization and asynchronous visual path optimization.
+Update v8.0.1 marks a major evolution delivering a premium user experience through exclusive visual membership identity, personalized automated welcome communications, multi-layered session security hardening, and terminal initialization acceleration.
 
-### ⚡ Thread Stability & Asynchronous Transmission Optimization Updates
-*   ⚡ **Non-Blocking Telemetry Synchronization**: Refined user profile retrieval to behave asynchronously with a 60-second caching mechanism, ensuring the UI remains highly responsive during cloud data processing.
-*   🔌 **Optimized MT5 Process Discovery**: Implemented active MT5 terminal detection utilizing OS process discovery, preventing synchronization delays on the main thread.
-*   🤖 **Direct Neural API Fallback**: Transited AI processing routes directly to the primary endpoints to enhance market analysis response speeds, eliminating middleman server dependencies.
-*   🔔 **Fluid Notification Interface**: Refined visual properties of system notifications to ensure seamless graphic rendering across Windows environments.
+### ⚡ Identity Evolution & Multi-Layered Security Updates
+*   💎 **Premium Digital Membership Card**: Launch of an exclusive membership identity card with a luxury design that automatically adapts its visual presentation based on the user subscription tier. Available on the mobile interface with Quiet Luxury aesthetics.
+*   ✉️ **Automated Welcome Protocol**: Implementation of a personalized automated welcome email system for every new member, featuring a premium digital identity card and encrypted membership details.
+*   📱 **Precision Mobile Navigation Architecture**: Restructured the primary mobile navigation interface into a two-column layout with a symmetrical 2×2 action grid, providing instant access to all core functions without visual overlap.
+*   🟢 **Real-Time Service Status Indicator**: Added a live server health indicator directly on the main panel, providing operational confidence to users at all times.
+*   🔐 **Multi-Layered Session Security Protocol**: Strengthened authorization architecture with real-time cloud-based session validation, multi-user status isolation, and complete sanitization of sensitive data upon session termination.
+*   🚀 **Terminal Initialization Acceleration**: Optimized terminal boot sequence for up to 3x faster startup through reduced artificial delays and more efficient connection verification.
+*   🔒 **Absolute Communication Encryption**: Enforced TLS-1.2 security standard across all data exchange pathways, eliminating potential protocol disruptions in network environments.
+*   🤖 **AI Companion — Refined Interface**: Enhanced aesthetics and interaction controls for the AI companion module, including more intuitive conversation management.
 
 ### 📦 Installation
-1.  **Download** the `ITC_Plus_AI_Enterprise-v7.2.6.zip` via the button above.
+1.  **Download** the `ITC_Plus_AI_Enterprise-v8.0.1.zip` via the button above.
 2.  Extract to your preferred high-performance directory.
 3.  Run `ITC_Plus_AI_Enterprise.exe`.
 4.  No Python installation required.
